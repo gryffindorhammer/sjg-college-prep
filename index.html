@@ -37,7 +37,7 @@
   <header>
     <h1>College visit planner</h1>
     <p>Official admissions links for in-person tours, virtual options, and open-house schedules.</p>
-    <p><strong>30 schools</strong> · Last checked August 22, 2026</p>
+    <p><strong>32 schools</strong> · Last checked August 22, 2026</p>
   </header>
   <main>
     <section class="notice" aria-label="Schedule note">
@@ -86,7 +86,9 @@
       ["University of California, San Diego","CA","West","Live campus-tour and prospective-event calendar","https://admissions.ucsd.edu/visit/index.html","https://admissions.ucsd.edu/visit/events/"],
       ["University of California, Davis","CA","West","Live campus-tour calendar","https://visit.ucdavis.edu/tourreg/TourInfo.cfm?TourTypeID=9","https://www.ucdavis.edu/about/visit"],
       ["University of Wisconsin–Madison","WI","Midwest","Live visit calendar and Experience Wisconsin Open House","https://apps.admissions.wisc.edu/visitbucky/","https://admissions.wisc.edu/virtual-open-house/"],
-      ["University of Toronto","ON","Canada","Year-round tours at all three campuses; see U.S.-student visit calendar","https://apply.adm.utoronto.ca/portal/us-campus-visits","https://future.utoronto.ca/campus-tours"]
+      ["University of Toronto","ON","Canada","Year-round tours at all three campuses; see U.S.-student visit calendar","https://apply.adm.utoronto.ca/portal/us-campus-visits","https://future.utoronto.ca/campus-tours"],
+      ["New York University","NY","Northeast","Live in-person tours, information sessions, and virtual events","https://www.nyu.edu/admissions/undergraduate-admissions/visit-nyu/campus-visit.html","https://www.nyu.edu/admissions/undergraduate-admissions/visit-nyu/virtual-visit.html"],
+      ["Cornell University","NY","Northeast","Live campus visits and online information sessions","https://admissions.cornell.edu/visit-and-connect","https://admissions.cornell.edu/virtual-visit"]
     ];
     const coordinates = {
       "Princeton University":[40.3431,-74.6551], "University of Chicago":[41.7886,-87.5987], "Yale University":[41.3163,-72.9223],
@@ -98,7 +100,8 @@
       "Indiana University Bloomington":[39.1670,-86.5264], "SUNY Geneseo":[42.7960,-77.8169], "Lafayette College":[40.6995,-75.2090],
       "Oberlin College":[41.2939,-82.2177], "William & Mary":[37.2707,-76.7075], "Rochester Institute of Technology":[43.0849,-77.6745],
       "Drexel University":[39.9566,-75.1899], "University of California, Berkeley":[37.8719,-122.2585], "University of California, San Diego":[32.8801,-117.2340],
-      "University of California, Davis":[38.5382,-121.7617], "University of Wisconsin–Madison":[43.0766,-89.4125], "University of Toronto":[43.6629,-79.3957]
+      "University of California, Davis":[38.5382,-121.7617], "University of Wisconsin–Madison":[43.0766,-89.4125], "University of Toronto":[43.6629,-79.3957],
+      "New York University":[40.7295,-73.9965], "Cornell University":[42.4534,-76.4735]
     };
     const container = document.querySelector('#schools'), search = document.querySelector('#search'), region = document.querySelector('#region'), count = document.querySelector('#count');
     const map = L.map('map', {scrollWheelZoom:false}).setView([40.5,-87], 4);
