@@ -8,29 +8,49 @@
 
   var sortKey = 'order';
   var sortDir = 1;
+  var NUMERIC_SORT_KEYS = ['admissionRate', 'rankingOverall'];
+
+  function escapeHtml(str) {
+    return String(str == null ? '' : str)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
 
   function cellHTML(s) {
     var pillClass = s.dated ? 'date' : 'calendar';
-    var rate = s.admissionRate || '—';
-    var rank = s.rankingOverall || '—';
+    var rate = s.admissionRate ? escapeHtml(s.admissionRate) : '—';
+    var rank = s.rankingOverall ? escapeHtml(s.rankingOverall) : '—';
     return (
       '<tr>' +
-      '<td class="name"><a href="schools/' + s.slug + '.html">' + s.name + '</a></td>' +
-      '<td>' + s.state + '</td>' +
-      '<td>' + s.region + '</td>' +
-      '<td><span class="pill ' + pillClass + '">' + s.scheduleText + '</span></td>' +
+      '<td class="name"><a href="schools/' + escapeHtml(s.slug) + '.html">' + escapeHtml(s.name) + '</a></td>' +
+      '<td>' + escapeHtml(s.state) + '</td>' +
+      '<td>' + escapeHtml(s.region) + '</td>' +
+      '<td><span class="pill ' + pillClass + '">' + escapeHtml(s.scheduleText) + '</span></td>' +
       '<td>' + rate + '</td>' +
       '<td>' + rank + '</td>' +
       '<td><div class="links-cell">' +
-      '<a href="' + s.visitUrl + '" target="_blank" rel="noopener">Visit ↗</a>' +
-      '<a href="' + s.virtualUrl + '" target="_blank" rel="noopener">Virtual ↗</a>' +
+      '<a href="' + escapeHtml(s.visitUrl) + '" target="_blank" rel="noopener">Visit ↗</a>' +
+      '<a href="' + escapeHtml(s.virtualUrl) + '" target="_blank" rel="noopener">Virtual ↗</a>' +
       '</div></td>' +
       '</tr>'
     );
   }
 
+  function extractNumber(v) {
+    if (v == null) return null;
+    var m = String(v).match(/-?\d+(\.\d+)?/);
+    return m ? parseFloat(m[0]) : null;
+  }
+
   function compare(a, b) {
     var av = a[sortKey], bv = b[sortKey];
+    if (NUMERIC_SORT_KEYS.indexOf(sortKey) !== -1) {
+      var an = extractNumber(av), bn = extractNumber(bv);
+      if (an === null && bn === null) return 0;
+      if (an === null) return 1; // missing values always sort last
+      if (bn === null) return -1;
+      return (an - bn) * sortDir;
+    }
     if (typeof av === 'number' && typeof bv === 'number') return (av - bv) * sortDir;
     av = (av || '').toString().toLowerCase();
     bv = (bv || '').toString().toLowerCase();

@@ -87,7 +87,7 @@ function factRow(label, fact) {
     return `<div class="fact"><span class="fact-label">${label}</span><span class="fact-value fact-empty">${empty}</span></div>`;
   }
   const note = fact.notes ? `<div class="fact-note">${renderInline(fact.notes)}</div>` : '';
-  return `<div class="fact"><span class="fact-label">${label}</span><span class="fact-value">${renderInline(fact.value)}</span><span class="fact-source"><a href="${fact.url}" target="_blank" rel="noopener">${escapeHtml(fact.source)}</a> · checked ${fact.checked}</span>${note}</div>`;
+  return `<div class="fact"><span class="fact-label">${label}</span><span class="fact-value">${renderInline(fact.value)}</span><span class="fact-source"><a href="${escapeHtml(fact.url)}" target="_blank" rel="noopener">${escapeHtml(fact.source)}</a> · checked ${fact.checked}</span>${note}</div>`;
 }
 
 function rankRow(label, rank) {
@@ -96,7 +96,7 @@ function rankRow(label, rank) {
     return `<div class="fact"><span class="fact-label">${label}</span><span class="fact-value fact-empty">${empty}</span></div>`;
   }
   const note = rank.notes ? `<div class="fact-note">${renderInline(rank.notes)}</div>` : '';
-  return `<div class="fact"><span class="fact-label">${label}</span><span class="fact-value">${renderInline(rank.rank)}</span><span class="fact-source"><a href="${rank.url}" target="_blank" rel="noopener">${escapeHtml(rank.source)}</a>, ${rank.year}</span>${note}</div>`;
+  return `<div class="fact"><span class="fact-label">${label}</span><span class="fact-value">${renderInline(rank.rank)}</span><span class="fact-source"><a href="${escapeHtml(rank.url)}" target="_blank" rel="noopener">${escapeHtml(rank.source)}</a>, ${rank.year}</span>${note}</div>`;
 }
 
 function textRow(label, section, typePrefix) {
@@ -105,7 +105,7 @@ function textRow(label, section, typePrefix) {
   }
   const prefix = typePrefix && section.type ? `${cap(section.type)} — ` : '';
   const note = section.notes ? `<div class="fact-note">${renderInline(section.notes)}</div>` : '';
-  const source = section.source ? `<span class="fact-source"><a href="${section.url}" target="_blank" rel="noopener">${escapeHtml(section.source)}</a> · checked ${section.checked}</span>` : '';
+  const source = section.source ? `<span class="fact-source"><a href="${escapeHtml(section.url)}" target="_blank" rel="noopener">${escapeHtml(section.source)}</a> · checked ${section.checked}</span>` : '';
   return `<div class="fact"><span class="fact-label">${label}</span><span class="fact-value">${prefix}${renderInline(section.details)}</span>${source}${note}</div>`;
 }
 
@@ -208,8 +208,8 @@ function buildSchoolPage(s) {
       <div class="meta">${escapeHtml(s.location || `${s.state} · ${s.region}`)}</div>
       <span class="pill ${s.dated ? 'date' : 'calendar'}">${escapeHtml(s.scheduleText)}</span>
       <div class="links-row">
-        <a href="${s.visitUrl}" target="_blank" rel="noopener">In-person visit ↗</a>
-        <a href="${s.virtualUrl}" target="_blank" rel="noopener">Virtual / events ↗</a>
+        <a href="${escapeHtml(s.visitUrl)}" target="_blank" rel="noopener">In-person visit ↗</a>
+        <a href="${escapeHtml(s.virtualUrl)}" target="_blank" rel="noopener">Virtual / events ↗</a>
         <a href="../map.html?school=${s.slug}">View on map ↗</a>
       </div>
     </div>
@@ -246,6 +246,11 @@ function buildMap(schools) {
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script>
       var POINTS = ${JSON.stringify(points)};
+      function escapeHtml(str) {
+        return String(str == null ? '' : str)
+          .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+      }
       var params = new URLSearchParams(location.search);
       var focusSlug = params.get('school');
       var map = L.map('map', {scrollWheelZoom:false}).setView([40.5,-87], 4);
@@ -254,7 +259,7 @@ function buildMap(schools) {
       var focusMarker = null;
       POINTS.forEach(function (p) {
         var marker = L.marker(p.coords).addTo(map)
-          .bindPopup('<strong>' + p.name + '</strong><br>' + p.state + ' · ' + p.region + '<br><a href="schools/' + p.slug + '.html">Full profile →</a> &middot; <a href="' + p.visitUrl + '" target="_blank" rel="noopener">Visit ↗</a>');
+          .bindPopup('<strong>' + escapeHtml(p.name) + '</strong><br>' + escapeHtml(p.state) + ' · ' + escapeHtml(p.region) + '<br><a href="schools/' + escapeHtml(p.slug) + '.html">Full profile →</a> &middot; <a href="' + escapeHtml(p.visitUrl) + '" target="_blank" rel="noopener">Visit ↗</a>');
         bounds.push(p.coords);
         if (p.slug === focusSlug) focusMarker = marker;
       });
