@@ -33,7 +33,7 @@
       '<td>' + rate + '</td>' +
       '<td>' + rank + '</td>' +
       '<td>' + fit + '</td>' +
-      '<td><span class="pill ' + pillClass + '">' + escapeHtml(s.scheduleText) + '</span></td>' +
+      '<td class="schedule"><span class="pill ' + pillClass + '">' + escapeHtml(s.scheduleText) + '</span></td>' +
       '<td><div class="links-cell">' +
       '<a href="' + escapeHtml(s.visitUrl) + '" target="_blank" rel="noopener">Visit ↗</a>' +
       '<a href="' + escapeHtml(s.virtualUrl) + '" target="_blank" rel="noopener">Virtual ↗</a>' +

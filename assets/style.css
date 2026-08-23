@@ -30,6 +30,8 @@ table.schools tbody tr:hover { background:#f8f9fd; }
 table.schools td.name a { font-weight:650; text-decoration:none; }
 table.schools td.name a:hover { text-decoration:underline; }
 .pill { display:inline-block; border-radius:7px; padding:.3rem .55rem; font-size:.82rem; white-space:nowrap; }
+table.schools td.schedule { max-width:280px; }
+table.schools td.schedule .pill { white-space:normal; }
 .pill.date { background:var(--known); color:var(--known-ink); font-weight:650; }
 .pill.calendar { background:#f0f3fa; color:#384864; }
 .pill.fit-yes { background:var(--known); color:var(--known-ink); font-weight:650; }
