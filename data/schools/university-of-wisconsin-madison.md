@@ -11,8 +11,17 @@ coords:
   - 43.0766
   - -89.4125
 location: Madison, WI
-enrollment: null
-studentFacultyRatio: null
+enrollment:
+  value: ~39,083 undergraduates (Fall 2024)
+  source: Secondary aggregation of UW-Madison Common Data Set
+  url: https://www.collegetuitioncompare.com/edu/240444/university-of-wisconsin-madison/enrollment/
+  checked: '2026-08-23'
+  notes: Cross-check against UW-Madison's own Common Data Set for the exact current-year figure.
+studentFacultyRatio:
+  value: '18:1'
+  source: U.S. News & World Report
+  url: https://www.usnews.com/best-colleges/university-of-wisconsin-3895
+  checked: '2026-08-23'
 tuition:
   value: '2025-26: WI resident tuition $10,506/yr (tuition only); nonresident $42,531/yr. Segregated fees and room/board are additional; total resident sticker cost of attendance reported at roughly $25,200 (tuition + fees only).'
   source: UW-Madison Bursar's Office, Fall 2025 Tuition Announcement

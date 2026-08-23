@@ -11,7 +11,11 @@ coords:
   - 42.3869
   - -72.5301
 location: Amherst, MA
-enrollment: null
+enrollment:
+  value: 23,116 undergraduates (Fall 2025)
+  source: UMass Amherst University Analytics and Institutional Research — Admissions and Enrollment Report Fall 2025
+  url: https://www.umass.edu/uair/media/1000/download
+  checked: '2026-08-23'
 studentFacultyRatio:
   value: '18:1'
   source: UMass Amherst Office of Undergraduate Admissions
