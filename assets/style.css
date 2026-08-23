@@ -57,3 +57,30 @@ table.schools td.schedule .pill { white-space:normal; }
 
 /* Map page (map.html) */
 #map { height:calc(100vh - 220px); min-height:420px; width:100%; border:1px solid var(--line); border-radius:13px; background:#e6edf7; }
+
+.scroll-hint { display:none; }
+
+/* Mobile */
+@media (max-width:640px) {
+  header { padding:1.75rem 1rem 1.5rem; }
+  header nav { gap:.6rem; }
+  header nav a { padding:.55rem .85rem; font-size:.9rem; }
+  main { padding:1.25rem .85rem 3rem; }
+  .notice { padding:.85rem .9rem; font-size:.9rem; }
+  .controls { flex-direction:column; align-items:stretch; gap:.6rem; }
+  .controls input, .controls select { flex:1 1 auto; width:100%; }
+  .count { margin-left:0; text-align:right; }
+  .scroll-hint { display:block; color:var(--muted); font-size:.78rem; margin:0 0 .4rem; text-align:right; }
+  table.schools th, table.schools td { padding:.55rem .6rem; font-size:.85rem; }
+  table.schools td.schedule { max-width:180px; }
+  .links-cell { flex-direction:column; align-items:stretch; }
+  .links-cell a { text-align:center; padding:.5rem .55rem; }
+  .links-row { flex-direction:column; align-items:stretch; }
+  .links-row a { text-align:center; }
+  #map { height:calc(100vh - 260px); }
+}
+
+@media (max-width:480px) {
+  table.schools thead th:nth-child(3), table.schools tbody td:nth-child(3),
+  table.schools thead th:nth-child(5), table.schools tbody td:nth-child(5) { display:none; }
+}

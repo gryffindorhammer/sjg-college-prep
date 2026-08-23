@@ -178,6 +178,7 @@ function buildIndex(schools) {
       <select id="region"><option value="">All regions</option>${REGIONS.map((r) => `<option>${r}</option>`).join('')}</select>
       <span class="count" id="count"></span>
     </div>
+    <p class="scroll-hint" aria-hidden="true">Swipe to see more →</p>
     <div class="table-wrap">
       <table class="schools">
         <colgroup>
