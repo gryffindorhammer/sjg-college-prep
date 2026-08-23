@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SJG College Visit Planner</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
   <style>
     :root { --ink:#172033; --muted:#5b6475; --paper:#f6f7fb; --card:#fff; --accent:#3155a6; --line:#dde2ee; --known:#e7f4ea; --known-ink:#1f6a38; }
     * { box-sizing:border-box; }
@@ -18,6 +19,7 @@
     input { flex:1 1 280px; }
     .count { color:var(--muted); margin-left:auto; }
     .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(310px,1fr)); gap:1rem; }
+    #map { height:470px; width:100%; border:1px solid var(--line); border-radius:13px; margin:0 0 1.25rem; background:#e6edf7; }
     article { background:var(--card); border:1px solid var(--line); border-radius:13px; padding:1.2rem; box-shadow:0 1px 2px #1720330c; display:flex; flex-direction:column; gap:.8rem; }
     h2 { font-size:1.18rem; line-height:1.25; margin:0; }
     .meta { color:var(--muted); font-size:.9rem; margin-top:-.45rem; }
@@ -41,6 +43,7 @@
     <section class="notice" aria-label="Schedule note">
       Event calendars change often. Green entries have a published Fall 2026 date; blue-gray entries link to the school’s live official calendar. Register before making travel plans.
     </section>
+    <div id="map" role="application" aria-label="Map of tracked colleges"></div>
     <div class="controls">
       <label class="hidden" for="search">Search schools</label>
       <input id="search" type="search" placeholder="Search a school or state" autocomplete="off">
@@ -51,6 +54,7 @@
     <section class="grid" id="schools" aria-live="polite"></section>
     <footer>“Virtual / events” links point to each college’s official admissions visit page or event calendar. Exact online-session dates are generally released in those live calendars.</footer>
   </main>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script>
     const schools = [
       ["Princeton University","NJ","Northeast","Booked: Virtual visit — Aug 27, 2026 · 7:00 PM ET","https://admission.princeton.edu/visit-us","https://admission.princeton.edu/visit-us",true],
@@ -84,11 +88,30 @@
       ["University of Wisconsin–Madison","WI","Midwest","Live visit calendar and Experience Wisconsin Open House","https://apps.admissions.wisc.edu/visitbucky/","https://admissions.wisc.edu/virtual-open-house/"],
       ["University of Toronto","ON","Canada","Year-round tours at all three campuses; see U.S.-student visit calendar","https://apply.adm.utoronto.ca/portal/us-campus-visits","https://future.utoronto.ca/campus-tours"]
     ];
+    const coordinates = {
+      "Princeton University":[40.3431,-74.6551], "University of Chicago":[41.7886,-87.5987], "Yale University":[41.3163,-72.9223],
+      "Wesleyan University":[41.5568,-72.6569], "University of Rochester":[43.1280,-77.6316], "Binghamton University":[42.0881,-75.9680],
+      "Tufts University":[42.4085,-71.1190], "Boston University":[42.3505,-71.1054], "University of Massachusetts Amherst":[42.3869,-72.5301],
+      "Case Western Reserve University":[41.5045,-81.6081], "University of Pittsburgh":[40.4444,-79.9608], "University of Maryland, College Park":[38.9869,-76.9426],
+      "University at Buffalo":[43.0008,-78.7890], "Temple University":[39.9812,-75.1554], "University of Iowa":[41.6611,-91.5302],
+      "Rutgers University–New Brunswick":[40.5008,-74.4474], "The Ohio State University":[40.0067,-83.0305], "Penn State University Park":[40.7982,-77.8599],
+      "Indiana University Bloomington":[39.1670,-86.5264], "SUNY Geneseo":[42.7960,-77.8169], "Lafayette College":[40.6995,-75.2090],
+      "Oberlin College":[41.2939,-82.2177], "William & Mary":[37.2707,-76.7075], "Rochester Institute of Technology":[43.0849,-77.6745],
+      "Drexel University":[39.9566,-75.1899], "University of California, Berkeley":[37.8719,-122.2585], "University of California, San Diego":[32.8801,-117.2340],
+      "University of California, Davis":[38.5382,-121.7617], "University of Wisconsin–Madison":[43.0766,-89.4125], "University of Toronto":[43.6629,-79.3957]
+    };
     const container = document.querySelector('#schools'), search = document.querySelector('#search'), region = document.querySelector('#region'), count = document.querySelector('#count');
+    const map = L.map('map', {scrollWheelZoom:false}).setView([40.5,-87], 4);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom:19, attribution:'© OpenStreetMap contributors' }).addTo(map);
+    const markerLayer = L.layerGroup().addTo(map);
     function render() {
       const term = search.value.trim().toLowerCase(), selected = region.value;
       const shown = schools.filter(s => (!term || `${s[0]} ${s[1]} ${s[2]}`.toLowerCase().includes(term)) && (!selected || s[2] === selected));
       container.innerHTML = shown.map(([name,state,area,schedule,visit,virtual,dated]) => `<article><h2>${name}</h2><div class="meta">${state} · ${area}</div><div class="${dated ? 'date' : 'calendar'}">${schedule}</div><div class="links"><a href="${visit}" target="_blank" rel="noopener">In-person visit ↗</a><a href="${virtual}" target="_blank" rel="noopener">Virtual / events ↗</a></div></article>`).join('');
+      markerLayer.clearLayers();
+      const bounds = [];
+      shown.forEach(([name,state,area,schedule,visit]) => { const point = coordinates[name]; if (point) { bounds.push(point); L.marker(point).addTo(markerLayer).bindPopup(`<strong>${name}</strong><br>${state} · ${area}<br><a href="${visit}" target="_blank" rel="noopener">Visit details ↗</a>`); } });
+      if (bounds.length > 1) map.fitBounds(bounds, {padding:[28,28], maxZoom:6}); else if (bounds.length === 1) map.setView(bounds[0], 10);
       count.textContent = `${shown.length} school${shown.length === 1 ? '' : 's'}`;
     }
     search.addEventListener('input', render); region.addEventListener('change', render); render();
