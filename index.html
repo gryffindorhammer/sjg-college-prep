@@ -35,7 +35,7 @@
   <header>
     <h1>College visit planner</h1>
     <p>Official admissions links for in-person tours, virtual options, and open-house schedules.</p>
-    <p><strong>25 schools</strong> · Last checked August 22, 2026</p>
+    <p><strong>30 schools</strong> · Last checked August 22, 2026</p>
   </header>
   <main>
     <section class="notice" aria-label="Schedule note">
@@ -45,7 +45,7 @@
       <label class="hidden" for="search">Search schools</label>
       <input id="search" type="search" placeholder="Search a school or state" autocomplete="off">
       <label class="hidden" for="region">Filter region</label>
-      <select id="region"><option value="">All regions</option><option>Northeast</option><option>Mid-Atlantic</option><option>Midwest</option></select>
+      <select id="region"><option value="">All regions</option><option>Northeast</option><option>Mid-Atlantic</option><option>Midwest</option><option>West</option><option>Canada</option></select>
       <span class="count" id="count"></span>
     </div>
     <section class="grid" id="schools" aria-live="polite"></section>
@@ -77,7 +77,12 @@
       ["Oberlin College","OH","Midwest","Live visit calendar; select Saturdays and Sundays available","https://connect.oberlin.edu/portal/visit_campus","https://www.oberlin.edu/admissions-and-aid/visit-and-connect"],
       ["William & Mary","VA","Mid-Atlantic","Live information-session and tour calendar","https://admission.wm.edu/portal/info_sessions","https://www.wm.edu/admission/undergraduateadmission/visit/"],
       ["Rochester Institute of Technology","NY","Northeast","Fall Open Houses: Oct 12, Oct 24 & Nov 14, 2026","https://join.rit.edu/portal/ugrd_campusvisit","https://www.rit.edu/admissions/open-house",true],
-      ["Drexel University","PA","Mid-Atlantic","Fall and summer open houses; see current calendar","https://drexel.edu/admissions/visit-tours/undergraduate-events/open-houses","https://drexel.edu/admissions/visit-tours/open-house"]
+      ["Drexel University","PA","Mid-Atlantic","Fall and summer open houses; see current calendar","https://drexel.edu/admissions/visit-tours/undergraduate-events/open-houses","https://drexel.edu/admissions/visit-tours/open-house"],
+      ["University of California, Berkeley","CA","West","College Information Day & Berkeley Showcase: Oct 24, 2026","https://campustours.berkeley.edu/","https://admissions.berkeley.edu/showcase/",true],
+      ["University of California, San Diego","CA","West","Live campus-tour and prospective-event calendar","https://admissions.ucsd.edu/visit/index.html","https://admissions.ucsd.edu/visit/events/"],
+      ["University of California, Davis","CA","West","Live campus-tour calendar","https://visit.ucdavis.edu/tourreg/TourInfo.cfm?TourTypeID=9","https://www.ucdavis.edu/about/visit"],
+      ["University of Wisconsin–Madison","WI","Midwest","Live visit calendar and Experience Wisconsin Open House","https://apps.admissions.wisc.edu/visitbucky/","https://admissions.wisc.edu/virtual-open-house/"],
+      ["University of Toronto","ON","Canada","Year-round tours at all three campuses; see U.S.-student visit calendar","https://apply.adm.utoronto.ca/portal/us-campus-visits","https://future.utoronto.ca/campus-tours"]
     ];
     const container = document.querySelector('#schools'), search = document.querySelector('#search'), region = document.querySelector('#region'), count = document.querySelector('#count');
     function render() {
