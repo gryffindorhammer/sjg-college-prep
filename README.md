@@ -10,3 +10,5 @@ npm run build
 ```
 
 See `CLAUDE.md` for the full data/build format.
+
+https://gryffindorhammer.github.io/sjg-college-prep/
