@@ -4,22 +4,50 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A single self-contained static HTML page (`index.html`) — a college visit/open-house planner for one student (Stephen). There is no build system, package manager, server, or test suite. Open `index.html` directly in a browser to view/develop it.
+A statically-generated college visit/open-house planner for one student (Stephen): a sortable/filterable table of schools (`index.html`), one detail page per school with a sourced profile (`schools/<slug>.html`), and a Leaflet map (`map.html`). The generated HTML is committed to the repo, so it can still be opened directly in a browser (or served as plain static files) with no build step required to *view* it — the build step is only needed to *regenerate* the HTML after editing data.
 
 ## Architecture
 
-Everything lives in `index.html`: inline `<style>`, inline `<script>`, and a Leaflet map loaded from a CDN (`unpkg.com/leaflet`). There is no bundler and no external JS files.
+- `data/schools/<slug>.md` — one Markdown file per school, the single source of truth. YAML frontmatter holds structured/sourced facts (`name`, `state`, `region`, `coords`, `scheduleText`, `dated`, `visitUrl`, `virtualUrl`, `location`, and the sourced facts `enrollment`/`studentFacultyRatio`/`tuition`/`admissionRate`/`retentionRate`/`graduationRate`/`rankingOverall`/`rankingMath`/`rankingTheater`). The Markdown body holds the prose "fit" write-up as `## ` sections (see below). `region` must be one of `REGIONS` in `build.js` (Northeast, Mid-Atlantic, Midwest, West, Canada) — the build fails loudly if not. `order` in the frontmatter preserves the original curated ordering (roughly: confirmed dates and higher-priority schools first) as the table's default sort.
+- `build.js` — the static site generator (`npm run build` / `node build.js`). Reads every `data/schools/*.md` via `gray-matter`, parses each Markdown body into named sections, and writes `index.html`, `schools/<slug>.html` (one per school), and `map.html`. No framework, no bundler — just template strings, same style as the old single-file version.
+- `assets/style.css`, `assets/site.js` — shared stylesheet and the table's client-side search/filter/sort behavior (vanilla JS, operates on a `window.SCHOOLS` array that `build.js` embeds inline in `index.html`). `map.html` embeds its own `POINTS` array and loads Leaflet from `unpkg.com` (CDN, as before).
+- `index.html`, `map.html`, `schools/*.html` — **generated**. Never hand-edit these; edit the corresponding `data/schools/*.md` (or `build.js`/`assets/*` for structural/styling changes) and run `node build.js`.
 
-The script is organized around three hand-maintained data structures, in order:
+### Frontmatter fact shape
 
-- `schools` — an array of tuples (not objects) per school: `[name, state, region, scheduleText, visitUrl, virtualUrl, dated?]`. `region` must be one of the values hardcoded in the `<select id="region">` options (Northeast, Mid-Atlantic, Midwest, West, Canada). The trailing `dated` boolean (only present when `true`) marks entries with a confirmed date, which renders with the green `.date` style instead of the gray `.calendar` style.
-- `coordinates` — a `{ "School Name": [lat, lng] }` map used to place markers; keys must match `schools[i][0]` exactly (including punctuation like `&` and en dashes).
-- `profiles` — a `{ "School Name": {...} }` map of sourced facts (enrollment, tuition, admission/retention/graduation rates, rankings, math major, theater program, productions/clubs, non-major participation). Each fact is either the shared `pend` sentinel (`{ notes: PENDING }`, used for schools "not yet researched") or an object with `value`/`details`, `source`, `url`, and `checked` (an ISO date). Ranking fields (`rankingOverall`, `rankingMath`, `rankingTheater`) use `{ rank, source, url, year }` instead, or `null` when no credible ranking exists for that category — `null` renders differently from `pend` (a "no credible ranking found" message vs. "not yet researched").
+Each sourced fact is either `null` (not yet researched — renders "Not yet researched…") or an object with `value`, `source`, `url`, `checked` (ISO date), and an optional `notes` caveat (rendered as a small italic line regardless of whether `value` is present — don't drop it). Ranking fields (`rankingOverall`/`rankingMath`/`rankingTheater`) use `{ rank, source, url, year, notes? }`, or the **string** `"none"` when a credible source was checked but publishes no ranking for that category (renders "No credible ranking found…", distinct from the `null`/pending case).
 
-Rendering is plain template-string generation, no framework: `render()` filters `schools` by the search box and region `<select>`, rebuilds `#schools` as `<article>` cards, and rebuilds the Leaflet marker layer/bounds to match. `profileHTML()` builds the collapsible "sourced profile" panel per school from the `profiles` entry, via the small `plainRow`/`factRow`/`rankRow`/`textRow` helpers (each has its own "empty" fallback text). The profile panel starts hidden and is toggled per-card by a delegated click listener on `#schools`.
+### Markdown body sections
+
+Exactly four possible `## ` headings, each becomes one row in the school's "fit" section — omit a heading entirely if not yet researched:
+
+```
+## Mathematics major
+<prose paragraph, may contain [text](url) links>
+
+Source: [source name](url) · checked YYYY-MM-DD
+Note: <optional caveat>
+
+## Theater program
+Type: <e.g. "major and minor" — optional, prefixed onto the rendered value>
+
+<prose paragraph>
+
+Source: [source name](url) · checked YYYY-MM-DD
+
+## Student productions & clubs
+...
+
+## Non-major participation
+...
+```
+
+`build.js`'s `parseBody()` expects this exact shape (a `Source:` line matching `[label](url) · checked DATE`, an optional `Note:` line, everything else concatenated into `details`) — see it before changing the format.
 
 ## Editing conventions
 
-- When adding, removing, or renaming a school, update all three structures together: `schools`, `coordinates`, and `profiles` (or add a `pend`-filled `profiles` entry if not yet researched). A name typo in any one of them silently breaks the map marker or the profile panel for that school.
-- Every sourced fact in `profiles` should carry a real `source`/`url`/`checked` date rather than being asserted without attribution — that sourcing (plus per-fact "checked" dates) is the point of the profile panel.
-- The school/date counts in the `<header>` copy and in the "Profile data note" (`.notice`) are hand-written and must be updated manually when schools are added/removed or profiles are filled in — they are not computed from the data arrays. `README.md`'s school count and "checked" date are similarly hand-written and drift independently; update it alongside `index.html` when either changes.
+- To add/remove/rename a school: add, delete, or rename the corresponding `data/schools/<slug>.md` file, then run `node build.js`. There's no more matching-by-name across separate arrays — one file is the whole school.
+- Every sourced fact should carry a real `source`/`url`/`checked` date rather than being asserted without attribution — that sourcing is the point of the profile panel.
+- The school/date/"researched" counts in the generated header and notice text are now computed from the data at build time (see `buildIndex()` in `build.js`) — don't hand-edit them in the generated HTML, and don't add new hand-maintained counts; compute them in `build.js` instead.
+- `README.md`'s school count is still hand-written; update it alongside a schools-count change.
+- After editing anything under `data/schools/`, `assets/`, or `build.js`, run `node build.js` (needs `npm install` once for the `gray-matter` devDependency) and commit both the source change and the regenerated `index.html`/`map.html`/`schools/*.html`.
