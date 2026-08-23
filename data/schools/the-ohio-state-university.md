@@ -65,8 +65,14 @@ Theatre Minor (15 credits, 2000-level+) and a separate Musical Theatre Minor, de
 
 Source: [Ohio State Dept. of Theatre, Film, and Media Arts](https://theatreandfilm.osu.edu/undergraduate/academics/theatre-minor) · checked 2026-08-23
 
+## Student productions & clubs
+
+Ohio State Theatre stages 4-6 mainstage plays a year, spanning original faculty/student works, new plays, musicals, and classics-to-contemporary theatre. Off the Lake Productions — the department's only fully student-run, service-based theatre organization — separately produces four annual shows (Fall Cabaret, a play, a musical, and Peer Theatre One Acts), with proceeds going to charity.
+
+Source: [Ohio State Dept. of Theatre, Film, and Media Arts — Productions](https://theatreandfilm.osu.edu/productions) · checked 2026-08-23
+
 ## Non-major participation
 
-Theatre minors are 'welcome and encouraged to audition and to participate in all aspects of the production season.'
+Theatre minors are 'welcome and encouraged to audition and to participate in all aspects of the production season.' More broadly, auditions for department mainstage productions are open to all Ohio State students regardless of major or class rank (in good academic standing), held once per semester.
 
-Source: [Ohio State Dept. of Theatre, Film, and Media Arts](https://theatreandfilm.osu.edu/undergraduate/academics/theatre-minor) · checked 2026-08-23
+Source: [Ohio State Dept. of Theatre, Film, and Media Arts — Getting Involved](https://theatreandfilm.osu.edu/current-students/current-undergraduate-students/getting-involved) · checked 2026-08-23
