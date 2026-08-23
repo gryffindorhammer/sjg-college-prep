@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SJG College Visit Planner</title>
+  <style>
+    :root { --ink:#172033; --muted:#5b6475; --paper:#f6f7fb; --card:#fff; --accent:#3155a6; --line:#dde2ee; --known:#e7f4ea; --known-ink:#1f6a38; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    header { background:linear-gradient(125deg,#172b61,#3155a6); color:white; padding:3.5rem max(1.25rem,calc((100% - 1100px)/2)); }
+    h1 { font-size:clamp(2rem,5vw,3.35rem); line-height:1.05; margin:0 0 .75rem; }
+    header p { max-width:46rem; margin:.25rem 0; color:#e8edff; }
+    main { max-width:1100px; margin:0 auto; padding:2rem 1.25rem 4rem; }
+    .notice { background:#fff8df; border:1px solid #f0d98d; border-radius:12px; padding:1rem 1.1rem; margin-bottom:1.4rem; }
+    .controls { display:flex; flex-wrap:wrap; gap:.75rem; align-items:center; margin-bottom:1.25rem; }
+    input, select { font:inherit; border:1px solid var(--line); border-radius:8px; padding:.65rem .75rem; background:white; color:var(--ink); }
+    input { flex:1 1 280px; }
+    .count { color:var(--muted); margin-left:auto; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(310px,1fr)); gap:1rem; }
+    article { background:var(--card); border:1px solid var(--line); border-radius:13px; padding:1.2rem; box-shadow:0 1px 2px #1720330c; display:flex; flex-direction:column; gap:.8rem; }
+    h2 { font-size:1.18rem; line-height:1.25; margin:0; }
+    .meta { color:var(--muted); font-size:.9rem; margin-top:-.45rem; }
+    .date { background:var(--known); color:var(--known-ink); border-radius:7px; padding:.5rem .65rem; font-size:.9rem; font-weight:650; }
+    .calendar { background:#f0f3fa; color:#384864; border-radius:7px; padding:.5rem .65rem; font-size:.9rem; }
+    .links { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:auto; }
+    a { color:var(--accent); }
+    .links a { border:1px solid #b9c8ed; border-radius:7px; padding:.42rem .6rem; text-decoration:none; font-size:.9rem; font-weight:600; }
+    .links a:hover, .links a:focus { background:#edf2ff; outline:none; }
+    footer { color:var(--muted); font-size:.9rem; margin-top:2rem; }
+    .hidden { display:none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>College visit planner</h1>
+    <p>Official admissions links for in-person tours, virtual options, and open-house schedules.</p>
+    <p><strong>25 schools</strong> · Last checked August 22, 2026</p>
+  </header>
+  <main>
+    <section class="notice" aria-label="Schedule note">
+      Event calendars change often. Green entries have a published Fall 2026 date; blue-gray entries link to the school’s live official calendar. Register before making travel plans.
+    </section>
+    <div class="controls">
+      <label class="hidden" for="search">Search schools</label>
+      <input id="search" type="search" placeholder="Search a school or state" autocomplete="off">
+      <label class="hidden" for="region">Filter region</label>
+      <select id="region"><option value="">All regions</option><option>Northeast</option><option>Mid-Atlantic</option><option>Midwest</option></select>
+      <span class="count" id="count"></span>
+    </div>
+    <section class="grid" id="schools" aria-live="polite"></section>
+    <footer>“Virtual / events” links point to each college’s official admissions visit page or event calendar. Exact online-session dates are generally released in those live calendars.</footer>
+  </main>
+  <script>
+    const schools = [
+      ["Princeton University","NJ","Northeast","Live visit calendar","https://admission.princeton.edu/visit-us","https://admission.princeton.edu/visit-us"],
+      ["University of Chicago","IL","Midwest","Live visit and open-house calendar","https://collegeadmissions.uchicago.edu/visit-connect/daily-visits/","https://collegeadmissions.uchicago.edu/visit-connect/open-houses/"],
+      ["Yale University","CT","Northeast","Live tour calendar; registration required","https://admissions.yale.edu/tours","https://admissions.yale.edu/tours"],
+      ["Wesleyan University","CT","Northeast","Live visit calendar; open houses listed there","https://admission.wesleyan.edu/portal/campusvisit","https://admission.wesleyan.edu/portal/campusvisit"],
+      ["University of Rochester","NY","Northeast","Research Rochester: Oct 18 & Nov 10, 2026","https://admissions.enrollment.rochester.edu/portal/oncampus","https://admissions.rochester.edu/visit/campus-visit/",true],
+      ["Binghamton University","NY","Northeast","Live welcome-session and tour calendar","https://connect.binghamton.edu/portal/campus-visit","https://www.binghamton.edu/admissions/undergraduate/visit/"],
+      ["Tufts University","MA","Northeast","Live campus-visit calendar; registration required","https://ugrad.admissions.tufts.edu/portal/campus-visit","https://admissions.tufts.edu/visit/plan-your-visit/"],
+      ["Boston University","MA","Northeast","Live information-session and tour calendar","https://www.bu.edu/admissions/visit-us/campus/","https://www.bu.edu/admissions/visit-us/"],
+      ["University of Massachusetts Amherst","MA","Northeast","Live Fall Visit Days and tour calendar","https://www.umass.edu/admissions/visit","https://www.umass.edu/admissions/admissions-events"],
+      ["Case Western Reserve University","OH","Midwest","Live visit and event calendar","https://case.edu/admission/visit","https://case.edu/admission/visits-events"],
+      ["University of Pittsburgh","PA","Mid-Atlantic","Live guided-tour and information-session calendar","https://admissions.pitt.edu/visit/schedule/","https://admissions.pitt.edu/visit/"],
+      ["University of Maryland, College Park","MD","Mid-Atlantic","Fall Open House: Mon, Sept 14, 2026","https://admissions.umd.edu/visit","https://admissions.umd.edu/page/fall-openhouse",true],
+      ["University at Buffalo","NY","Northeast","Live campus-tour calendar","https://ubconnect.buffalo.edu/portal/campustour","https://www.buffalo.edu/admissions/visit.html"],
+      ["Temple University","PA","Mid-Atlantic","Selected open-house weekends; see live calendar","https://admissions.temple.edu/visit","https://admissions.temple.edu/visit/open-houses"],
+      ["University of Iowa","IA","Midwest","Live Hawkeye Visit Days calendar","https://admissions.uiowa.edu/hawkeye-visit-days","https://admissions.uiowa.edu/hawkeye-visit-days"],
+      ["Rutgers University–New Brunswick","NJ","Northeast","Tours available; no prospective-student open houses","https://admissions.rutgers.edu/TourRutgersNB","https://admissions.rutgers.edu/TourRutgersNB"],
+      ["The Ohio State University","OH","Midwest","Live campus-visit calendar","https://campusvisit.osu.edu/","https://undergrad.osu.edu/visit"],
+      ["Penn State University Park","PA","Mid-Atlantic","Live information-session, tour, and Penn State Days calendar","https://www.psu.edu/admission/undergraduate/explore/visit-penn-state","https://apply.psu.edu/portal/psd"],
+      ["Indiana University Bloomington","IN","Midwest","Live visit-options calendar","https://bloomington.iu.edu/admissions/visit.html","https://bloomington.iu.edu/admissions/visit.html"],
+      ["SUNY Geneseo","NY","Northeast","Live campus-visit calendar","https://connect.geneseo.edu/portal/campus_visit","https://www.geneseo.edu/admissions/campus-tours/"],
+      ["Lafayette College","PA","Mid-Atlantic","Open houses: Oct 17, Nov 5 & Nov 6, 2026","https://connect.lafayette.edu/portal/campus-visit","https://admissions.lafayette.edu/admissions-visits/",true],
+      ["Oberlin College","OH","Midwest","Live visit calendar; select Saturdays and Sundays available","https://connect.oberlin.edu/portal/visit_campus","https://www.oberlin.edu/admissions-and-aid/visit-and-connect"],
+      ["William & Mary","VA","Mid-Atlantic","Live information-session and tour calendar","https://admission.wm.edu/portal/info_sessions","https://www.wm.edu/admission/undergraduateadmission/visit/"],
+      ["Rochester Institute of Technology","NY","Northeast","Fall Open Houses: Oct 12, Oct 24 & Nov 14, 2026","https://join.rit.edu/portal/ugrd_campusvisit","https://www.rit.edu/admissions/open-house",true],
+      ["Drexel University","PA","Mid-Atlantic","Fall and summer open houses; see current calendar","https://drexel.edu/admissions/visit-tours/undergraduate-events/open-houses","https://drexel.edu/admissions/visit-tours/open-house"]
+    ];
+    const container = document.querySelector('#schools'), search = document.querySelector('#search'), region = document.querySelector('#region'), count = document.querySelector('#count');
+    function render() {
+      const term = search.value.trim().toLowerCase(), selected = region.value;
+      const shown = schools.filter(s => (!term || `${s[0]} ${s[1]} ${s[2]}`.toLowerCase().includes(term)) && (!selected || s[2] === selected));
+      container.innerHTML = shown.map(([name,state,area,schedule,visit,virtual,dated]) => `<article><h2>${name}</h2><div class="meta">${state} · ${area}</div><div class="${dated ? 'date' : 'calendar'}">${schedule}</div><div class="links"><a href="${visit}" target="_blank" rel="noopener">In-person visit ↗</a><a href="${virtual}" target="_blank" rel="noopener">Virtual / events ↗</a></div></article>`).join('');
+      count.textContent = `${shown.length} school${shown.length === 1 ? '' : 's'}`;
+    }
+    search.addEventListener('input', render); region.addEventListener('change', render); render();
+  </script>
+</body>
+</html>
