@@ -55,6 +55,7 @@ rankingMath:
   url: https://edurank.org/uni/the-university-of-british-columbia/rankings/
   notes: Independent research-output ranking, not a QS/U.S. News subject-specific ranking.
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

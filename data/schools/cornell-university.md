@@ -54,6 +54,7 @@ rankingMath:
   url: https://www.collegefactual.com/majors/mathematics-and-statistics/mathematics/rankings/top-ranked/
   notes: Independent outcomes-based ranking; QS 2026 subject-specific placement was not confirmed (QS 2023 had Cornell #32 in Mathematics).
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

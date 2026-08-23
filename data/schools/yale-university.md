@@ -58,6 +58,7 @@ rankingTheater:
   year: 2025-26
   url: https://www.hollywoodreporter.com/lifestyle/arts/best-drama-schools-2026-1236601303/
   notes: This covers Yale's graduate David Geffen School of Drama (MFA conservatory), a separate professional school — not the undergraduate program Stephen would join as a non-major.
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

@@ -49,6 +49,7 @@ rankingOverall:
   url: https://www.usnews.com/best-colleges/temple-university-3371
 rankingMath: none
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

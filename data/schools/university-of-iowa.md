@@ -49,6 +49,7 @@ rankingOverall:
   url: https://www.usnews.com/best-colleges/university-of-iowa-1892
 rankingMath: none
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

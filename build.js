@@ -160,6 +160,7 @@ function buildIndex(schools) {
     order: s.order,
     admissionRate: s.admissionRate && s.admissionRate !== 'none' ? s.admissionRate.value : null,
     rankingOverall: s.rankingOverall && s.rankingOverall !== 'none' ? s.rankingOverall.rank : null,
+    fitForStephen: s.fitForStephen || null,
   }));
 
   const body = `
@@ -183,9 +184,10 @@ function buildIndex(schools) {
             <th data-sort="name">School <span class="arrow">▲▼</span></th>
             <th data-sort="state">State <span class="arrow">▲▼</span></th>
             <th data-sort="region">Region <span class="arrow">▲▼</span></th>
-            <th data-sort="scheduleText">Visit schedule <span class="arrow">▲▼</span></th>
             <th data-sort="admissionRate">Acceptance rate <span class="arrow">▲▼</span></th>
             <th data-sort="rankingOverall">Overall ranking <span class="arrow">▲▼</span></th>
+            <th data-sort="fitForStephen">Fit for Stephen <span class="arrow">▲▼</span></th>
+            <th data-sort="scheduleText">Visit schedule <span class="arrow">▲▼</span></th>
             <th>Links</th>
           </tr>
         </thead>

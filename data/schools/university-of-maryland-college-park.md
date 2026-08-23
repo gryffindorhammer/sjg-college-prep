@@ -55,6 +55,7 @@ rankingMath:
   url: https://www.usnews.com/best-graduate-schools/top-science-schools/mathematics-rankings
   notes: Graduate/research-strength ranking, not undergrad-specific.
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

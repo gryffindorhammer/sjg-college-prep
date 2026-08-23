@@ -48,6 +48,7 @@ rankingOverall:
   url: https://www.usnews.com/best-colleges/case-western-reserve-university-3024/overall-rankings
 rankingMath: none
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

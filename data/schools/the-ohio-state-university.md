@@ -48,6 +48,7 @@ rankingOverall:
   url: https://www.usnews.com/best-colleges/ohio-state-6883
 rankingMath: none
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major
