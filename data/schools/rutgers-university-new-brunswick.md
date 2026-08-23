@@ -50,6 +50,7 @@ rankingOverall:
   url: https://www.usnews.com/best-colleges/rutgers-new-brunswick-6964
 rankingMath: none
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

@@ -49,6 +49,7 @@ rankingOverall:
   url: https://www.usnews.com/best-colleges/umass-amherst-2221/overall-rankings
 rankingMath: none
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

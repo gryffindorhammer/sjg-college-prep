@@ -50,6 +50,7 @@ rankingOverall:
   url: https://www.usnews.com/best-colleges/oberlin-college-3086
 rankingMath: none
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

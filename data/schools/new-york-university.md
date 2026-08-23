@@ -55,6 +55,7 @@ rankingMath:
   url: https://www.topuniversities.com/university-subject-rankings/mathematics
   notes: Sources vary slightly (#15 vs #18) on NYU Courant's exact placement; both place it well inside the global top 20.
 rankingTheater: none
+fitForStephen: "maybe"
 ---
 
 ## Mathematics major

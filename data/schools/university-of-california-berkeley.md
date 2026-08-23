@@ -53,6 +53,7 @@ rankingMath:
   year: 2025-26
   url: https://math.berkeley.edu/news/uc-berkeley-ranks-first-best-global-universities-mathematics-us-news
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

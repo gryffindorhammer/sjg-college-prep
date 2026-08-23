@@ -50,6 +50,7 @@ rankingOverall:
   url: https://www.usnews.com/best-colleges/wesleyan-university-1424/overall-rankings
 rankingMath: none
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

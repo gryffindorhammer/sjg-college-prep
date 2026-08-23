@@ -50,6 +50,7 @@ rankingOverall:
   url: https://www.usnews.com/best-colleges/university-of-california-san-diego-1317
 rankingMath: none
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

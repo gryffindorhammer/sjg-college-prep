@@ -49,6 +49,7 @@ rankingOverall:
   url: https://www.usnews.com/best-colleges/tufts-university-2219/overall-rankings
 rankingMath: none
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

@@ -54,6 +54,7 @@ rankingMath:
   url: https://www.binghamton.edu/news/story/6177/2026-us-news-and-world-report-graduate-rankings
   notes: Graduate/research-strength ranking, not undergrad-specific.
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

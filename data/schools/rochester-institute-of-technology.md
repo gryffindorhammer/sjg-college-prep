@@ -51,6 +51,7 @@ rankingOverall:
   url: https://www.usnews.com/best-colleges/rit-2806
 rankingMath: none
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

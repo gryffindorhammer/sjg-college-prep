@@ -53,6 +53,7 @@ rankingMath:
   year: '2026'
   url: https://qs-topuniversities.cn/en/university-rankings/university-subject-rankings/2026/mathematics
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

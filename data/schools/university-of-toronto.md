@@ -52,6 +52,7 @@ rankingOverall:
   url: https://www.utoronto.ca/news/u-t-ranked-first-canada-21st-globally-2026-times-higher-education-world-university-rankings
 rankingMath: none
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

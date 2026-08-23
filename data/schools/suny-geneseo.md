@@ -50,6 +50,7 @@ rankingOverall:
   url: https://www.usnews.com/best-colleges/suny-geneseo-2845/overall-rankings
 rankingMath: none
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

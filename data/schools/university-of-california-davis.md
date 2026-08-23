@@ -49,6 +49,7 @@ rankingOverall:
   url: https://www.usnews.com/best-colleges/university-of-california-davis-1313
 rankingMath: none
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

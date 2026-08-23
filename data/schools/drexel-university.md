@@ -48,6 +48,7 @@ rankingOverall:
   url: https://www.usnews.com/best-colleges/drexel-university-3256/overall-rankings
 rankingMath: none
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

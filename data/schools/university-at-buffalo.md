@@ -48,6 +48,7 @@ rankingOverall:
   url: https://www.buffalo.edu/news/releases/2025/09/us-news-best-colleges.html
 rankingMath: none
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

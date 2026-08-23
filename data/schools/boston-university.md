@@ -49,6 +49,7 @@ rankingOverall:
   url: https://www.usnews.com/best-colleges/boston-university-2130/overall-rankings
 rankingMath: none
 rankingTheater: none
+fitForStephen: "maybe"
 ---
 
 ## Mathematics major

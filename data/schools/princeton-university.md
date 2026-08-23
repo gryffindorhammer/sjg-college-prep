@@ -54,6 +54,7 @@ rankingMath:
   url: https://www.topuniversities.com/university-subject-rankings/mathematics
   notes: Graduate/research-strength ranking, not undergrad-specific.
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

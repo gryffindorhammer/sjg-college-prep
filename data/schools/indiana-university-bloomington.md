@@ -48,6 +48,7 @@ rankingOverall:
   url: https://www.usnews.com/best-colleges/indiana-university-bloomington-1809/overall-rankings
 rankingMath: none
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

@@ -54,6 +54,7 @@ rankingMath:
   url: https://edurank.org/uni/university-of-pittsburgh-pittsburgh-campus/rankings/
   notes: Independent research-output ranking, not a QS/U.S. News subject-specific ranking (QS 2023 had Pitt in the #251-300 Mathematics band).
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

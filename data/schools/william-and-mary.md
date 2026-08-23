@@ -55,6 +55,7 @@ rankingMath:
   url: https://www.collegefactual.com/colleges/college-of-william-and-mary/academic-life/academic-majors/mathematics-and-statistics/mathematics/
   notes: Independent outcomes-based ranking, not a QS/U.S. News subject-specific ranking.
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

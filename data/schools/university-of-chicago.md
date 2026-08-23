@@ -54,6 +54,7 @@ rankingMath:
   url: https://www.shanghairanking.com/institution/university-of-chicago
   notes: Research/graduate-strength ranking, not undergrad-specific.
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major

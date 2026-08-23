@@ -54,6 +54,7 @@ rankingMath:
   url: https://edurank.org/uni/university-of-rochester/rankings/
   notes: Independent research-output ranking, not a QS/U.S. News subject-specific ranking.
 rankingTheater: none
+fitForStephen: "yes"
 ---
 
 ## Mathematics major
