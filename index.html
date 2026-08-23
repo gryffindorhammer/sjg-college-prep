@@ -31,17 +31,31 @@
     .links a:hover, .links a:focus { background:#edf2ff; outline:none; }
     footer { color:var(--muted); font-size:.9rem; margin-top:2rem; }
     .hidden { display:none; }
+    .profile-toggle { align-self:flex-start; background:none; border:1px solid var(--line); border-radius:7px; padding:.42rem .6rem; font:inherit; font-size:.85rem; font-weight:650; color:var(--accent); cursor:pointer; }
+    .profile-toggle:hover, .profile-toggle:focus { background:#edf2ff; outline:none; }
+    .profile { border-top:1px dashed var(--line); padding-top:.8rem; margin-top:.1rem; display:flex; flex-direction:column; gap:.6rem; }
+    .profile-grid { display:flex; flex-direction:column; gap:.6rem; }
+    .fact { display:flex; flex-direction:column; gap:.1rem; font-size:.87rem; }
+    .fact-label { font-weight:650; color:var(--ink); }
+    .fact-value { color:var(--ink); }
+    .fact-empty { color:var(--muted); font-style:italic; }
+    .fact-source { color:var(--muted); font-size:.78rem; }
+    .fact-source a { font-weight:600; }
+    .fit-heading { font-size:.95rem; margin:.2rem 0 0; color:var(--ink); border-top:1px solid var(--line); padding-top:.6rem; }
   </style>
 </head>
 <body>
   <header>
     <h1>College visit planner</h1>
-    <p>Official admissions links for in-person tours, virtual options, and open-house schedules.</p>
-    <p><strong>34 schools</strong> · Last checked August 22, 2026</p>
+    <p>Official admissions links for in-person tours, virtual options, and open-house schedules — plus sourced comparison profiles and Stephen's math/theater fit for every school.</p>
+    <p><strong>34 schools</strong> · Last checked August 23, 2026</p>
   </header>
   <main>
     <section class="notice" aria-label="Schedule note">
       Event calendars change often. Green entries have a published Fall 2026 date; blue-gray entries link to the school’s live official calendar. Register before making travel plans.
+    </section>
+    <section class="notice" aria-label="Profile data note">
+      “Show sourced profile” opens enrollment, cost, and outcome data plus Stephen's math/theater fit for each school. Every figure links to its source and the date it was last checked. Rankings are only shown when a credible source specifically publishes one for that category (overall, math, or theater) — where no theater ranking exists, sourced program facts are shown instead.
     </section>
     <div id="map" role="application" aria-label="Map of tracked colleges"></div>
     <div class="controls">
@@ -105,6 +119,49 @@
       "University of California, Davis":[38.5382,-121.7617], "University of Wisconsin–Madison":[43.0766,-89.4125], "University of Toronto":[43.6629,-79.3957],
       "New York University":[40.7295,-73.9965], "Cornell University":[42.4534,-76.4735], "University of British Columbia":[49.2606,-123.2460], "McGill University":[45.5048,-73.5772]
     };
+    const profiles = {};
+    function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
+    function plainRow(label, value) {
+      return `<div class="fact"><span class="fact-label">${label}</span><span class="fact-value">${value}</span></div>`;
+    }
+    function factRow(label, fact) {
+      if (!fact || !fact.value) return `<div class="fact"><span class="fact-label">${label}</span><span class="fact-value fact-empty">${fact && fact.notes ? fact.notes : 'Not publicly available'}</span></div>`;
+      return `<div class="fact"><span class="fact-label">${label}</span><span class="fact-value">${fact.value}</span><span class="fact-source">${fact.source ? `<a href="${fact.url}" target="_blank" rel="noopener">${fact.source}</a> · checked ${fact.checked}` : ''}</span></div>`;
+    }
+    function rankRow(label, rank) {
+      if (!rank || !rank.rank) return `<div class="fact"><span class="fact-label">${label}</span><span class="fact-value fact-empty">${rank && rank.notes ? rank.notes : 'No credible ranking found for this category'}</span></div>`;
+      return `<div class="fact"><span class="fact-label">${label}</span><span class="fact-value">${rank.rank}</span><span class="fact-source"><a href="${rank.url}" target="_blank" rel="noopener">${rank.source}</a>, ${rank.year}</span></div>`;
+    }
+    function textRow(label, obj) {
+      if (!obj || !obj.details) return `<div class="fact"><span class="fact-label">${label}</span><span class="fact-value fact-empty">${obj && obj.notes ? obj.notes : 'Not publicly available'}</span></div>`;
+      return `<div class="fact"><span class="fact-label">${label}</span><span class="fact-value">${obj.details}</span><span class="fact-source">${obj.source ? `<a href="${obj.url}" target="_blank" rel="noopener">${obj.source}</a> · checked ${obj.checked}` : ''}</span></div>`;
+    }
+    function profileHTML(name) {
+      const p = profiles[name];
+      if (!p) return '<p class="fact-empty">Profile research pending.</p>';
+      const theaterDetails = p.theaterProgram ? { ...p.theaterProgram, details: `${p.theaterProgram.type && p.theaterProgram.type !== 'none' ? cap(p.theaterProgram.type) + ' — ' : ''}${p.theaterProgram.details || ''}` } : null;
+      return `
+        <div class="profile-grid">
+          ${plainRow('Location', p.location)}
+          ${factRow('Undergraduate enrollment', p.enrollment)}
+          ${factRow('Student–faculty ratio', p.studentFacultyRatio)}
+          ${factRow('Tuition &amp; fees', p.tuition)}
+          ${factRow('Acceptance rate', p.admissionRate)}
+          ${factRow('Retention rate', p.retentionRate)}
+          ${factRow('Graduation rate', p.graduationRate)}
+          ${rankRow('Overall ranking', p.rankingOverall)}
+          ${rankRow('Mathematics ranking', p.rankingMath)}
+          ${rankRow('Theater ranking', p.rankingTheater)}
+        </div>
+        <h3 class="fit-heading">Stephen's fit: math &amp; theater</h3>
+        <div class="profile-grid">
+          ${textRow('Mathematics major', p.mathMajor)}
+          ${textRow('Theater/drama program', theaterDetails)}
+          ${textRow('Student productions &amp; clubs', p.productionsClubs)}
+          ${textRow('Non-major participation', p.nonMajorParticipation)}
+        </div>
+      `;
+    }
     const container = document.querySelector('#schools'), search = document.querySelector('#search'), region = document.querySelector('#region'), count = document.querySelector('#count');
     const map = L.map('map', {scrollWheelZoom:false}).setView([40.5,-87], 4);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom:19, attribution:'© OpenStreetMap contributors' }).addTo(map);
@@ -112,13 +169,22 @@
     function render() {
       const term = search.value.trim().toLowerCase(), selected = region.value;
       const shown = schools.filter(s => (!term || `${s[0]} ${s[1]} ${s[2]}`.toLowerCase().includes(term)) && (!selected || s[2] === selected));
-      container.innerHTML = shown.map(([name,state,area,schedule,visit,virtual,dated]) => `<article><h2>${name}</h2><div class="meta">${state} · ${area}</div><div class="${dated ? 'date' : 'calendar'}">${schedule}</div><div class="links"><a href="${visit}" target="_blank" rel="noopener">In-person visit ↗</a><a href="${virtual}" target="_blank" rel="noopener">Virtual / events ↗</a></div></article>`).join('');
+      container.innerHTML = shown.map(([name,state,area,schedule,visit,virtual,dated]) => `<article><h2>${name}</h2><div class="meta">${state} · ${area}</div><div class="${dated ? 'date' : 'calendar'}">${schedule}</div><div class="links"><a href="${visit}" target="_blank" rel="noopener">In-person visit ↗</a><a href="${virtual}" target="_blank" rel="noopener">Virtual / events ↗</a></div><button class="profile-toggle" type="button" aria-expanded="false">Show sourced profile ▾</button><div class="profile hidden">${profileHTML(name)}</div></article>`).join('');
       markerLayer.clearLayers();
       const bounds = [];
       shown.forEach(([name,state,area,schedule,visit]) => { const point = coordinates[name]; if (point) { bounds.push(point); L.marker(point).addTo(markerLayer).bindPopup(`<strong>${name}</strong><br>${state} · ${area}<br><a href="${visit}" target="_blank" rel="noopener">Visit details ↗</a>`); } });
       if (bounds.length > 1) map.fitBounds(bounds, {padding:[28,28], maxZoom:6}); else if (bounds.length === 1) map.setView(bounds[0], 10);
       count.textContent = `${shown.length} school${shown.length === 1 ? '' : 's'}`;
     }
+    container.addEventListener('click', e => {
+      const btn = e.target.closest('.profile-toggle');
+      if (!btn) return;
+      const panel = btn.nextElementSibling;
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      btn.textContent = expanded ? 'Show sourced profile ▾' : 'Hide sourced profile ▴';
+      panel.classList.toggle('hidden', expanded);
+    });
     search.addEventListener('input', render); region.addEventListener('change', render); render();
   </script>
 </body>
