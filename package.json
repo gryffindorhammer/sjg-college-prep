@@ -1,0 +1,12 @@
+{
+  "name": "sjg-college-prep",
+  "private": true,
+  "version": "1.0.0",
+  "description": "College visit planner — static site generated from data/schools/*.md",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "gray-matter": "^4.0.3"
+  }
+}

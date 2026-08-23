@@ -1,3 +1,12 @@
 # SJG college prep
 
-Open `index.html` in a browser for the college visit and open-house planner. It contains official admissions links for 25 schools and identifies the Fall 2026 dates that were published when the page was checked (August 22, 2026).
+The college visit and open-house planner: a sortable/filterable table of 34 schools (`index.html`), a sourced profile page per school (`schools/`), and a map (`map.html`). Open `index.html` in a browser to view it — no server required.
+
+Data lives as one Markdown file per school in `data/schools/`. After editing a school's file (or adding/removing one), regenerate the site:
+
+```
+npm install   # once
+npm run build
+```
+
+See `CLAUDE.md` for the full data/build format.
