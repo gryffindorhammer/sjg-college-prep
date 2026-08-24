@@ -1,7 +1,13 @@
 (function () {
   var tbody = document.querySelector('#schools-body');
+  var grid = document.querySelector('#schools-grid');
+  var tableSection = document.querySelector('#table-section');
   var search = document.querySelector('#search');
   var region = document.querySelector('#region');
+  var sortSelect = document.querySelector('#sort');
+  var sortDirBtn = document.querySelector('#sort-dir');
+  var viewTableBtn = document.querySelector('#view-table');
+  var viewGridBtn = document.querySelector('#view-grid');
   var count = document.querySelector('#count');
   var headers = document.querySelectorAll('table.schools th[data-sort]');
   if (!tbody || !window.SCHOOLS) return;
@@ -18,27 +24,54 @@
 
   function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
 
+  function computeFields(s) {
+    return {
+      pillClass: s.dated ? 'date' : 'calendar',
+      rate: s.admissionRate ? escapeHtml(s.admissionRate) : '—',
+      rank: s.rankingOverall ? escapeHtml(s.rankingOverall) : '—',
+      mathRank: s.rankingMath ? escapeHtml(s.rankingMath) : '—',
+      theater: s.theaterType ? escapeHtml(cap(s.theaterType)) : '—'
+    };
+  }
+
   function cellHTML(s) {
-    var pillClass = s.dated ? 'date' : 'calendar';
-    var rate = s.admissionRate ? escapeHtml(s.admissionRate) : '—';
-    var rank = s.rankingOverall ? escapeHtml(s.rankingOverall) : '—';
-    var mathRank = s.rankingMath ? escapeHtml(s.rankingMath) : '—';
-    var theater = s.theaterType ? escapeHtml(cap(s.theaterType)) : '—';
+    var f = computeFields(s);
     return (
       '<tr>' +
       '<td class="name"><a href="schools/' + escapeHtml(s.slug) + '.html">' + escapeHtml(s.name) + '</a></td>' +
       '<td>' + escapeHtml(s.state) + '</td>' +
       '<td>' + escapeHtml(s.region) + '</td>' +
-      '<td>' + rate + '</td>' +
-      '<td>' + rank + '</td>' +
-      '<td>' + mathRank + '</td>' +
-      '<td class="theater">' + theater + '</td>' +
-      '<td class="schedule"><span class="pill ' + pillClass + '">' + escapeHtml(s.scheduleText) + '</span></td>' +
+      '<td>' + f.rate + '</td>' +
+      '<td>' + f.rank + '</td>' +
+      '<td>' + f.mathRank + '</td>' +
+      '<td class="theater">' + f.theater + '</td>' +
+      '<td class="schedule"><span class="pill ' + f.pillClass + '">' + escapeHtml(s.scheduleText) + '</span></td>' +
       '<td><div class="links-cell">' +
       '<a href="' + escapeHtml(s.visitUrl) + '" target="_blank" rel="noopener">Visit ↗</a>' +
       '<a href="' + escapeHtml(s.virtualUrl) + '" target="_blank" rel="noopener">Virtual ↗</a>' +
       '</div></td>' +
       '</tr>'
+    );
+  }
+
+  function cardHTML(s) {
+    var f = computeFields(s);
+    return (
+      '<article class="school-card">' +
+      '<h3><a href="schools/' + escapeHtml(s.slug) + '.html">' + escapeHtml(s.name) + '</a></h3>' +
+      '<div class="school-card-meta">' + escapeHtml(s.state) + ' · ' + escapeHtml(s.region) + '</div>' +
+      '<div class="school-card-facts">' +
+      '<div class="card-fact"><span class="card-fact-label">Acceptance rate</span><span>' + f.rate + '</span></div>' +
+      '<div class="card-fact"><span class="card-fact-label">Overall ranking</span><span>' + f.rank + '</span></div>' +
+      '<div class="card-fact"><span class="card-fact-label">Math ranking</span><span>' + f.mathRank + '</span></div>' +
+      '<div class="card-fact"><span class="card-fact-label">Theater program</span><span>' + f.theater + '</span></div>' +
+      '</div>' +
+      '<span class="pill ' + f.pillClass + '">' + escapeHtml(s.scheduleText) + '</span>' +
+      '<div class="links-cell">' +
+      '<a href="' + escapeHtml(s.visitUrl) + '" target="_blank" rel="noopener">Visit ↗</a>' +
+      '<a href="' + escapeHtml(s.virtualUrl) + '" target="_blank" rel="noopener">Virtual ↗</a>' +
+      '</div>' +
+      '</article>'
     );
   }
 
@@ -75,18 +108,61 @@
     });
     shown.sort(compare);
     tbody.innerHTML = shown.map(cellHTML).join('');
+    if (grid) grid.innerHTML = shown.map(cardHTML).join('');
     count.textContent = shown.length + ' school' + (shown.length === 1 ? '' : 's');
+  }
+
+  function setActiveHeader(key) {
+    headers.forEach(function (h) { h.classList.toggle('active', h.getAttribute('data-sort') === key); });
+    if (sortSelect) sortSelect.value = key;
+    if (sortDirBtn) {
+      sortDirBtn.setAttribute('aria-pressed', String(sortDir === -1));
+      sortDirBtn.textContent = sortDir === -1 ? '↓' : '↑';
+    }
   }
 
   headers.forEach(function (th) {
     th.addEventListener('click', function () {
       var key = th.getAttribute('data-sort');
       if (sortKey === key) sortDir *= -1; else { sortKey = key; sortDir = 1; }
-      headers.forEach(function (h) { h.classList.remove('active'); });
-      th.classList.add('active');
+      setActiveHeader(sortKey);
       render();
     });
   });
+
+  if (sortSelect) {
+    sortSelect.addEventListener('change', function () {
+      sortKey = sortSelect.value;
+      sortDir = 1;
+      setActiveHeader(sortKey);
+      render();
+    });
+  }
+
+  if (sortDirBtn) {
+    sortDirBtn.addEventListener('click', function () {
+      sortDir *= -1;
+      setActiveHeader(sortKey);
+      render();
+    });
+  }
+
+  function setView(view) {
+    var isGrid = view === 'grid';
+    if (tableSection) tableSection.classList.toggle('hidden', isGrid);
+    if (grid) grid.classList.toggle('hidden', !isGrid);
+    if (viewTableBtn) viewTableBtn.setAttribute('aria-pressed', String(!isGrid));
+    if (viewGridBtn) viewGridBtn.setAttribute('aria-pressed', String(isGrid));
+    try { localStorage.setItem('schoolsView', view); } catch (e) {}
+  }
+
+  if (viewTableBtn && viewGridBtn) {
+    viewTableBtn.addEventListener('click', function () { setView('table'); });
+    viewGridBtn.addEventListener('click', function () { setView('grid'); });
+    var savedView = 'table';
+    try { savedView = localStorage.getItem('schoolsView') || 'table'; } catch (e) {}
+    setView(savedView);
+  }
 
   search.addEventListener('input', render);
   region.addEventListener('change', render);

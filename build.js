@@ -176,31 +176,52 @@ function buildIndex(schools) {
       <input id="search" type="search" placeholder="Search a school or state" autocomplete="off">
       <label class="hidden" for="region">Filter region</label>
       <select id="region"><option value="">All regions</option>${REGIONS.map((r) => `<option>${r}</option>`).join('')}</select>
+      <label class="hidden" for="sort">Sort by</label>
+      <select id="sort">
+        <option value="order">Default order</option>
+        <option value="name">School name</option>
+        <option value="state">State</option>
+        <option value="region">Region</option>
+        <option value="admissionRate">Acceptance rate</option>
+        <option value="rankingOverall">Overall ranking</option>
+        <option value="rankingMath">Math ranking</option>
+        <option value="theaterType">Theater program</option>
+        <option value="scheduleText">Visit schedule</option>
+      </select>
+      <button type="button" id="sort-dir" class="sort-dir-btn" aria-pressed="false" title="Reverse sort direction" aria-label="Reverse sort direction">↑</button>
+      <div class="view-toggle" role="group" aria-label="Switch view">
+        <button type="button" id="view-table" aria-pressed="true">Table</button>
+        <button type="button" id="view-grid" aria-pressed="false">Grid</button>
+      </div>
       <span class="count" id="count"></span>
     </div>
-    <div class="table-wrap">
-      <table class="schools">
-        <colgroup>
-          <col style="width:14%"><col style="width:6%"><col style="width:8%">
-          <col style="width:12%"><col style="width:12%"><col style="width:11%">
-          <col style="width:13%"><col style="width:16%"><col style="width:8%">
-        </colgroup>
-        <thead>
-          <tr>
-            <th data-sort="name">School <span class="arrow">▲▼</span></th>
-            <th data-sort="state">State <span class="arrow">▲▼</span></th>
-            <th data-sort="region">Region <span class="arrow">▲▼</span></th>
-            <th data-sort="admissionRate">Acceptance rate <span class="arrow">▲▼</span></th>
-            <th data-sort="rankingOverall">Overall ranking <span class="arrow">▲▼</span></th>
-            <th data-sort="rankingMath">Math ranking <span class="arrow">▲▼</span></th>
-            <th data-sort="theaterType">Theater program <span class="arrow">▲▼</span></th>
-            <th data-sort="scheduleText">Visit schedule <span class="arrow">▲▼</span></th>
-            <th>Links</th>
-          </tr>
-        </thead>
-        <tbody id="schools-body"></tbody>
-      </table>
+    <div class="table-section" id="table-section">
+      <p class="scroll-hint" aria-hidden="true">Swipe to see more →</p>
+      <div class="table-wrap">
+        <table class="schools">
+          <colgroup>
+            <col style="width:14%"><col style="width:6%"><col style="width:8%">
+            <col style="width:12%"><col style="width:12%"><col style="width:11%">
+            <col style="width:13%"><col style="width:16%"><col style="width:8%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th data-sort="name">School <span class="arrow">▲▼</span></th>
+              <th data-sort="state">State <span class="arrow">▲▼</span></th>
+              <th data-sort="region">Region <span class="arrow">▲▼</span></th>
+              <th data-sort="admissionRate">Acceptance rate <span class="arrow">▲▼</span></th>
+              <th data-sort="rankingOverall">Overall ranking <span class="arrow">▲▼</span></th>
+              <th data-sort="rankingMath">Math ranking <span class="arrow">▲▼</span></th>
+              <th data-sort="theaterType">Theater program <span class="arrow">▲▼</span></th>
+              <th data-sort="scheduleText">Visit schedule <span class="arrow">▲▼</span></th>
+              <th>Links</th>
+            </tr>
+          </thead>
+          <tbody id="schools-body"></tbody>
+        </table>
+      </div>
     </div>
+    <div class="grid-wrap hidden" id="schools-grid"></div>
     <footer>"Virtual" links point to each college's official admissions visit page or event calendar. Exact online-session dates are generally released in those live calendars. See the <a href="map.html">map view</a> for all tracked colleges at once.</footer>
     <script>window.SCHOOLS = ${JSON.stringify(clientRows)};</script>
     <script src="assets/site.js"></script>`;
