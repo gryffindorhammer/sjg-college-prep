@@ -160,7 +160,8 @@ function buildIndex(schools) {
     order: s.order,
     admissionRate: s.admissionRate && s.admissionRate !== 'none' ? s.admissionRate.value : null,
     rankingOverall: s.rankingOverall && s.rankingOverall !== 'none' ? s.rankingOverall.rank : null,
-    fitForStephen: s.fitForStephen || null,
+    rankingMath: s.rankingMath && s.rankingMath !== 'none' ? s.rankingMath.rank : null,
+    theaterType: s.sections.theaterProgram ? s.sections.theaterProgram.type : null,
   }));
 
   const body = `
@@ -179,6 +180,11 @@ function buildIndex(schools) {
     </div>
     <div class="table-wrap">
       <table class="schools">
+        <colgroup>
+          <col style="width:14%"><col style="width:6%"><col style="width:8%">
+          <col style="width:12%"><col style="width:12%"><col style="width:11%">
+          <col style="width:13%"><col style="width:16%"><col style="width:8%">
+        </colgroup>
         <thead>
           <tr>
             <th data-sort="name">School <span class="arrow">▲▼</span></th>
@@ -186,7 +192,8 @@ function buildIndex(schools) {
             <th data-sort="region">Region <span class="arrow">▲▼</span></th>
             <th data-sort="admissionRate">Acceptance rate <span class="arrow">▲▼</span></th>
             <th data-sort="rankingOverall">Overall ranking <span class="arrow">▲▼</span></th>
-            <th data-sort="fitForStephen">Fit for Stephen <span class="arrow">▲▼</span></th>
+            <th data-sort="rankingMath">Math ranking <span class="arrow">▲▼</span></th>
+            <th data-sort="theaterType">Theater program <span class="arrow">▲▼</span></th>
             <th data-sort="scheduleText">Visit schedule <span class="arrow">▲▼</span></th>
             <th>Links</th>
           </tr>

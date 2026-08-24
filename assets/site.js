@@ -8,9 +8,7 @@
 
   var sortKey = 'order';
   var sortDir = 1;
-  var NUMERIC_SORT_KEYS = ['admissionRate', 'rankingOverall'];
-  var FIT_ORDER = { yes: 0, maybe: 1, no: 2 };
-  var FIT_LABEL = { yes: 'Yes', maybe: 'Maybe', no: 'No' };
+  var NUMERIC_SORT_KEYS = ['admissionRate', 'rankingOverall', 'rankingMath'];
 
   function escapeHtml(str) {
     return String(str == null ? '' : str)
@@ -18,13 +16,14 @@
       .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
   }
 
+  function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
+
   function cellHTML(s) {
     var pillClass = s.dated ? 'date' : 'calendar';
     var rate = s.admissionRate ? escapeHtml(s.admissionRate) : '—';
     var rank = s.rankingOverall ? escapeHtml(s.rankingOverall) : '—';
-    var fit = s.fitForStephen
-      ? '<span class="pill fit-' + escapeHtml(s.fitForStephen) + '">' + escapeHtml(FIT_LABEL[s.fitForStephen] || s.fitForStephen) + '</span>'
-      : '—';
+    var mathRank = s.rankingMath ? escapeHtml(s.rankingMath) : '—';
+    var theater = s.theaterType ? escapeHtml(cap(s.theaterType)) : '—';
     return (
       '<tr>' +
       '<td class="name"><a href="schools/' + escapeHtml(s.slug) + '.html">' + escapeHtml(s.name) + '</a></td>' +
@@ -32,7 +31,8 @@
       '<td>' + escapeHtml(s.region) + '</td>' +
       '<td>' + rate + '</td>' +
       '<td>' + rank + '</td>' +
-      '<td>' + fit + '</td>' +
+      '<td>' + mathRank + '</td>' +
+      '<td class="theater">' + theater + '</td>' +
       '<td class="schedule"><span class="pill ' + pillClass + '">' + escapeHtml(s.scheduleText) + '</span></td>' +
       '<td><div class="links-cell">' +
       '<a href="' + escapeHtml(s.visitUrl) + '" target="_blank" rel="noopener">Visit ↗</a>' +
@@ -50,11 +50,6 @@
 
   function compare(a, b) {
     var av = a[sortKey], bv = b[sortKey];
-    if (sortKey === 'fitForStephen') {
-      var ao = av in FIT_ORDER ? FIT_ORDER[av] : 3;
-      var bo = bv in FIT_ORDER ? FIT_ORDER[bv] : 3;
-      return (ao - bo) * sortDir;
-    }
     if (NUMERIC_SORT_KEYS.indexOf(sortKey) !== -1) {
       var an = extractNumber(av), bn = extractNumber(bv);
       if (an === null && bn === null) return 0;

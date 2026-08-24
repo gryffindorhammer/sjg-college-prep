@@ -19,9 +19,9 @@ footer { color:var(--muted); font-size:.9rem; margin-top:2rem; }
 
 /* Table view (index.html) */
 .table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; border:1px solid var(--line); border-radius:13px; background:var(--card); }
-table.schools { width:100%; min-width:760px; border-collapse:collapse; font-size:.92rem; }
-table.schools th, table.schools td { padding:.7rem .8rem; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; }
-table.schools thead th { background:#eef1fa; font-size:.82rem; text-transform:uppercase; letter-spacing:.02em; color:var(--muted); white-space:nowrap; }
+table.schools { width:100%; min-width:760px; border-collapse:collapse; font-size:.92rem; table-layout:fixed; }
+table.schools th, table.schools td { padding:.7rem .8rem; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; overflow-wrap:break-word; }
+table.schools thead th { background:#eef1fa; font-size:.82rem; text-transform:uppercase; letter-spacing:.02em; color:var(--muted); }
 table.schools th[data-sort] { cursor:pointer; user-select:none; }
 table.schools th[data-sort]:hover { color:var(--ink); }
 table.schools th[data-sort] .arrow { opacity:.4; font-size:.75em; margin-left:.15em; }
@@ -30,13 +30,9 @@ table.schools tbody tr:hover { background:#f8f9fd; }
 table.schools td.name a { font-weight:650; text-decoration:none; }
 table.schools td.name a:hover { text-decoration:underline; }
 .pill { display:inline-block; border-radius:7px; padding:.3rem .55rem; font-size:.82rem; white-space:nowrap; }
-table.schools td.schedule { max-width:280px; }
 table.schools td.schedule .pill { white-space:normal; }
 .pill.date { background:var(--known); color:var(--known-ink); font-weight:650; }
 .pill.calendar { background:#f0f3fa; color:#384864; }
-.pill.fit-yes { background:var(--known); color:var(--known-ink); font-weight:650; }
-.pill.fit-maybe { background:#fff3d6; color:#8a5a00; font-weight:650; }
-.pill.fit-no { background:#fbe6e6; color:#a3282f; font-weight:650; }
 .links-cell { display:flex; gap:.4rem; flex-wrap:wrap; }
 .links-cell a, .btn { border:1px solid #b9c8ed; border-radius:7px; padding:.35rem .55rem; text-decoration:none; font-size:.82rem; font-weight:600; white-space:nowrap; }
 .links-cell a:hover, .btn:hover { background:#edf2ff; }
