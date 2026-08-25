@@ -3,8 +3,8 @@ name: Wesleyan University
 order: 3
 state: CT
 region: Northeast
-scheduleText: Live visit calendar; open houses listed there
-dated: false
+scheduleText: 'Booked: Virtual information session — Sep 10, 2026 · 7:00 PM ET'
+dated: true
 visitUrl: https://admission.wesleyan.edu/portal/campusvisit
 virtualUrl: https://admission.wesleyan.edu/portal/campusvisit
 coords:

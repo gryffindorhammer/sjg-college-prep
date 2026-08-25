@@ -44,6 +44,16 @@ URL:https://admissions.berkeley.edu/showcase/
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:wesleyan-virtual-information-session-20260910@sjg-college-prep
+DTSTAMP:20260825T000000Z
+DTSTART;TZID=America/New_York:20260910T190000
+DTEND;TZID=America/New_York:20260910T200000
+SUMMARY:Wesleyan University — Virtual Information Session
+DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://admission.wesleyan.edu/portal/campusvisit
+URL:https://admission.wesleyan.edu/portal/campusvisit
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:utoronto-ask-students-20260917@sjg-college-prep
 DTSTAMP:20260825T000000Z
 DTSTART;TZID=America/New_York:20260917T190000

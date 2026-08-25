@@ -21,6 +21,7 @@ It currently contains:
 
 - Princeton University virtual visit — August 27, 2026, 7:00–8:00 PM ET
 - UC Berkeley information session — August 27, 2026, 3:00–4:00 PM ET
+- Wesleyan University virtual information session — September 10, 2026, 7:00–8:00 PM ET
 - University of Toronto “Ask Our Students Anything” virtual information session — September 17, 2026, 7:00–8:00 PM ET
 
 Both events use a one-hour duration because the source planner records a start time but not an end time. Publicly listed visit days and open houses are intentionally excluded until someone has registered for them.
