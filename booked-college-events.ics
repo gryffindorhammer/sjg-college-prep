@@ -64,6 +64,16 @@ URL:https://admissions.tufts.edu/visit/plan-your-visit/
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:nyu-campus-visit-20260902@sjg-college-prep
+DTSTAMP:20260825T000000Z
+DTSTART;TZID=America/New_York:20260902T110000
+DTEND;TZID=America/New_York:20260902T120000
+SUMMARY:New York University — In-Person Campus Visit
+DESCRIPTION:Confirmed registration. In-person campus visit; duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://www.nyu.edu/admissions/undergraduate-admissions/visit-nyu/campus-visit.html
+URL:https://www.nyu.edu/admissions/undergraduate-admissions/visit-nyu/campus-visit.html
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:wesleyan-virtual-information-session-20260910@sjg-college-prep
 DTSTAMP:20260825T000000Z
 DTSTART;TZID=America/New_York:20260910T190000
