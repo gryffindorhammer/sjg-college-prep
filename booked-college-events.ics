@@ -34,6 +34,16 @@ URL:https://admission.princeton.edu/visit-us
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:uc-berkeley-information-session-20260827@sjg-college-prep
+DTSTAMP:20260825T000000Z
+DTSTART;TZID=America/New_York:20260827T150000
+DTEND;TZID=America/New_York:20260827T160000
+SUMMARY:UC Berkeley — Information Session
+DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://admissions.berkeley.edu/showcase/
+URL:https://admissions.berkeley.edu/showcase/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:utoronto-ask-students-20260917@sjg-college-prep
 DTSTAMP:20260825T000000Z
 DTSTART;TZID=America/New_York:20260917T190000
