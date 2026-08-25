@@ -117,5 +117,6 @@ table.schools td.schedule .pill { white-space:normal; }
 @media (max-width:480px) {
   table.schools thead th:nth-child(3), table.schools tbody td:nth-child(3),
   table.schools thead th:nth-child(5), table.schools tbody td:nth-child(5),
-  table.schools thead th:nth-child(6), table.schools tbody td:nth-child(6) { display:none; }
+  table.schools thead th:nth-child(6), table.schools tbody td:nth-child(6),
+  table.schools thead th:nth-child(7), table.schools tbody td:nth-child(7) { display:none; }
 }
