@@ -3,8 +3,8 @@ name: Yale University
 order: 2
 state: CT
 region: Northeast
-scheduleText: Live tour calendar; registration required
-dated: false
+scheduleText: 'Booked: Virtual information session — Sep 1, 2026 · 4:00 PM ET'
+dated: true
 visitUrl: https://admissions.yale.edu/tours
 virtualUrl: https://admissions.yale.edu/tours
 coords:
