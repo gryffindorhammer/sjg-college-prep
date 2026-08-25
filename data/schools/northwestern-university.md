@@ -3,8 +3,8 @@ name: Northwestern University
 order: 34
 state: IL
 region: Midwest
-scheduleText: Live campus-visit and virtual-event calendar
-dated: false
+scheduleText: 'Booked: College of Arts and Sciences information session — Aug 26, 2026 · 4:30 PM ET (3:30 PM CT)'
+dated: true
 visitUrl: https://admissions.northwestern.edu/visit/
 virtualUrl: https://admissions.northwestern.edu/visit/
 coords:
