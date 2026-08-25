@@ -30,6 +30,7 @@
       rate: s.admissionRate ? escapeHtml(s.admissionRate) : '—',
       rank: s.rankingOverall ? escapeHtml(s.rankingOverall) : '—',
       mathRank: s.rankingMath ? escapeHtml(s.rankingMath) : '—',
+      mathPhd: s.mathPhd ? escapeHtml(s.mathPhd) : '—',
       theater: s.theaterType ? escapeHtml(cap(s.theaterType)) : '—'
     };
   }
@@ -44,6 +45,7 @@
       '<td>' + f.rate + '</td>' +
       '<td>' + f.rank + '</td>' +
       '<td>' + f.mathRank + '</td>' +
+      '<td>' + f.mathPhd + '</td>' +
       '<td class="theater">' + f.theater + '</td>' +
       '<td class="schedule"><span class="pill ' + f.pillClass + '">' + escapeHtml(s.scheduleText) + '</span></td>' +
       '<td><div class="links-cell">' +
@@ -64,6 +66,7 @@
       '<div class="card-fact"><span class="card-fact-label">Acceptance rate</span><span>' + f.rate + '</span></div>' +
       '<div class="card-fact"><span class="card-fact-label">Overall ranking</span><span>' + f.rank + '</span></div>' +
       '<div class="card-fact"><span class="card-fact-label">Math ranking</span><span>' + f.mathRank + '</span></div>' +
+      '<div class="card-fact"><span class="card-fact-label">Math Ph.D.</span><span>' + f.mathPhd + '</span></div>' +
       '<div class="card-fact"><span class="card-fact-label">Theater program</span><span>' + f.theater + '</span></div>' +
       '</div>' +
       '<span class="pill ' + f.pillClass + '">' + escapeHtml(s.scheduleText) + '</span>' +

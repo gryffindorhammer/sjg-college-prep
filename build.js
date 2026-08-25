@@ -9,6 +9,7 @@
 const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
+const MATH_PHD_PROGRAMS = require('./data/math-phd-programs');
 
 const ROOT = __dirname;
 const DATA_DIR = path.join(ROOT, 'data', 'schools');
@@ -76,7 +77,9 @@ function loadSchools() {
     if (!Array.isArray(data.coords) || data.coords.length !== 2) {
       throw new Error(`${file}: missing/invalid coords`);
     }
-    return { slug, ...data, sections: parseBody(content) };
+    const mathPhd = MATH_PHD_PROGRAMS[slug];
+    if (!mathPhd) throw new Error(`${file}: missing Mathematics Ph.D. availability`);
+    return { slug, ...data, mathPhd, sections: parseBody(content) };
   });
   schools.sort((a, b) => a.order - b.order);
   return schools;
@@ -188,6 +191,7 @@ function buildIndex(schools) {
     admissionRate: s.admissionRate && s.admissionRate !== 'none' ? s.admissionRate.value : null,
     rankingOverall: s.rankingOverall && s.rankingOverall !== 'none' ? s.rankingOverall.rank : null,
     rankingMath: s.rankingMath && s.rankingMath !== 'none' ? s.rankingMath.rank : null,
+    mathPhd: s.mathPhd.available ? 'Yes' : 'No',
     theaterType: s.sections.theaterProgram ? s.sections.theaterProgram.type : null,
   }));
 
@@ -235,9 +239,9 @@ function buildIndex(schools) {
       <div class="table-wrap">
         <table class="schools">
           <colgroup>
-            <col style="width:14%"><col style="width:6%"><col style="width:8%">
-            <col style="width:12%"><col style="width:12%"><col style="width:11%">
-            <col style="width:13%"><col style="width:16%"><col style="width:8%">
+            <col style="width:13%"><col style="width:5%"><col style="width:7%">
+            <col style="width:10%"><col style="width:10%"><col style="width:10%"><col style="width:8%">
+            <col style="width:11%"><col style="width:15%"><col style="width:8%">
           </colgroup>
           <thead>
             <tr>
@@ -247,6 +251,7 @@ function buildIndex(schools) {
               <th data-sort="admissionRate">Acceptance rate <span class="arrow">▲▼</span></th>
               <th data-sort="rankingOverall">Overall ranking <span class="arrow">▲▼</span></th>
               <th data-sort="rankingMath">Math ranking <span class="arrow">▲▼</span></th>
+              <th data-sort="mathPhd">Math Ph.D. <span class="arrow">▲▼</span></th>
               <th data-sort="theaterType">Theater program <span class="arrow">▲▼</span></th>
               <th data-sort="scheduleText">Visit schedule <span class="arrow">▲▼</span></th>
               <th>Links</th>
@@ -288,6 +293,7 @@ function buildSchoolPage(s) {
       ${factRow('Graduation rate', s.graduationRate)}
       ${rankRow('Overall ranking', s.rankingOverall)}
       ${rankRow('Mathematics ranking', s.rankingMath)}
+      ${factRow('Mathematics Ph.D. program', { value: s.mathPhd.program, source: s.mathPhd.source, url: s.mathPhd.url, checked: '2026-08-24' })}
       ${rankRow('Theater ranking', s.rankingTheater)}
     </div>
     <h3 class="section-heading">Stephen's fit: math &amp; theater</h3>
