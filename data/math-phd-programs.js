@@ -37,4 +37,5 @@ module.exports = {
   'cornell-university': { available: true, program: 'Ph.D. in Mathematics', source: 'Cornell Mathematics graduate program', url: 'https://math.cornell.edu/graduate-program' },
   'university-of-british-columbia': { available: true, program: 'Ph.D. in Mathematics', source: 'UBC Mathematics graduate program', url: 'https://www.math.ubc.ca/graduate/' },
   'mcgill-university': { available: true, program: 'Ph.D. in Mathematics and Statistics', source: 'McGill Mathematics and Statistics Department', url: 'https://www.mcgill.ca/mathstat/' },
+  'northwestern-university': { available: true, program: 'Ph.D. in Mathematics', source: 'Northwestern Mathematics graduate program', url: 'https://math.northwestern.edu/graduate/' },
 };
