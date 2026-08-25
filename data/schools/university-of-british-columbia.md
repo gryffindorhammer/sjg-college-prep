@@ -3,7 +3,7 @@ name: University of British Columbia
 order: 32
 state: BC
 region: Canada
-scheduleText: 'Booked: Virtual student panel — Sep 18, 2026 · 6:00 PM ET'
+scheduleText: 'Booked: Virtual student panel — Sep 18, 2026 · 9:00 PM ET'
 dated: true
 visitUrl: https://you.ubc.ca/tours-events/campus-tours/
 virtualUrl: https://virtualtour.you.ubc.ca/
