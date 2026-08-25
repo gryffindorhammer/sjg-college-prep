@@ -84,6 +84,16 @@ URL:https://www.nyu.edu/admissions/undergraduate-admissions/visit-nyu/campus-vis
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:william-and-mary-stem-panel-20260908@sjg-college-prep
+DTSTAMP:20260825T000000Z
+DTSTART;TZID=America/New_York:20260908T170000
+DTEND;TZID=America/New_York:20260908T180000
+SUMMARY:William & Mary — STEM Panel
+DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://www.wm.edu/admission/undergraduateadmission/visit/
+URL:https://www.wm.edu/admission/undergraduateadmission/visit/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:wesleyan-virtual-information-session-20260910@sjg-college-prep
 DTSTAMP:20260825T000000Z
 DTSTART;TZID=America/New_York:20260910T190000

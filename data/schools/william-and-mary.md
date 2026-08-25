@@ -3,7 +3,7 @@ name: William & Mary
 order: 22
 state: VA
 region: Mid-Atlantic
-scheduleText: 'Booked: Virtual information session — Sep 16, 2026 · 6:00 PM ET'
+scheduleText: 'Booked: STEM panel — Sep 8, 2026 · 5:00 PM ET; virtual information session — Sep 16, 2026 · 6:00 PM ET'
 dated: true
 visitUrl: https://admission.wm.edu/portal/info_sessions
 virtualUrl: https://www.wm.edu/admission/undergraduateadmission/visit/
