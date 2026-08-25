@@ -3,8 +3,8 @@ name: Boston University
 order: 7
 state: MA
 region: Northeast
-scheduleText: Live information-session and tour calendar
-dated: false
+scheduleText: 'Booked: Virtual information session — Sep 19, 2026 · 11:00 AM ET'
+dated: true
 visitUrl: https://www.bu.edu/admissions/visit-us/campus/
 virtualUrl: https://www.bu.edu/admissions/visit-us/
 coords:

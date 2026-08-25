@@ -153,4 +153,14 @@ DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because t
 URL:https://virtualtour.you.ubc.ca/
 STATUS:CONFIRMED
 END:VEVENT
+BEGIN:VEVENT
+UID:boston-university-virtual-information-session-20260919@sjg-college-prep
+DTSTAMP:20260825T000000Z
+DTSTART;TZID=America/New_York:20260919T110000
+DTEND;TZID=America/New_York:20260919T120000
+SUMMARY:Boston University — Virtual Information Session
+DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://www.bu.edu/admissions/visit-us/
+URL:https://www.bu.edu/admissions/visit-us/
+STATUS:CONFIRMED
+END:VEVENT
 END:VCALENDAR
