@@ -24,6 +24,16 @@ RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
+UID:university-of-rochester-virtual-information-session-20260826@sjg-college-prep
+DTSTAMP:20260825T000000Z
+DTSTART;TZID=America/New_York:20260826T190000
+DTEND;TZID=America/New_York:20260826T200000
+SUMMARY:University of Rochester — Virtual Information Session
+DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://admissions.rochester.edu/visit/campus-visit/
+URL:https://admissions.rochester.edu/visit/campus-visit/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:princeton-virtual-visit-20260827@sjg-college-prep
 DTSTAMP:20260825T000000Z
 DTSTART;TZID=America/New_York:20260827T190000

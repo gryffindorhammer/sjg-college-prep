@@ -19,6 +19,7 @@ https://gryffindorhammer.github.io/sjg-college-prep/
 
 It currently contains:
 
+- University of Rochester virtual information session — August 26, 2026, 7:00–8:00 PM ET
 - Princeton University virtual visit — August 27, 2026, 7:00–8:00 PM ET
 - UC Berkeley information session — August 27, 2026, 3:00–4:00 PM ET
 - Wesleyan University virtual information session — September 10, 2026, 7:00–8:00 PM ET

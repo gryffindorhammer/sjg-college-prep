@@ -3,7 +3,7 @@ name: University of Rochester
 order: 4
 state: NY
 region: Northeast
-scheduleText: 'Research Rochester: Oct 18 & Nov 10, 2026'
+scheduleText: 'Booked: Virtual information session — Aug 26, 2026 · 7:00 PM ET'
 dated: true
 visitUrl: https://admissions.enrollment.rochester.edu/portal/oncampus
 virtualUrl: https://admissions.rochester.edu/visit/campus-visit/
