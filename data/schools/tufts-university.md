@@ -3,8 +3,8 @@ name: Tufts University
 order: 6
 state: MA
 region: Northeast
-scheduleText: Live campus-visit calendar; registration required
-dated: false
+scheduleText: 'Booked: Virtual information session — Sep 1, 2026 · 9:00 AM ET'
+dated: true
 visitUrl: https://ugrad.admissions.tufts.edu/portal/campus-visit
 virtualUrl: https://admissions.tufts.edu/visit/plan-your-visit/
 coords:
