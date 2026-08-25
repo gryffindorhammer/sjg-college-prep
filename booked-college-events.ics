@@ -123,4 +123,14 @@ DESCRIPTION:Confirmed registration. Virtual information session; duration is ass
 URL:https://apply.adm.utoronto.ca/portal/us-campus-visits
 STATUS:CONFIRMED
 END:VEVENT
+BEGIN:VEVENT
+UID:university-of-british-columbia-student-panel-20260918@sjg-college-prep
+DTSTAMP:20260825T000000Z
+DTSTART;TZID=America/New_York:20260918T180000
+DTEND;TZID=America/New_York:20260918T190000
+SUMMARY:University of British Columbia — Virtual Student Panel
+DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://virtualtour.you.ubc.ca/
+URL:https://virtualtour.you.ubc.ca/
+STATUS:CONFIRMED
+END:VEVENT
 END:VCALENDAR
