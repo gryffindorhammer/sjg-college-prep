@@ -3,8 +3,8 @@ name: University at Buffalo
 order: 12
 state: NY
 region: Northeast
-scheduleText: Live campus-tour calendar
-dated: false
+scheduleText: 'Booked: Information session — Sep 14, 2026 · 3:30 PM ET'
+dated: true
 visitUrl: https://ubconnect.buffalo.edu/portal/campustour
 virtualUrl: https://www.buffalo.edu/admissions/visit.html
 coords:
