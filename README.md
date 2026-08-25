@@ -12,3 +12,14 @@ npm run build
 See `CLAUDE.md` for the full data/build format.
 
 https://gryffindorhammer.github.io/sjg-college-prep/
+
+## Confirmed-event calendar
+
+[`booked-college-events.ics`](booked-college-events.ics) is the calendar source for events explicitly marked **Booked** in the planner. Download it and open it with Google Calendar, Apple Calendar, Outlook, or another calendar app to import the events.
+
+It currently contains:
+
+- Princeton University virtual visit — August 27, 2026, 7:00–8:00 PM ET
+- University of Toronto “Ask Our Students Anything” virtual information session — September 17, 2026, 7:00–8:00 PM ET
+
+Both events use a one-hour duration because the source planner records a start time but not an end time. Publicly listed visit days and open houses are intentionally excluded until someone has registered for them.
