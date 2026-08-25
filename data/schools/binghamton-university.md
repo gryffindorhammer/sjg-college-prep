@@ -3,8 +3,8 @@ name: Binghamton University
 order: 5
 state: NY
 region: Northeast
-scheduleText: Live welcome-session and tour calendar
-dated: false
+scheduleText: 'Booked: Virtual information session — Sep 10, 2026 · 6:00 PM ET'
+dated: true
 visitUrl: https://connect.binghamton.edu/portal/campus-visit
 virtualUrl: https://www.binghamton.edu/admissions/undergraduate/visit/
 coords:
