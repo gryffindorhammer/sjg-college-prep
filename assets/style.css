@@ -9,6 +9,13 @@ header nav a { color:white; text-decoration:none; font-weight:650; border:1px so
 header nav a:hover, header nav a:focus, header nav a[aria-current="page"] { background:rgba(255,255,255,.15); outline:none; }
 main { padding:2rem 1.25rem 4rem; }
 .notice { background:#fff8df; border:1px solid #f0d98d; border-radius:12px; padding:1rem 1.1rem; margin-bottom:1.4rem; }
+.booked-calendar { display:grid; grid-template-columns:1fr auto; gap:.4rem 1.25rem; background:var(--card); border:1px solid #b9c8ed; border-radius:12px; padding:1rem 1.1rem; margin-bottom:1.4rem; }
+.booked-calendar h2 { margin:0; font-size:1.15rem; }
+.booked-calendar p { margin:.25rem 0 0; color:var(--muted); font-size:.92rem; }
+.booked-calendar > .btn { align-self:center; }
+.booked-calendar ul { grid-column:1 / -1; margin:.65rem 0 0; padding-left:1.2rem; }
+.booked-calendar li { margin:.35rem 0; }
+.booked-calendar li span { margin-left:.35rem; color:var(--muted); }
 .controls { display:flex; flex-wrap:wrap; gap:.75rem; align-items:center; margin-bottom:1.25rem; }
 input, select { font:inherit; border:1px solid var(--line); border-radius:8px; padding:.65rem .75rem; background:white; color:var(--ink); }
 input { flex:1 1 280px; }
@@ -88,6 +95,9 @@ table.schools td.schedule .pill { white-space:normal; }
   header nav a { padding:.55rem .85rem; font-size:.9rem; }
   main { padding:1.25rem .85rem 3rem; }
   .notice { padding:.85rem .9rem; font-size:.9rem; }
+  .booked-calendar { grid-template-columns:1fr; padding:.85rem .9rem; }
+  .booked-calendar > .btn { justify-self:start; margin-top:.4rem; }
+  .booked-calendar li span { display:block; margin-left:0; }
   .controls { flex-direction:column; align-items:stretch; gap:.6rem; }
   .controls input, .controls select { flex:1 1 auto; width:100%; }
   .sort-dir-btn { width:100%; }

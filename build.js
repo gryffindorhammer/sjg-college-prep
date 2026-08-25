@@ -12,6 +12,7 @@ const matter = require('gray-matter');
 
 const ROOT = __dirname;
 const DATA_DIR = path.join(ROOT, 'data', 'schools');
+const BOOKED_EVENTS_FILE = path.join(ROOT, 'booked-college-events.ics');
 const REGIONS = ['Northeast', 'Mid-Atlantic', 'Midwest', 'West', 'Canada'];
 
 const SECTION_HEADINGS = [
@@ -81,6 +82,29 @@ function loadSchools() {
   return schools;
 }
 
+function icalField(block, field) {
+  const line = block.split(/\r?\n/).find((value) => value.startsWith(field));
+  return line ? line.slice(line.indexOf(':') + 1) : '';
+}
+
+function loadBookedEvents() {
+  const calendar = fs.readFileSync(BOOKED_EVENTS_FILE, 'utf8');
+  const events = calendar.match(/BEGIN:VEVENT[\s\S]*?END:VEVENT/g) || [];
+  return events.map((block) => {
+    const start = icalField(block, 'DTSTART');
+    const match = start.match(/^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})/);
+    if (!match) throw new Error(`Booked event has an invalid DTSTART: ${start}`);
+    const [, year, month, day, hour, minute] = match;
+    return {
+      summary: icalField(block, 'SUMMARY'),
+      url: icalField(block, 'URL'),
+      timestamp: `${year}${month}${day}${hour}${minute}`,
+      date: new Intl.DateTimeFormat('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(new Date(Date.UTC(year, Number(month) - 1, day))),
+      time: new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'UTC' }).format(new Date(Date.UTC(year, Number(month) - 1, day, hour, minute))) + ' ET',
+    };
+  }).sort((a, b) => a.timestamp.localeCompare(b.timestamp));
+}
+
 function factRow(label, fact) {
   if (!fact || fact === 'none') {
     const empty = fact === 'none' ? 'No credible ranking found for this category' : 'Not yet researched — sourced profile coming in a follow-up update.';
@@ -147,6 +171,9 @@ function buildIndex(schools) {
   const pendingSchools = schools.filter(isFullyPending);
   const researchedCount = schools.length - pendingSchools.length;
   const datedCount = schools.filter((s) => s.dated).length;
+  const bookedEvents = loadBookedEvents();
+  const bookedEventItems = bookedEvents.map((event) => `
+        <li><strong>${escapeHtml(event.summary)}</strong><span>${escapeHtml(event.date)} · ${escapeHtml(event.time)}</span>${event.url ? ` <a href="${escapeHtml(event.url)}" target="_blank" rel="noopener">Event details ↗</a>` : ''}</li>`).join('');
 
   const clientRows = schools.map((s) => ({
     slug: s.slug,
@@ -170,6 +197,14 @@ function buildIndex(schools) {
     </section>
     <section class="notice" aria-label="Profile data note">
       Click a school for its full sourced profile: enrollment, cost, and outcome data plus Stephen's math/theater fit. Every figure links to its source and the date it was last checked. Rankings are only shown when a credible source specifically publishes one for that category (overall, math, or theater) — where no theater ranking exists, sourced program facts are shown instead. ${researchedCount} of ${schools.length} schools have a sourced profile so far${pendingSchools.length ? `; the rest (${pendingSchools.map((s) => s.name).join(', ')}) are marked "not yet researched."` : '.'}
+    </section>
+    <section class="booked-calendar" aria-labelledby="booked-events-heading">
+      <div>
+        <h2 id="booked-events-heading">Booked events calendar</h2>
+        <p>Confirmed college visits and information sessions. Download the calendar to add it to Google Calendar, Apple Calendar, or Outlook.</p>
+      </div>
+      <a class="btn" href="booked-college-events.ics">Download calendar (.ics)</a>
+      <ul>${bookedEventItems}</ul>
     </section>
     <div class="controls">
       <label class="hidden" for="search">Search schools</label>
