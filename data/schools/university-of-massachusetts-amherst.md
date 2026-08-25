@@ -3,8 +3,8 @@ name: University of Massachusetts Amherst
 order: 8
 state: MA
 region: Northeast
-scheduleText: Live Fall Visit Days and tour calendar
-dated: false
+scheduleText: 'Booked: Virtual information session — Sep 15, 2026 · 7:00 PM ET'
+dated: true
 visitUrl: https://www.umass.edu/admissions/visit
 virtualUrl: https://www.umass.edu/admissions/admissions-events
 coords:
