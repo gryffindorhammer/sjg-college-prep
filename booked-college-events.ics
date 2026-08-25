@@ -144,6 +144,16 @@ URL:https://admission.wesleyan.edu/portal/campusvisit
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:university-at-buffalo-information-session-20260914@sjg-college-prep
+DTSTAMP:20260825T000000Z
+DTSTART;TZID=America/New_York:20260914T153000
+DTEND;TZID=America/New_York:20260914T163000
+SUMMARY:University at Buffalo — Information Session
+DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://www.buffalo.edu/admissions/visit.html
+URL:https://www.buffalo.edu/admissions/visit.html
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:university-of-massachusetts-amherst-virtual-information-session-20260915@sjg-college-prep
 DTSTAMP:20260825T000000Z
 DTSTART;TZID=America/New_York:20260915T190000
