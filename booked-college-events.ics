@@ -94,6 +94,16 @@ URL:https://admission.wesleyan.edu/portal/campusvisit
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:william-and-mary-virtual-information-session-20260916@sjg-college-prep
+DTSTAMP:20260825T000000Z
+DTSTART;TZID=America/New_York:20260916T180000
+DTEND;TZID=America/New_York:20260916T190000
+SUMMARY:William & Mary — Virtual Information Session
+DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://www.wm.edu/admission/undergraduateadmission/visit/
+URL:https://www.wm.edu/admission/undergraduateadmission/visit/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:utoronto-ask-students-20260917@sjg-college-prep
 DTSTAMP:20260825T000000Z
 DTSTART;TZID=America/New_York:20260917T190000
