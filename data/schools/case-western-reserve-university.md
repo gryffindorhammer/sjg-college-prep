@@ -3,8 +3,8 @@ name: Case Western Reserve University
 order: 9
 state: OH
 region: Midwest
-scheduleText: Live visit and event calendar
-dated: false
+scheduleText: 'Booked: Online information session — Sep 1, 2026 · 3:00 PM ET'
+dated: true
 visitUrl: https://case.edu/admission/visit
 virtualUrl: https://case.edu/admission/visits-events
 coords:
