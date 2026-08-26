@@ -200,8 +200,10 @@ function buildIndex(schools) {
           <h3>${escapeHtml(group.date)}</h3>
           <ul>${group.events.map((event) => {
             const showTourAddress = /In-Person Campus Tour|In-Person Information Session and Tour/.test(event.summary);
+            const showHotelAddress = /Itinerary \(The Study at UChicago\)/.test(event.summary);
             const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location)}`;
-            return `<li class="${event.completed ? 'completed-event' : ''}"><strong>${escapeHtml(event.summary)}</strong><span>${escapeHtml(event.time)}</span>${event.url ? ` <a href="${escapeHtml(event.url)}" target="_blank" rel="noopener">Event details ↗</a>` : ''}${showTourAddress && event.location ? `<div class="event-location">Check-in: <a href="${mapUrl}" target="_blank" rel="noopener">${escapeHtml(event.location)} ↗</a></div>` : ''}</li>`;
+            const locationLabel = showHotelAddress ? 'Hotel' : 'Check-in';
+            return `<li class="${event.completed ? 'completed-event' : ''}"><strong>${escapeHtml(event.summary)}</strong><span>${escapeHtml(event.time)}</span>${event.url ? ` <a href="${escapeHtml(event.url)}" target="_blank" rel="noopener">Event details ↗</a>` : ''}${(showTourAddress || showHotelAddress) && event.location ? `<div class="event-location">${locationLabel}: <a href="${mapUrl}" target="_blank" rel="noopener">${escapeHtml(event.location)} ↗</a></div>` : ''}</li>`;
           }).join('')}</ul>
         </section>`).join('');
 
@@ -235,7 +237,7 @@ function buildIndex(schools) {
     <section class="booked-calendar" aria-labelledby="booked-events-heading">
       <div>
         <h2 id="booked-events-heading">Booked events calendar</h2>
-        <p>Confirmed college visits and information sessions, grouped by day. Completed sessions appear in red with strikethrough. Download the calendar to add it to Google Calendar, Apple Calendar, or Outlook.</p>
+        <p>Confirmed college visits and information sessions, grouped by day. Completed sessions appear in red with strikethrough. <a href="#schools-body">School profiles</a>. Download the calendar to add it to Google Calendar, Apple Calendar, or Outlook.</p>
       </div>
       <a class="btn" href="booked-college-events.ics">Download calendar (.ics)</a>
       <div class="booked-days">${bookedEventItems}</div>
