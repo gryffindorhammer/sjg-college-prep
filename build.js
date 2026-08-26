@@ -87,7 +87,12 @@ function loadSchools() {
 
 function icalField(block, field) {
   const line = block.split(/\r?\n/).find((value) => value.startsWith(field));
-  return line ? line.slice(line.indexOf(':') + 1) : '';
+  if (!line) return '';
+  return line.slice(line.indexOf(':') + 1)
+    .replace(/\\n/gi, '\n')
+    .replace(/\\,/g, ',')
+    .replace(/\\;/g, ';')
+    .replace(/\\\\/g, '\\');
 }
 
 function loadBookedEvents() {
@@ -195,7 +200,8 @@ function buildIndex(schools) {
           <h3>${escapeHtml(group.date)}</h3>
           <ul>${group.events.map((event) => {
             const showTourAddress = /In-Person Campus Tour|In-Person Information Session and Tour/.test(event.summary);
-            return `<li class="${event.completed ? 'completed-event' : ''}"><strong>${escapeHtml(event.summary)}</strong><span>${escapeHtml(event.time)}</span>${event.url ? ` <a href="${escapeHtml(event.url)}" target="_blank" rel="noopener">Event details ↗</a>` : ''}${showTourAddress && event.location ? `<div class="event-location">Check-in: ${escapeHtml(event.location)}</div>` : ''}</li>`;
+            const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location)}`;
+            return `<li class="${event.completed ? 'completed-event' : ''}"><strong>${escapeHtml(event.summary)}</strong><span>${escapeHtml(event.time)}</span>${event.url ? ` <a href="${escapeHtml(event.url)}" target="_blank" rel="noopener">Event details ↗</a>` : ''}${showTourAddress && event.location ? `<div class="event-location">Check-in: <a href="${mapUrl}" target="_blank" rel="noopener">${escapeHtml(event.location)} ↗</a></div>` : ''}</li>`;
           }).join('')}</ul>
         </section>`).join('');
 
