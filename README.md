@@ -19,7 +19,7 @@ https://gryffindorhammer.github.io/sjg-college-prep/
 
 It currently contains:
 
-- Northwestern University in-person campus tour — August 26, 2026, 2:30–3:30 PM ET
+- Northwestern University in-person campus tour — August 28, 2026, 2:30–3:30 PM ET
 - Northwestern University College of Arts and Sciences information session — August 26, 2026, 4:30–5:30 PM ET (3:30–4:30 PM CT)
 - University of Rochester virtual information session — August 26, 2026, 7:00–8:00 PM ET
 - Princeton University virtual visit — August 27, 2026, 7:00–8:00 PM ET
