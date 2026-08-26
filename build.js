@@ -152,7 +152,7 @@ function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
 
 function pageShell({ title, activeNav, body, depth }) {
   const prefix = depth ? '../'.repeat(depth) : '';
-  const assetVersion = '20260825-self-guided';
+  const assetVersion = '20260825-tour-addresses';
   return `<!doctype html>
 <html lang="en">
 <head>
