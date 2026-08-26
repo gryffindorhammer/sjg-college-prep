@@ -3,8 +3,9 @@ name: Indiana University Bloomington
 order: 18
 state: IN
 region: Midwest
-scheduleText: Live visit-options calendar
+scheduleText: Self research / self-guided virtual tour — on my own time
 dated: false
+selfGuided: true
 visitUrl: https://bloomington.iu.edu/admissions/visit.html
 virtualUrl: https://bloomington.iu.edu/admissions/visit.html
 coords:

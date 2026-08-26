@@ -3,8 +3,9 @@ name: University of Iowa
 order: 14
 state: IA
 region: Midwest
-scheduleText: Live Hawkeye Visit Days calendar
+scheduleText: Self research / self-guided virtual tour — on my own time
 dated: false
+selfGuided: true
 visitUrl: https://admissions.uiowa.edu/hawkeye-visit-days
 virtualUrl: https://admissions.uiowa.edu/hawkeye-visit-days
 coords:

@@ -3,8 +3,9 @@ name: The Ohio State University
 order: 16
 state: OH
 region: Midwest
-scheduleText: Live campus-visit calendar
+scheduleText: Self research / self-guided virtual tour — on my own time
 dated: false
+selfGuided: true
 visitUrl: https://campusvisit.osu.edu/
 virtualUrl: https://undergrad.osu.edu/visit
 coords:

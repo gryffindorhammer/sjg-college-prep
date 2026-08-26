@@ -3,8 +3,9 @@ name: University of Pittsburgh
 order: 10
 state: PA
 region: Mid-Atlantic
-scheduleText: Live guided-tour and information-session calendar
+scheduleText: Self research / self-guided virtual tour — on my own time
 dated: false
+selfGuided: true
 visitUrl: https://admissions.pitt.edu/visit/schedule/
 virtualUrl: https://admissions.pitt.edu/visit/
 coords:

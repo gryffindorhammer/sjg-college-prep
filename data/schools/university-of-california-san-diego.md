@@ -3,8 +3,9 @@ name: University of California, San Diego
 order: 26
 state: CA
 region: West
-scheduleText: Live campus-tour and prospective-event calendar
+scheduleText: Self research / self-guided virtual tour — on my own time
 dated: false
+selfGuided: true
 visitUrl: https://admissions.ucsd.edu/visit/index.html
 virtualUrl: https://admissions.ucsd.edu/visit/events/
 coords:

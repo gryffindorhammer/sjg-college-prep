@@ -3,8 +3,9 @@ name: Cornell University
 order: 31
 state: NY
 region: Northeast
-scheduleText: Live campus visits and online information sessions
+scheduleText: Self research / self-guided virtual tour — on my own time
 dated: false
+selfGuided: true
 visitUrl: https://admissions.cornell.edu/visit-and-connect
 virtualUrl: https://admissions.cornell.edu/virtual-visit
 coords:

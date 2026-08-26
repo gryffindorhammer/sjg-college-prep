@@ -3,8 +3,9 @@ name: Temple University
 order: 13
 state: PA
 region: Mid-Atlantic
-scheduleText: Selected open-house weekends; see live calendar
+scheduleText: Self research / self-guided virtual tour — on my own time
 dated: false
+selfGuided: true
 visitUrl: https://admissions.temple.edu/visit
 virtualUrl: https://admissions.temple.edu/visit/open-houses
 coords:

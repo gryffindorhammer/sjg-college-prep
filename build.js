@@ -175,6 +175,7 @@ function buildIndex(schools) {
   const researchedCount = schools.length - pendingSchools.length;
   const completedCount = schools.filter((s) => s.completed).length;
   const upcomingDatedCount = schools.filter((s) => s.dated && !s.completed).length;
+  const selfGuidedCount = schools.filter((s) => s.selfGuided).length;
   const bookedEvents = loadBookedEvents();
   const bookedEventItems = bookedEvents.map((event) => `
         <li><strong>${escapeHtml(event.summary)}</strong><span>${escapeHtml(event.date)} · ${escapeHtml(event.time)}</span>${event.url ? ` <a href="${escapeHtml(event.url)}" target="_blank" rel="noopener">Event details ↗</a>` : ''}</li>`).join('');
@@ -186,6 +187,7 @@ function buildIndex(schools) {
     region: s.region,
     scheduleText: s.scheduleText,
     dated: s.dated,
+    selfGuided: Boolean(s.selfGuided),
     completed: Boolean(s.completed),
     completionNotes: s.completionNotes || null,
     visitUrl: s.visitUrl,
@@ -200,7 +202,7 @@ function buildIndex(schools) {
 
   const body = `
     <section class="notice" aria-label="Schedule note">
-      Event calendars change often. Green entries have a published upcoming Fall 2026 date (${upcomingDatedCount} of ${schools.length} schools); blue entries mark completed sessions (${completedCount}). Gray entries link to the school's live official calendar. Register before making travel plans.
+      Event calendars change often. Green entries have a published upcoming Fall 2026 date (${upcomingDatedCount} of ${schools.length} schools); blue entries mark completed sessions (${completedCount}); yellow entries are self-guided research or virtual tours (${selfGuidedCount}). Gray entries link to the school's live official calendar. Register before making travel plans.
     </section>
     <section class="notice" aria-label="Profile data note">
       Click a school for its full sourced profile: enrollment, cost, and outcome data plus Stephen's math/theater fit. Every figure links to its source and the date it was last checked. Rankings are only shown when a credible source specifically publishes one for that category (overall, math, or theater) — where no theater ranking exists, sourced program facts are shown instead. ${researchedCount} of ${schools.length} schools have a sourced profile so far${pendingSchools.length ? `; the rest (${pendingSchools.map((s) => s.name).join(', ')}) are marked "not yet researched."` : '.'}
@@ -279,7 +281,7 @@ function buildSchoolPage(s) {
       <a class="back" href="../index.html">← All schools</a>
       <h2>${escapeHtml(s.name)}</h2>
       <div class="meta">${escapeHtml(s.location || `${s.state} · ${s.region}`)}</div>
-      <span class="pill ${s.completed ? 'completed' : s.dated ? 'date' : 'calendar'}">${escapeHtml(s.scheduleText)}</span>${s.completionNotes ? `<div class="completion-note">${escapeHtml(s.completionNotes)}</div>` : ''}
+      <span class="pill ${s.completed ? 'completed' : s.selfGuided ? 'self-guided' : s.dated ? 'date' : 'calendar'}">${escapeHtml(s.scheduleText)}</span>${s.completionNotes ? `<div class="completion-note">${escapeHtml(s.completionNotes)}</div>` : ''}
       <div class="links-row">
         <a href="${escapeHtml(s.visitUrl)}" target="_blank" rel="noopener">In-person visit ↗</a>
         <a href="${escapeHtml(s.virtualUrl)}" target="_blank" rel="noopener">Virtual / events ↗</a>

@@ -26,7 +26,7 @@
 
   function computeFields(s) {
     return {
-      pillClass: s.completed ? 'completed' : s.dated ? 'date' : 'calendar',
+      pillClass: s.completed ? 'completed' : s.selfGuided ? 'self-guided' : s.dated ? 'date' : 'calendar',
       completionNotes: s.completionNotes ? escapeHtml(s.completionNotes) : '',
       rate: s.admissionRate ? escapeHtml(s.admissionRate) : '—',
       rank: s.rankingOverall ? escapeHtml(s.rankingOverall) : '—',

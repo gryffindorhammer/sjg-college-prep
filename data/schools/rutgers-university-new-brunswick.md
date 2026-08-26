@@ -3,8 +3,9 @@ name: Rutgers University–New Brunswick
 order: 15
 state: NJ
 region: Northeast
-scheduleText: Tours available; no prospective-student open houses
+scheduleText: Self research / self-guided virtual tour — on my own time
 dated: false
+selfGuided: true
 visitUrl: https://admissions.rutgers.edu/TourRutgersNB
 virtualUrl: https://admissions.rutgers.edu/TourRutgersNB
 coords:

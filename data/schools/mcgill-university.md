@@ -3,8 +3,9 @@ name: McGill University
 order: 33
 state: QC
 region: Canada
-scheduleText: Live campus tours and virtual student-hosted tours
+scheduleText: Self research / self-guided virtual tour — on my own time
 dated: false
+selfGuided: true
 visitUrl: https://www.mcgill.ca/undergraduate-admissions/visit/campus-tours
 virtualUrl: https://future.mcgill.ca/portal/virtual_campus_tours
 coords:
