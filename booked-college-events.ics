@@ -24,6 +24,17 @@ RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
+UID:northwestern-university-in-person-campus-tour-20260826@sjg-college-prep
+DTSTAMP:20260825T000000Z
+DTSTART;TZID=America/New_York:20260826T143000
+DTEND;TZID=America/New_York:20260826T153000
+SUMMARY:Northwestern University — In-Person Campus Tour
+DESCRIPTION:Confirmed registration. In-person event in Evanston, IL; duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://admissions.northwestern.edu/visit/
+LOCATION:Northwestern University\, Evanston\, IL
+URL:https://admissions.northwestern.edu/visit/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:northwestern-college-of-arts-and-sciences-information-session-20260826@sjg-college-prep
 DTSTAMP:20260825T000000Z
 DTSTART;TZID=America/New_York:20260826T163000
