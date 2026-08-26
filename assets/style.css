@@ -93,8 +93,12 @@ table.schools td.schedule .pill { white-space:normal; }
 .links-row a { border:1px solid #b9c8ed; border-radius:7px; padding:.5rem .75rem; text-decoration:none; font-size:.9rem; font-weight:600; }
 .links-row a:hover { background:#edf2ff; }
 
-/* Map page (map.html) */
-#map { height:calc(100vh - 220px); min-height:420px; width:100%; border:1px solid var(--line); border-radius:13px; background:#e6edf7; }
+/* Filtered school map */
+.school-map-section { margin-top:2rem; }
+.school-map-head { display:flex; justify-content:space-between; gap:1rem; align-items:baseline; margin-bottom:.7rem; }
+.school-map-head h2 { margin:0; font-size:1.15rem; }
+.school-map-head p { margin:0; color:var(--muted); font-size:.9rem; }
+#map { height:480px; min-height:360px; width:100%; border:1px solid var(--line); border-radius:13px; background:#e6edf7; }
 
 .scroll-hint { display:none; }
 
@@ -121,7 +125,8 @@ table.schools td.schedule .pill { white-space:normal; }
   .links-cell a { text-align:center; padding:.5rem .55rem; }
   .links-row { flex-direction:column; align-items:stretch; }
   .links-row a { text-align:center; }
-  #map { height:calc(100vh - 260px); }
+  .school-map-head { align-items:flex-start; flex-direction:column; gap:.15rem; }
+  #map { height:380px; min-height:320px; }
 }
 
 @media (max-width:480px) {
