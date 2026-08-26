@@ -95,6 +95,16 @@ URL:https://admissions.yale.edu/tours
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:tufts-virtual-information-session-20260908@sjg-college-prep
+DTSTAMP:20260825T000000Z
+DTSTART;TZID=America/New_York:20260908T160000
+DTEND;TZID=America/New_York:20260908T170000
+SUMMARY:Tufts University — Virtual Information Session
+DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://admissions.tufts.edu/visit/plan-your-visit/
+URL:https://admissions.tufts.edu/visit/plan-your-visit/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:william-and-mary-stem-panel-20260908@sjg-college-prep
 DTSTAMP:20260825T000000Z
 DTSTART;TZID=America/New_York:20260908T170000

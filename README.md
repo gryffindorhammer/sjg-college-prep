@@ -23,6 +23,7 @@ It currently contains:
 - Princeton University virtual visit — August 27, 2026, 7:00–8:00 PM ET
 - UC Berkeley information session — August 27, 2026, 3:00–4:00 PM ET
 - Case Western Reserve University online information session — September 1, 2026, 3:00–4:00 PM ET
+- Tufts University virtual information session — September 8, 2026, 4:00–5:00 PM ET
 - Wesleyan University virtual information session — September 10, 2026, 7:00–8:00 PM ET
 - University at Buffalo information session — September 14, 2026, 3:30–4:30 PM ET
 - University of Toronto “Ask Our Students Anything” virtual information session — September 17, 2026, 7:00–8:00 PM ET
