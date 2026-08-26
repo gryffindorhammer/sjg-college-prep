@@ -3,8 +3,8 @@ name: University of Chicago
 order: 1
 state: IL
 region: Midwest
-scheduleText: Live visit and open-house calendar
-dated: false
+scheduleText: 'Booked: In-person information session and tour — Aug 28, 2026 · 9:00 AM ET'
+dated: true
 visitUrl: https://collegeadmissions.uchicago.edu/visit-connect/daily-visits/
 virtualUrl: https://collegeadmissions.uchicago.edu/visit-connect/open-houses/
 coords:
