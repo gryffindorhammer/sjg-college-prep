@@ -89,10 +89,10 @@ BEGIN:VEVENT
 UID:university-of-chicago-information-session-and-tour-20260828@sjg-college-prep
 DTSTAMP:20260825T000000Z
 DTSTART;TZID=America/New_York:20260828T100000
-DTEND;TZID=America/New_York:20260828T110000
+DTEND;TZID=America/New_York:20260828T114500
 SUMMARY:University of Chicago — In-Person Information Session and Tour
-DESCRIPTION:Confirmed registration. In-person event in Chicago, IL; duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://collegeadmissions.uchicago.edu/visit-connect/daily-visits/
-LOCATION:University of Chicago\, Chicago\, IL
+DESCRIPTION:Confirmed registration. Friday, August 28, 2026, 9:00–10:45 AM CT (10:00–11:45 AM ET). Includes a ~45-minute information session with an admissions counselor, followed by a ~60-minute student-led walking tour.\n\nOfficial event information: https://collegeadmissions.uchicago.edu/visit-connect/daily-visits/
+LOCATION:Rosenwald Hall\, 1101 E 58th St\, Chicago\, IL 60637\, United States
 URL:https://collegeadmissions.uchicago.edu/visit-connect/daily-visits/
 STATUS:CONFIRMED
 END:VEVENT

@@ -24,7 +24,7 @@ It currently contains:
 - University of Rochester virtual information session — August 26, 2026, 7:00–8:00 PM ET
 - Princeton University virtual visit — August 27, 2026, 7:00–8:00 PM ET
 - UC Berkeley information session — August 27, 2026, 3:00–4:00 PM ET
-- University of Chicago in-person information session and tour — August 28, 2026, 10:00–11:00 AM ET
+- University of Chicago in-person information session and tour — August 28, 2026, 10:00–11:45 AM ET (9:00–10:45 AM CT); Rosenwald Hall, 1101 E 58th St, Chicago, IL 60637
 - Case Western Reserve University online information session — September 1, 2026, 3:00–4:00 PM ET
 - Tufts University virtual information session — September 8, 2026, 4:00–5:00 PM ET
 - Wesleyan University virtual information session — September 10, 2026, 7:00–8:00 PM ET
