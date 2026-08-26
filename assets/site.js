@@ -18,10 +18,14 @@
   var NUMERIC_SORT_KEYS = ['admissionRate', 'rankingOverall', 'rankingMath'];
   var map = null;
   var markerLayer = null;
+  var markersBySlug = {};
+  var focusSlug = null;
+  try { focusSlug = new URLSearchParams(window.location.search).get('school'); } catch (e) {}
 
   function renderMap(schools) {
     if (!map || !markerLayer) return;
     markerLayer.clearLayers();
+    markersBySlug = {};
     var bounds = [];
     schools.forEach(function (s) {
       var marker = L.marker(s.coords).bindPopup(
@@ -29,12 +33,21 @@
         '<br><a href="schools/' + escapeHtml(s.slug) + '.html">Full profile →</a> &middot; <a href="' + escapeHtml(s.visitUrl) + '" target="_blank" rel="noopener">Visit ↗</a>'
       );
       markerLayer.addLayer(marker);
+      markersBySlug[s.slug] = marker;
       bounds.push(s.coords);
     });
     if (mapCount) mapCount.textContent = schools.length + ' school' + (schools.length === 1 ? '' : 's') + ' shown on the map.';
-    if (bounds.length > 1) map.fitBounds(bounds, { padding:[28,28], maxZoom:6 });
-    else if (bounds.length === 1) map.setView(bounds[0], 10);
-    else map.setView([40.5, -87], 4);
+    if (focusSlug && markersBySlug[focusSlug]) {
+      map.setView(markersBySlug[focusSlug].getLatLng(), 10);
+      markersBySlug[focusSlug].openPopup();
+      focusSlug = null;
+    } else if (bounds.length > 1) {
+      map.fitBounds(bounds, { padding:[28,28], maxZoom:6 });
+    } else if (bounds.length === 1) {
+      map.setView(bounds[0], 10);
+    } else {
+      map.setView([40.5, -87], 4);
+    }
   }
 
   function initMap() {
