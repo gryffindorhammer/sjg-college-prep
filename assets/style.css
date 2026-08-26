@@ -13,9 +13,15 @@ main { padding:2rem 1.25rem 4rem; }
 .booked-calendar h2 { margin:0; font-size:1.15rem; }
 .booked-calendar p { margin:.25rem 0 0; color:var(--muted); font-size:.92rem; }
 .booked-calendar > .btn { align-self:center; }
-.booked-calendar ul { grid-column:1 / -1; margin:.65rem 0 0; padding-left:1.2rem; }
-.booked-calendar li { margin:.35rem 0; }
+.booked-days { grid-column:1 / -1; display:grid; gap:.75rem; margin-top:.65rem; }
+.booked-day { border-top:1px solid var(--line); padding-top:.65rem; }
+.booked-day:first-child { border-top:0; padding-top:0; }
+.booked-day h3 { margin:0 0 .2rem; font-size:.9rem; color:var(--muted); }
+.booked-day ul { margin:0; padding-left:1.2rem; }
+.booked-calendar li { margin:.25rem 0; }
 .booked-calendar li span { margin-left:.35rem; color:var(--muted); }
+.booked-calendar .completed-event { color:#b42318; text-decoration:line-through; text-decoration-thickness:1.5px; }
+.booked-calendar .completed-event span, .booked-calendar .completed-event a { color:#b42318; }
 .controls { display:flex; flex-wrap:wrap; gap:.75rem; align-items:center; margin-bottom:1.25rem; }
 input, select { font:inherit; border:1px solid var(--line); border-radius:8px; padding:.65rem .75rem; background:white; color:var(--ink); }
 input { flex:1 1 280px; }

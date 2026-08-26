@@ -101,11 +101,22 @@ function loadBookedEvents() {
     return {
       summary: icalField(block, 'SUMMARY'),
       url: icalField(block, 'URL'),
+      completed: icalField(block, 'X-SJG-STATUS') === 'COMPLETED',
+      dateKey: `${year}-${month}-${day}`,
       timestamp: `${year}${month}${day}${hour}${minute}`,
       date: new Intl.DateTimeFormat('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(new Date(Date.UTC(year, Number(month) - 1, day))),
       time: new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'UTC' }).format(new Date(Date.UTC(year, Number(month) - 1, day, hour, minute))) + ' ET',
     };
   }).sort((a, b) => a.timestamp.localeCompare(b.timestamp));
+}
+
+function groupEventsByDate(events) {
+  return events.reduce((groups, event) => {
+    const group = groups[groups.length - 1];
+    if (group && group.key === event.dateKey) group.events.push(event);
+    else groups.push({ key: event.dateKey, date: event.date, events: [event] });
+    return groups;
+  }, []);
 }
 
 function factRow(label, fact) {
@@ -178,8 +189,11 @@ function buildIndex(schools) {
   const upcomingDatedCount = schools.filter((s) => s.dated && !s.completed).length;
   const selfGuidedCount = schools.filter((s) => s.selfGuided).length;
   const bookedEvents = loadBookedEvents();
-  const bookedEventItems = bookedEvents.map((event) => `
-        <li><strong>${escapeHtml(event.summary)}</strong><span>${escapeHtml(event.date)} · ${escapeHtml(event.time)}</span>${event.url ? ` <a href="${escapeHtml(event.url)}" target="_blank" rel="noopener">Event details ↗</a>` : ''}</li>`).join('');
+  const bookedEventItems = groupEventsByDate(bookedEvents).map((group) => `
+        <section class="booked-day">
+          <h3>${escapeHtml(group.date)}</h3>
+          <ul>${group.events.map((event) => `<li class="${event.completed ? 'completed-event' : ''}"><strong>${escapeHtml(event.summary)}</strong><span>${escapeHtml(event.time)}</span>${event.url ? ` <a href="${escapeHtml(event.url)}" target="_blank" rel="noopener">Event details ↗</a>` : ''}</li>`).join('')}</ul>
+        </section>`).join('');
 
   const clientRows = schools.map((s) => ({
     slug: s.slug,
@@ -211,10 +225,10 @@ function buildIndex(schools) {
     <section class="booked-calendar" aria-labelledby="booked-events-heading">
       <div>
         <h2 id="booked-events-heading">Booked events calendar</h2>
-        <p>Confirmed college visits and information sessions. Download the calendar to add it to Google Calendar, Apple Calendar, or Outlook.</p>
+        <p>Confirmed college visits and information sessions, grouped by day. Completed sessions appear in red with strikethrough. Download the calendar to add it to Google Calendar, Apple Calendar, or Outlook.</p>
       </div>
       <a class="btn" href="booked-college-events.ics">Download calendar (.ics)</a>
-      <ul>${bookedEventItems}</ul>
+      <div class="booked-days">${bookedEventItems}</div>
     </section>
     <div class="controls">
       <label class="hidden" for="search">Search schools</label>
