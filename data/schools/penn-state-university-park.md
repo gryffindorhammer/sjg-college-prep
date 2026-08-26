@@ -3,8 +3,8 @@ name: Penn State University Park
 order: 17
 state: PA
 region: Mid-Atlantic
-scheduleText: Live information-session, tour, and Penn State Days calendar
-dated: false
+scheduleText: 'Booked: Information session — Sep 16, 2026 · 9:00 PM ET'
+dated: true
 visitUrl: https://www.psu.edu/admission/undergraduate/explore/visit-penn-state
 virtualUrl: https://apply.psu.edu/portal/psd
 coords:
