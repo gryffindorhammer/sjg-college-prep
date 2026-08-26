@@ -24,6 +24,26 @@ RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
+UID:chicago-college-tour-flight-lga-ord-20260827@sjg-college-prep
+DTSTAMP:20260825T000000Z
+DTSTART;TZID=America/New_York:20260827T142500
+DTEND;TZID=America/New_York:20260827T170900
+SUMMARY:Chicago College Tour — Flight to Chicago (UA 2294)
+DESCRIPTION:United UA 2294. LGA to ORD. Departs Thursday\, August 27\, 2026 at 2:25 PM ET; arrives 4:09 PM CT (5:09 PM ET). Basic Economy (N). Boeing 737-800W.
+LOCATION:LaGuardia Airport (LGA) to Chicago O'Hare International Airport (ORD)
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:chicago-college-tour-flight-ord-lga-20260828@sjg-college-prep
+DTSTAMP:20260825T000000Z
+DTSTART;TZID=America/New_York:20260828T192900
+DTEND;TZID=America/New_York:20260828T215400
+SUMMARY:Chicago College Tour — Flight to New York (UA 2605)
+DESCRIPTION:United UA 2605. ORD to LGA. Departs Friday\, August 28\, 2026 at 6:29 PM CT (7:29 PM ET); arrives 9:54 PM ET. Basic Economy (N). Boeing 737-800W.
+LOCATION:Chicago O'Hare International Airport (ORD) to LaGuardia Airport (LGA)
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:northwestern-university-in-person-campus-tour-20260828@sjg-college-prep
 DTSTAMP:20260825T000000Z
 DTSTART;TZID=America/New_York:20260828T143000

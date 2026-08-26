@@ -3,7 +3,7 @@ name: University of Chicago
 order: 1
 state: IL
 region: Midwest
-scheduleText: 'Booked: In-person information session and tour — Aug 28, 2026 · 10:00–11:45 AM ET (9:00–10:45 AM CT)'
+scheduleText: 'Booked: In-person information session and tour — Aug 28, 2026 · 10:00–11:45 AM ET (9:00–10:45 AM CT). Chicago trip flights: UA 2294 LGA→ORD — Aug 27 · 2:25 PM ET–4:09 PM CT; UA 2605 ORD→LGA — Aug 28 · 6:29 PM CT–9:54 PM ET.'
 dated: true
 visitUrl: https://collegeadmissions.uchicago.edu/visit-connect/daily-visits/
 virtualUrl: https://collegeadmissions.uchicago.edu/visit-connect/open-houses/
