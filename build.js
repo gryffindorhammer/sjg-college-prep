@@ -157,7 +157,7 @@ function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
 
 function pageShell({ title, activeNav, body, depth }) {
   const prefix = depth ? '../'.repeat(depth) : '';
-  const assetVersion = '20260825-tour-addresses';
+  const assetVersion = '20260825-inline-filtered-map';
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -172,7 +172,6 @@ function pageShell({ title, activeNav, body, depth }) {
     <p>Official admissions links for in-person tours, virtual options, and open-house schedules — plus sourced comparison profiles and Stephen's math/theater fit for every school.</p>
     <nav>
       <a href="${prefix}index.html"${activeNav === 'schools' ? ' aria-current="page"' : ''}>Schools</a>
-      <a href="${prefix}map.html"${activeNav === 'map' ? ' aria-current="page"' : ''}>Map</a>
     </nav>
   </header>
   <main>
@@ -225,6 +224,7 @@ function buildIndex(schools) {
     rankingMath: s.rankingMath && s.rankingMath !== 'none' ? s.rankingMath.rank : null,
     mathPhd: s.mathPhd.available ? 'Yes' : 'No',
     theaterType: s.sections.theaterProgram ? s.sections.theaterProgram.type : null,
+    coords: s.coords,
   }));
 
   const body = `
@@ -294,11 +294,17 @@ function buildIndex(schools) {
       </div>
     </div>
     <div class="grid-wrap hidden" id="schools-grid"></div>
-    <footer>"Virtual" links point to each college's official admissions visit page or event calendar. Exact online-session dates are generally released in those live calendars. See the <a href="map.html">map view</a> for all tracked colleges at once.</footer>
+    <section class="school-map-section" id="school-map" aria-labelledby="school-map-heading">
+      <div class="school-map-head"><h2 id="school-map-heading">School map</h2><p id="map-count">Map updates with the search and region filters above.</p></div>
+      <div id="map" role="application" aria-label="Map of filtered schools"></div>
+    </section>
+    <footer>"Virtual" links point to each college's official admissions visit page or event calendar. Exact online-session dates are generally released in those live calendars.</footer>
     <script>window.SCHOOLS = ${JSON.stringify(clientRows)};</script>
-    <script src="assets/site.js?v=20260825-self-guided"></script>`;
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="assets/site.js?v=20260825-inline-filtered-map"></script>`;
 
-  return pageShell({ title: 'SJG College Visit Planner', activeNav: 'schools', body, depth: 0 });
+  return pageShell({ title: 'SJG College Visit Planner', activeNav: 'schools', body, depth: 0 })
+    .replace('</head>', '  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">\n</head>');
 }
 
 function buildSchoolPage(s) {
@@ -312,7 +318,7 @@ function buildSchoolPage(s) {
       <div class="links-row">
         <a href="${escapeHtml(s.visitUrl)}" target="_blank" rel="noopener">In-person visit ↗</a>
         <a href="${escapeHtml(s.virtualUrl)}" target="_blank" rel="noopener">Virtual / events ↗</a>
-        <a href="../map.html?school=${s.slug}">View on map ↗</a>
+        <a href="../index.html#school-map">School map ↗</a>
       </div>
     </div>
     <h3 class="section-heading">Sourced profile</h3>
@@ -339,41 +345,6 @@ function buildSchoolPage(s) {
   return pageShell({ title: `${s.name} — College Visit Planner`, activeNav: 'schools', body, depth: 1 });
 }
 
-function buildMap(schools) {
-  const points = schools.map((s) => ({
-    slug: s.slug, name: s.name, state: s.state, region: s.region, coords: s.coords, visitUrl: s.visitUrl,
-  }));
-  const body = `
-    <div id="map" role="application" aria-label="Map of tracked colleges"></div>
-    <footer>Click a marker for quick links, or open a school's full sourced profile from the <a href="index.html">table view</a>.</footer>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script>
-      var POINTS = ${JSON.stringify(points)};
-      function escapeHtml(str) {
-        return String(str == null ? '' : str)
-          .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-          .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-      }
-      var params = new URLSearchParams(location.search);
-      var focusSlug = params.get('school');
-      var map = L.map('map', {scrollWheelZoom:false}).setView([40.5,-87], 4);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom:19, attribution:'&copy; OpenStreetMap contributors' }).addTo(map);
-      var bounds = [];
-      var focusMarker = null;
-      POINTS.forEach(function (p) {
-        var marker = L.marker(p.coords).addTo(map)
-          .bindPopup('<strong>' + escapeHtml(p.name) + '</strong><br>' + escapeHtml(p.state) + ' · ' + escapeHtml(p.region) + '<br><a href="schools/' + escapeHtml(p.slug) + '.html">Full profile →</a> &middot; <a href="' + escapeHtml(p.visitUrl) + '" target="_blank" rel="noopener">Visit ↗</a>');
-        bounds.push(p.coords);
-        if (p.slug === focusSlug) focusMarker = marker;
-      });
-      if (focusMarker) { map.setView(focusMarker.getLatLng(), 10); focusMarker.openPopup(); }
-      else if (bounds.length > 1) map.fitBounds(bounds, {padding:[28,28], maxZoom:6});
-      else if (bounds.length === 1) map.setView(bounds[0], 10);
-    </script>`;
-  return pageShell({ title: 'Map — College Visit Planner', activeNav: 'map', body, depth: 0 })
-    .replace('</head>', '  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">\n</head>');
-}
-
 function main() {
   const schools = loadSchools();
 
@@ -386,9 +357,9 @@ function main() {
     fs.writeFileSync(path.join(schoolsDir, `${s.slug}.html`), buildSchoolPage(s));
   }
 
-  fs.writeFileSync(path.join(ROOT, 'map.html'), buildMap(schools));
+  fs.rmSync(path.join(ROOT, 'map.html'), { force: true });
 
-  console.log(`Built index.html, map.html, and ${schools.length} school pages.`);
+  console.log(`Built index.html and ${schools.length} school pages.`);
 }
 
 main();

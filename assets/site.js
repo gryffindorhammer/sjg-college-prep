@@ -9,12 +9,41 @@
   var viewTableBtn = document.querySelector('#view-table');
   var viewGridBtn = document.querySelector('#view-grid');
   var count = document.querySelector('#count');
+  var mapCount = document.querySelector('#map-count');
   var headers = document.querySelectorAll('table.schools th[data-sort]');
   if (!tbody || !window.SCHOOLS) return;
 
   var sortKey = 'order';
   var sortDir = 1;
   var NUMERIC_SORT_KEYS = ['admissionRate', 'rankingOverall', 'rankingMath'];
+  var map = null;
+  var markerLayer = null;
+
+  function renderMap(schools) {
+    if (!map || !markerLayer) return;
+    markerLayer.clearLayers();
+    var bounds = [];
+    schools.forEach(function (s) {
+      var marker = L.marker(s.coords).bindPopup(
+        '<strong>' + escapeHtml(s.name) + '</strong><br>' + escapeHtml(s.state) + ' · ' + escapeHtml(s.region) +
+        '<br><a href="schools/' + escapeHtml(s.slug) + '.html">Full profile →</a> &middot; <a href="' + escapeHtml(s.visitUrl) + '" target="_blank" rel="noopener">Visit ↗</a>'
+      );
+      markerLayer.addLayer(marker);
+      bounds.push(s.coords);
+    });
+    if (mapCount) mapCount.textContent = schools.length + ' school' + (schools.length === 1 ? '' : 's') + ' shown on the map.';
+    if (bounds.length > 1) map.fitBounds(bounds, { padding:[28,28], maxZoom:6 });
+    else if (bounds.length === 1) map.setView(bounds[0], 10);
+    else map.setView([40.5, -87], 4);
+  }
+
+  function initMap() {
+    var mapElement = document.querySelector('#map');
+    if (!mapElement || !window.L) return;
+    map = L.map(mapElement, { scrollWheelZoom:false }).setView([40.5, -87], 4);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom:19, attribution:'&copy; OpenStreetMap contributors' }).addTo(map);
+    markerLayer = L.layerGroup().addTo(map);
+  }
 
   function escapeHtml(str) {
     return String(str == null ? '' : str)
@@ -114,6 +143,7 @@
     tbody.innerHTML = shown.map(cellHTML).join('');
     if (grid) grid.innerHTML = shown.map(cardHTML).join('');
     count.textContent = shown.length + ' school' + (shown.length === 1 ? '' : 's');
+    renderMap(shown);
   }
 
   function setActiveHeader(key) {
@@ -168,6 +198,7 @@
     setView(savedView);
   }
 
+  initMap();
   search.addEventListener('input', render);
   region.addEventListener('change', render);
   render();
