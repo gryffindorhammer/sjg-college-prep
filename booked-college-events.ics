@@ -70,10 +70,11 @@ UID:northwestern-college-of-arts-and-sciences-information-session-20260826@sjg-c
 DTSTAMP:20260825T000000Z
 DTSTART;TZID=America/New_York:20260826T163000
 DTEND;TZID=America/New_York:20260826T173000
-SUMMARY:Northwestern University — College of Arts and Sciences Information Session
-DESCRIPTION:Confirmed registration. Scheduled for 3:30 PM CT (4:30 PM ET). Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://admissions.northwestern.edu/visit/
+SUMMARY:Northwestern University — College of Arts and Sciences Information Session (Completed)
+DESCRIPTION:Completed on August 26, 2026. Notes on page 2. Scheduled for 3:30 PM CT (4:30 PM ET). Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://admissions.northwestern.edu/visit/
 URL:https://admissions.northwestern.edu/visit/
 STATUS:CONFIRMED
+X-SJG-STATUS:COMPLETED
 END:VEVENT
 BEGIN:VEVENT
 UID:university-of-wisconsin-madison-virtual-information-session-20260825@sjg-college-prep
