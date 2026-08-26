@@ -18,14 +18,14 @@
   var NUMERIC_SORT_KEYS = ['admissionRate', 'rankingOverall', 'rankingMath'];
   var map = null;
   var markerLayer = null;
-  var markersBySlug = {};
+  var markersBySlug = Object.create(null);
   var focusSlug = null;
   try { focusSlug = new URLSearchParams(window.location.search).get('school'); } catch (e) {}
 
   function renderMap(schools) {
     if (!map || !markerLayer) return;
     markerLayer.clearLayers();
-    markersBySlug = {};
+    markersBySlug = Object.create(null);
     var bounds = [];
     schools.forEach(function (s) {
       var marker = L.marker(s.coords).bindPopup(
