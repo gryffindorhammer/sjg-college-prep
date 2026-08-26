@@ -101,6 +101,7 @@ function loadBookedEvents() {
     return {
       summary: icalField(block, 'SUMMARY'),
       url: icalField(block, 'URL'),
+      location: icalField(block, 'LOCATION'),
       completed: icalField(block, 'X-SJG-STATUS') === 'COMPLETED',
       dateKey: `${year}-${month}-${day}`,
       timestamp: `${year}${month}${day}${hour}${minute}`,
@@ -192,7 +193,10 @@ function buildIndex(schools) {
   const bookedEventItems = groupEventsByDate(bookedEvents).map((group) => `
         <section class="booked-day">
           <h3>${escapeHtml(group.date)}</h3>
-          <ul>${group.events.map((event) => `<li class="${event.completed ? 'completed-event' : ''}"><strong>${escapeHtml(event.summary)}</strong><span>${escapeHtml(event.time)}</span>${event.url ? ` <a href="${escapeHtml(event.url)}" target="_blank" rel="noopener">Event details ↗</a>` : ''}</li>`).join('')}</ul>
+          <ul>${group.events.map((event) => {
+            const showTourAddress = /In-Person Campus Tour|In-Person Information Session and Tour/.test(event.summary);
+            return `<li class="${event.completed ? 'completed-event' : ''}"><strong>${escapeHtml(event.summary)}</strong><span>${escapeHtml(event.time)}</span>${event.url ? ` <a href="${escapeHtml(event.url)}" target="_blank" rel="noopener">Event details ↗</a>` : ''}${showTourAddress && event.location ? `<div class="event-location">Check-in: ${escapeHtml(event.location)}</div>` : ''}</li>`;
+          }).join('')}</ul>
         </section>`).join('');
 
   const clientRows = schools.map((s) => ({

@@ -20,6 +20,7 @@ main { padding:2rem 1.25rem 4rem; }
 .booked-day ul { margin:0; padding-left:1.2rem; }
 .booked-calendar li { margin:.25rem 0; }
 .booked-calendar li span { margin-left:.35rem; color:var(--muted); }
+.booked-calendar .event-location { margin:.12rem 0 .3rem; color:var(--muted); font-size:.9rem; }
 .booked-calendar .completed-event { color:#b42318; text-decoration:line-through; text-decoration-thickness:1.5px; }
 .booked-calendar .completed-event span, .booked-calendar .completed-event a { color:#b42318; }
 .controls { display:flex; flex-wrap:wrap; gap:.75rem; align-items:center; margin-bottom:1.25rem; }
