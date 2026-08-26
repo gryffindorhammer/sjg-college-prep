@@ -77,8 +77,8 @@ END:VEVENT
 BEGIN:VEVENT
 UID:university-of-chicago-information-session-and-tour-20260828@sjg-college-prep
 DTSTAMP:20260825T000000Z
-DTSTART;TZID=America/New_York:20260828T090000
-DTEND;TZID=America/New_York:20260828T100000
+DTSTART;TZID=America/New_York:20260828T100000
+DTEND;TZID=America/New_York:20260828T110000
 SUMMARY:University of Chicago — In-Person Information Session and Tour
 DESCRIPTION:Confirmed registration. In-person event in Chicago, IL; duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://collegeadmissions.uchicago.edu/visit-connect/daily-visits/
 LOCATION:University of Chicago\, Chicago\, IL
