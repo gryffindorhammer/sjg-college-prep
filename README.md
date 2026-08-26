@@ -30,6 +30,7 @@ It currently contains:
 - Case Western Reserve University online information session — September 1, 2026, 3:00–4:00 PM ET
 - Tufts University virtual information session — September 8, 2026, 4:00–5:00 PM ET
 - Wesleyan University virtual information session — September 10, 2026, 7:00–8:00 PM ET
+- UC Davis PIQ Tips for First-Year Applicants — September 11, 2026, 10:00–11:00 PM ET
 - University at Buffalo information session — September 14, 2026, 3:30–4:30 PM ET
 - Drexel University College of Arts & Sciences undergraduate virtual information session — September 14, 2026, 7:00–8:00 PM ET
 - Penn State University Park information session — September 16, 2026, 9:00–10:00 PM ET

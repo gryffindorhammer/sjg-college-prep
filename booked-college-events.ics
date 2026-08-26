@@ -187,6 +187,16 @@ URL:https://www.buffalo.edu/admissions/visit.html
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:uc-davis-piq-tips-first-year-applicants-20260911@sjg-college-prep
+DTSTAMP:20260825T000000Z
+DTSTART;TZID=America/New_York:20260911T220000
+DTEND;TZID=America/New_York:20260911T230000
+SUMMARY:UC Davis — PIQ Tips for First-Year Applicants
+DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://www.ucdavis.edu/about/visit
+URL:https://www.ucdavis.edu/about/visit
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:university-of-massachusetts-amherst-virtual-information-session-20260915@sjg-college-prep
 DTSTAMP:20260825T000000Z
 DTSTART;TZID=America/New_York:20260915T190000

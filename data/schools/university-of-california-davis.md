@@ -3,8 +3,8 @@ name: University of California, Davis
 order: 27
 state: CA
 region: West
-scheduleText: Live campus-tour calendar
-dated: false
+scheduleText: 'Booked: PIQ Tips for First-Year Applicants — Sep 11, 2026 · 10:00 PM ET'
+dated: true
 visitUrl: https://visit.ucdavis.edu/tourreg/TourInfo.cfm?TourTypeID=9
 virtualUrl: https://www.ucdavis.edu/about/visit
 coords:
