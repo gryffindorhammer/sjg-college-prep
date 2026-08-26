@@ -2,8 +2,8 @@
 //
 // Reads one Markdown file per school from data/schools/*.md (YAML frontmatter
 // for sourced facts, prose body for the math/theater "fit" write-up) and
-// generates plain static HTML: index.html (table), schools/<slug>.html
-// (per-school detail page), and map.html (standalone Leaflet map).
+// generates plain static HTML: index.html (table plus an inline filtered
+// Leaflet map) and schools/<slug>.html (per-school detail page).
 //
 // Run with: node build.js
 const fs = require('fs');
@@ -318,7 +318,7 @@ function buildSchoolPage(s) {
       <div class="links-row">
         <a href="${escapeHtml(s.visitUrl)}" target="_blank" rel="noopener">In-person visit ↗</a>
         <a href="${escapeHtml(s.virtualUrl)}" target="_blank" rel="noopener">Virtual / events ↗</a>
-        <a href="../index.html#school-map">School map ↗</a>
+        <a href="../index.html?school=${encodeURIComponent(s.slug)}#school-map">School map ↗</a>
       </div>
     </div>
     <h3 class="section-heading">Sourced profile</h3>
