@@ -3,8 +3,8 @@ name: New York University
 order: 30
 state: NY
 region: Northeast
-scheduleText: Live campus-visit and virtual-information-session calendar
-dated: false
+scheduleText: Booked virtual information session — September 29, 2026, 4:00–5:00 PM ET
+dated: true
 visitUrl: https://www.nyu.edu/admissions/undergraduate-admissions/visit-nyu/campus-visit.html
 virtualUrl: https://www.nyu.edu/admissions/undergraduate-admissions/visit-nyu/virtual-visit.html
 coords:

@@ -216,4 +216,14 @@ DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because t
 URL:https://www.bu.edu/admissions/visit-us/
 STATUS:CONFIRMED
 END:VEVENT
+BEGIN:VEVENT
+UID:new-york-university-virtual-information-session-20260929@sjg-college-prep
+DTSTAMP:20260825T000000Z
+DTSTART;TZID=America/New_York:20260929T160000
+DTEND;TZID=America/New_York:20260929T170000
+SUMMARY:New York University — Virtual Information Session
+DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://www.nyu.edu/admissions/undergraduate-admissions/visit-nyu/virtual-visit.html
+URL:https://www.nyu.edu/admissions/undergraduate-admissions/visit-nyu/virtual-visit.html
+STATUS:CONFIRMED
+END:VEVENT
 END:VCALENDAR
