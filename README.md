@@ -19,6 +19,7 @@ https://gryffindorhammer.github.io/sjg-college-prep/
 
 It currently contains:
 
+- Chicago college tour itinerary — The Study at University of Chicago, August 27–28, 2026; includes Thursday Hyde Park/UChicago orientation and Friday visit-to-Northwestern-to-ORD logistics
 - Chicago college tour flight to Chicago — United UA 2294, LaGuardia (LGA) to Chicago O'Hare (ORD), August 27, 2026, 2:25 PM ET–4:09 PM CT (5:09 PM ET)
 - Chicago college tour flight to New York — United UA 2605, Chicago O'Hare (ORD) to LaGuardia (LGA), August 28, 2026, 6:29 PM CT (7:29 PM ET)–9:54 PM ET
 - Northwestern University in-person campus tour — August 28, 2026, 2:30–4:00 PM ET (1:30–3:00 PM CT); check in at Segal Visitors Center, 1841 Sheridan Road, Evanston, IL 60208-0001
