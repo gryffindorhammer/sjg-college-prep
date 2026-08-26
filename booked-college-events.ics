@@ -197,6 +197,16 @@ URL:https://www.umass.edu/admissions/admissions-events
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:drexel-college-of-arts-and-sciences-undergraduate-virtual-information-session-20260914@sjg-college-prep
+DTSTAMP:20260825T000000Z
+DTSTART;TZID=America/New_York:20260914T190000
+DTEND;TZID=America/New_York:20260914T200000
+SUMMARY:Drexel University — College of Arts & Sciences Undergraduate Virtual Information Session
+DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://drexel.edu/admissions/visit-tours/undergraduate-events/open-houses
+URL:https://drexel.edu/admissions/visit-tours/undergraduate-events/open-houses
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
 UID:william-and-mary-virtual-information-session-20260916@sjg-college-prep
 DTSTAMP:20260825T000000Z
 DTSTART;TZID=America/New_York:20260916T180000
