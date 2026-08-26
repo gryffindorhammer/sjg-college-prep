@@ -279,7 +279,7 @@ function buildSchoolPage(s) {
       <a class="back" href="../index.html">← All schools</a>
       <h2>${escapeHtml(s.name)}</h2>
       <div class="meta">${escapeHtml(s.location || `${s.state} · ${s.region}`)}</div>
-      <span class="pill ${s.completed ? 'completed' : s.dated ? 'date' : 'calendar'}">${escapeHtml(s.scheduleText)}</span>${s.completionNotes ? `<div class="completion-note">Notes: ${escapeHtml(s.completionNotes)}</div>` : ''}
+      <span class="pill ${s.completed ? 'completed' : s.dated ? 'date' : 'calendar'}">${escapeHtml(s.scheduleText)}</span>${s.completionNotes ? `<div class="completion-note">${escapeHtml(s.completionNotes)}</div>` : ''}
       <div class="links-row">
         <a href="${escapeHtml(s.visitUrl)}" target="_blank" rel="noopener">In-person visit ↗</a>
         <a href="${escapeHtml(s.virtualUrl)}" target="_blank" rel="noopener">Virtual / events ↗</a>

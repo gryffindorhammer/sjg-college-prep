@@ -6,7 +6,7 @@ region: Midwest
 scheduleText: 'Completed: Virtual information session — Aug 25, 2026 · 8:00 PM ET'
 dated: true
 completed: true
-completionNotes: Session completed today.
+completionNotes: Notes on page 1
 visitUrl: https://apps.admissions.wisc.edu/visitbucky/
 virtualUrl: https://admissions.wisc.edu/virtual-open-house/
 coords:
