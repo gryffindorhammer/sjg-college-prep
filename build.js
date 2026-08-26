@@ -140,13 +140,14 @@ function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
 
 function pageShell({ title, activeNav, body, depth }) {
   const prefix = depth ? '../'.repeat(depth) : '';
+  const assetVersion = '20260825-self-guided';
   return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${escapeHtml(title)}</title>
-  <link rel="stylesheet" href="${prefix}assets/style.css">
+  <link rel="stylesheet" href="${prefix}assets/style.css?v=${assetVersion}">
 </head>
 <body>
   <header>
@@ -269,7 +270,7 @@ function buildIndex(schools) {
     <div class="grid-wrap hidden" id="schools-grid"></div>
     <footer>"Virtual" links point to each college's official admissions visit page or event calendar. Exact online-session dates are generally released in those live calendars. See the <a href="map.html">map view</a> for all tracked colleges at once.</footer>
     <script>window.SCHOOLS = ${JSON.stringify(clientRows)};</script>
-    <script src="assets/site.js"></script>`;
+    <script src="assets/site.js?v=20260825-self-guided"></script>`;
 
   return pageShell({ title: 'SJG College Visit Planner', activeNav: 'schools', body, depth: 0 });
 }
