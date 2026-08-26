@@ -26,7 +26,8 @@
 
   function computeFields(s) {
     return {
-      pillClass: s.dated ? 'date' : 'calendar',
+      pillClass: s.completed ? 'completed' : s.dated ? 'date' : 'calendar',
+      completionNotes: s.completionNotes ? escapeHtml(s.completionNotes) : '',
       rate: s.admissionRate ? escapeHtml(s.admissionRate) : '—',
       rank: s.rankingOverall ? escapeHtml(s.rankingOverall) : '—',
       mathRank: s.rankingMath ? escapeHtml(s.rankingMath) : '—',
@@ -47,7 +48,7 @@
       '<td>' + f.mathRank + '</td>' +
       '<td>' + f.mathPhd + '</td>' +
       '<td class="theater">' + f.theater + '</td>' +
-      '<td class="schedule"><span class="pill ' + f.pillClass + '">' + escapeHtml(s.scheduleText) + '</span></td>' +
+      '<td class="schedule"><span class="pill ' + f.pillClass + '">' + escapeHtml(s.scheduleText) + '</span>' + (f.completionNotes ? '<div class="completion-note">Notes: ' + f.completionNotes + '</div>' : '') + '</td>' +
       '<td><div class="links-cell">' +
       '<a href="' + escapeHtml(s.visitUrl) + '" target="_blank" rel="noopener">Visit ↗</a>' +
       '<a href="' + escapeHtml(s.virtualUrl) + '" target="_blank" rel="noopener">Virtual ↗</a>' +
@@ -69,7 +70,7 @@
       '<div class="card-fact"><span class="card-fact-label">Math Ph.D.</span><span>' + f.mathPhd + '</span></div>' +
       '<div class="card-fact"><span class="card-fact-label">Theater program</span><span>' + f.theater + '</span></div>' +
       '</div>' +
-      '<span class="pill ' + f.pillClass + '">' + escapeHtml(s.scheduleText) + '</span>' +
+      '<span class="pill ' + f.pillClass + '">' + escapeHtml(s.scheduleText) + '</span>' + (f.completionNotes ? '<div class="completion-note">Notes: ' + f.completionNotes + '</div>' : '') +
       '<div class="links-cell">' +
       '<a href="' + escapeHtml(s.visitUrl) + '" target="_blank" rel="noopener">Visit ↗</a>' +
       '<a href="' + escapeHtml(s.virtualUrl) + '" target="_blank" rel="noopener">Virtual ↗</a>' +

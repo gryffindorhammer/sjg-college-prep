@@ -3,8 +3,10 @@ name: University of Wisconsin–Madison
 order: 28
 state: WI
 region: Midwest
-scheduleText: 'Booked: Virtual information session — Aug 25, 2026 · 8:00 PM ET'
+scheduleText: 'Completed: Virtual information session — Aug 25, 2026 · 8:00 PM ET'
 dated: true
+completed: true
+completionNotes: Session completed today.
 visitUrl: https://apps.admissions.wisc.edu/visitbucky/
 virtualUrl: https://admissions.wisc.edu/virtual-open-house/
 coords:
