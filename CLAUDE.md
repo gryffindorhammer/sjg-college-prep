@@ -51,3 +51,4 @@ Source: [source name](url) · checked YYYY-MM-DD
 - The school/date/"researched" counts in the generated header and notice text are now computed from the data at build time (see `buildIndex()` in `build.js`) — don't hand-edit them in the generated HTML, and don't add new hand-maintained counts; compute them in `build.js` instead.
 - `README.md`'s school count is still hand-written; update it alongside a schools-count change.
 - After editing anything under `data/schools/`, `assets/`, or `build.js`, run `node build.js` (needs `npm install` once for the `gray-matter` devDependency) and commit both the source change and the regenerated `index.html`/`schools/*.html`.
+- For in-person visits, record and display the venue's local time zone; virtual events use ET unless their registration specifies another zone. The ICS entry must use the same local `TZID`.

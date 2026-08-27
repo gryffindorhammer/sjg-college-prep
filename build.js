@@ -95,6 +95,25 @@ function icalField(block, field) {
     .replace(/\\\\/g, '\\');
 }
 
+function icalTimezone(block, field) {
+  const line = block.split(/\r?\n/).find((value) => value.startsWith(`${field};TZID=`));
+  const match = line && line.match(/;TZID=([^:;]+)/);
+  return match ? match[1] : 'America/New_York';
+}
+
+function timeZoneLabel(timeZone, year, month, day, hour, minute) {
+  const standardLabels = {
+    'America/New_York': 'ET',
+    'America/Chicago': 'CT',
+  };
+  if (standardLabels[timeZone]) return standardLabels[timeZone];
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone,
+    timeZoneName: 'short',
+  }).formatToParts(new Date(Date.UTC(year, Number(month) - 1, day, hour, minute)));
+  return parts.find((part) => part.type === 'timeZoneName')?.value || timeZone;
+}
+
 function loadBookedEvents() {
   const calendar = fs.readFileSync(BOOKED_EVENTS_FILE, 'utf8');
   const events = calendar.match(/BEGIN:VEVENT[\s\S]*?END:VEVENT/g) || [];
@@ -103,6 +122,7 @@ function loadBookedEvents() {
     const match = start.match(/^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})/);
     if (!match) throw new Error(`Booked event has an invalid DTSTART: ${start}`);
     const [, year, month, day, hour, minute] = match;
+    const timeZone = icalTimezone(block, 'DTSTART');
     return {
       summary: icalField(block, 'SUMMARY'),
       url: icalField(block, 'URL'),
@@ -111,7 +131,7 @@ function loadBookedEvents() {
       dateKey: `${year}-${month}-${day}`,
       timestamp: `${year}${month}${day}${hour}${minute}`,
       date: new Intl.DateTimeFormat('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(new Date(Date.UTC(year, Number(month) - 1, day))),
-      time: new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'UTC' }).format(new Date(Date.UTC(year, Number(month) - 1, day, hour, minute))) + ' ET',
+      time: new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'UTC' }).format(new Date(Date.UTC(year, Number(month) - 1, day, hour, minute))) + ` ${timeZoneLabel(timeZone, year, month, day, hour, minute)}`,
     };
   }).sort((a, b) => a.timestamp.localeCompare(b.timestamp));
 }

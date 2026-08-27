@@ -3,7 +3,7 @@ name: Northwestern University
 order: 34
 state: IL
 region: Midwest
-scheduleText: 'Completed: College of Arts and Sciences information session — Aug 26, 2026 · 4:30 PM ET (3:30 PM CT); booked: in-person campus tour — Aug 28, 2026 · 2:30–4:00 PM ET (1:30–3:00 PM CT), check in at Segal Visitors Center'
+scheduleText: 'Completed: College of Arts and Sciences information session — Aug 26, 2026 · 4:30 PM ET (3:30 PM CT); booked: in-person campus tour — Aug 28, 2026 · 1:30–3:00 PM CT, check in at Segal Visitors Center'
 dated: true
 completed: true
 completionNotes: Notes on page 2
