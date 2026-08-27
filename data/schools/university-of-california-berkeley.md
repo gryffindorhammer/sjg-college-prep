@@ -3,7 +3,7 @@ name: University of California, Berkeley
 order: 25
 state: CA
 region: West
-scheduleText: 'Booked: Information session — Aug 27, 2026 · 6:00 PM ET'
+scheduleText: 'Booked: Virtual information session — Sep 3, 2026 · 6:00 PM ET'
 dated: true
 visitUrl: https://campustours.berkeley.edu/
 virtualUrl: https://admissions.berkeley.edu/showcase/

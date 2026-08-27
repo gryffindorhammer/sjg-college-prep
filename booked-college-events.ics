@@ -117,21 +117,11 @@ STATUS:CONFIRMED
 X-SJG-STATUS:COMPLETED
 END:VEVENT
 BEGIN:VEVENT
-UID:princeton-virtual-visit-20260827@sjg-college-prep
-DTSTAMP:20260825T000000Z
-DTSTART;TZID=America/New_York:20260827T190000
-DTEND;TZID=America/New_York:20260827T200000
-SUMMARY:Princeton University — Virtual Visit
-DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://admission.princeton.edu/visit-us
-URL:https://admission.princeton.edu/visit-us
-STATUS:CONFIRMED
-END:VEVENT
-BEGIN:VEVENT
-UID:uc-berkeley-information-session-20260827@sjg-college-prep
-DTSTAMP:20260825T000000Z
-DTSTART;TZID=America/New_York:20260827T180000
-DTEND;TZID=America/New_York:20260827T190000
-SUMMARY:UC Berkeley — Information Session
+UID:uc-berkeley-information-session-20260903@sjg-college-prep
+DTSTAMP:20260827T034524Z
+DTSTART;TZID=America/New_York:20260903T180000
+DTEND;TZID=America/New_York:20260903T190000
+SUMMARY:UC Berkeley — Virtual Information Session
 DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://admissions.berkeley.edu/showcase/
 URL:https://admissions.berkeley.edu/showcase/
 STATUS:CONFIRMED

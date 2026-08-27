@@ -3,8 +3,9 @@ name: Princeton University
 order: 0
 state: NJ
 region: Northeast
-scheduleText: 'Booked: Virtual visit — Aug 27, 2026 · 7:00 PM ET'
-dated: true
+scheduleText: Self research / self-guided virtual tour — on my own time
+dated: false
+selfGuided: true
 visitUrl: https://admission.princeton.edu/visit-us
 virtualUrl: https://admission.princeton.edu/visit-us
 coords:
