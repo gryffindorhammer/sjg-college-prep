@@ -3,8 +3,9 @@ name: University of California, Berkeley
 order: 25
 state: CA
 region: West
-scheduleText: 'Booked: Virtual information session — Sep 3, 2026 · 6:00 PM ET'
-dated: true
+scheduleText: Self research / self-guided virtual tour — on my own time
+dated: false
+selfGuided: true
 visitUrl: https://campustours.berkeley.edu/
 virtualUrl: https://admissions.berkeley.edu/showcase/
 coords:
