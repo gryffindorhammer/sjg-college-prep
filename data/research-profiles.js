@@ -3,9 +3,9 @@
 // institutions use the U15 designation, which is not a Carnegie equivalent.
 const CARNEGIE = 'https://carnegieclassifications.acenet.edu/';
 
-const r1 = (opportunities, url) => ({ level: 'Carnegie R1 — very high research activity', levelSource: 'Carnegie Classification (2025)', levelUrl: CARNEGIE, opportunities, opportunitySource: 'Official undergraduate research office', opportunityUrl: url });
-const r2 = (opportunities, url) => ({ level: 'Carnegie R2 — high research activity', levelSource: 'Carnegie Classification (2025)', levelUrl: CARNEGIE, opportunities, opportunitySource: 'Official undergraduate research office', opportunityUrl: url });
-const u15 = (opportunities, url) => ({ level: 'U15 Canadian research university', levelSource: 'U15 Group of Canadian Research Universities', levelUrl: 'https://u15.ca/', opportunities, opportunitySource: 'Official undergraduate research office', opportunityUrl: url });
+const r1 = (opportunities, url) => ({ level: 'Carnegie R1 — very high research activity', levelRank: 3, levelSource: 'Carnegie Classification (2025)', levelUrl: CARNEGIE, opportunities, opportunitySource: 'Official undergraduate research office', opportunityUrl: url });
+const r2 = (opportunities, url) => ({ level: 'Carnegie R2 — high research activity', levelRank: 2, levelSource: 'Carnegie Classification (2025)', levelUrl: CARNEGIE, opportunities, opportunitySource: 'Official undergraduate research office', opportunityUrl: url });
+const u15 = (opportunities, url) => ({ level: 'U15 Canadian research university', levelRank: 3, levelSource: 'U15 Group of Canadian Research Universities', levelUrl: 'https://u15.ca/', opportunities, opportunitySource: 'Official undergraduate research office', opportunityUrl: url });
 
 module.exports = {
   'binghamton-university': r1('Faculty-mentored projects, research courses, summer programs, and presentation funding.', 'https://www.binghamton.edu/research/'),
@@ -36,7 +36,7 @@ module.exports = {
   'university-of-rochester': r1('Faculty-mentored research, summer fellowships, grants, and research presentation opportunities.', 'https://www.rochester.edu/college/ugresearch/'),
   'university-of-toronto': u15('Research courses, faculty-supervised projects, summer programs, and department-based research opportunities.', 'https://www.artsci.utoronto.ca/current/experience-opportunities/research'),
   'university-of-wisconsin-madison': r1('Faculty labs, research courses, grants, summer programs, and the undergraduate symposium.', 'https://undergraduateresearch.wisc.edu/'),
-  'wesleyan-university': { level: 'Research college/university (Carnegie research classification)', levelSource: 'Carnegie Classification (2025)', levelUrl: CARNEGIE, opportunities: 'Faculty-supervised research, summer fellowships, academic-year grants, and thesis work.', opportunitySource: 'Official Center for Global Studies research information', opportunityUrl: 'https://www.wesleyan.edu/cgs/' },
+  'wesleyan-university': { level: 'Research college/university (Carnegie research classification)', levelRank: 1, levelSource: 'Carnegie Classification (2025)', levelUrl: CARNEGIE, opportunities: 'Faculty-supervised research, summer fellowships, academic-year grants, and thesis work.', opportunitySource: 'Official Center for Global Studies research information', opportunityUrl: 'https://www.wesleyan.edu/cgs/' },
   'william-and-mary': r2('Faculty mentoring, research grants, summer programs, and presentation at the annual symposium.', 'https://www.wm.edu/as/charlescenter/'),
   'yale-university': r1('Faculty research, fellowships, summer funding, research travel support, and the annual symposium.', 'https://urp.yale.edu/'),
 };
