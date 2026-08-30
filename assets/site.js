@@ -76,7 +76,8 @@
       mathPhd: s.mathPhd ? escapeHtml(s.mathPhd) : '—',
       theater: s.theaterType ? escapeHtml(cap(s.theaterType)) : '—',
       researchLevel: s.researchLevel ? escapeHtml(s.researchLevel) : '—',
-      partyAtmosphere: typeof s.partyAtmosphere === 'number' ? s.partyAtmosphere + '/10' : '—'
+      partyAtmosphere: typeof s.partyAtmosphere === 'number' ? s.partyAtmosphere + '/10' : '—',
+      partyNote: s.partyNote ? escapeHtml(s.partyNote) : ''
     };
   }
 
@@ -93,7 +94,7 @@
       '<td>' + f.mathPhd + '</td>' +
       '<td class="theater">' + f.theater + '</td>' +
       '<td>' + f.researchLevel + '</td>' +
-      '<td>' + f.partyAtmosphere + '</td>' +
+      '<td>' + f.partyAtmosphere + (f.partyNote ? '<div class="completion-note">' + f.partyNote + '</div>' : '') + '</td>' +
       '<td class="schedule"><span class="pill ' + f.pillClass + '">' + escapeHtml(s.scheduleText) + '</span>' + (f.completionNotes ? '<div class="completion-note">Notes: ' + f.completionNotes + '</div>' : '') + '</td>' +
       '<td><div class="links-cell">' +
       '<a href="' + escapeHtml(s.visitUrl) + '" target="_blank" rel="noopener">Visit ↗</a>' +
@@ -116,7 +117,7 @@
       '<div class="card-fact"><span class="card-fact-label">Math Ph.D.</span><span>' + f.mathPhd + '</span></div>' +
       '<div class="card-fact"><span class="card-fact-label">Theater program</span><span>' + f.theater + '</span></div>' +
       '<div class="card-fact"><span class="card-fact-label">Research level</span><span>' + f.researchLevel + '</span></div>' +
-      '<div class="card-fact"><span class="card-fact-label">Party atmosphere</span><span>' + f.partyAtmosphere + '</span></div>' +
+      '<div class="card-fact"><span class="card-fact-label">Party atmosphere</span><span>' + f.partyAtmosphere + '</span>' + (f.partyNote ? '<div class="completion-note">' + f.partyNote + '</div>' : '') + '</div>' +
       '</div>' +
       '<span class="pill ' + f.pillClass + '">' + escapeHtml(s.scheduleText) + '</span>' + (f.completionNotes ? '<div class="completion-note">Notes: ' + f.completionNotes + '</div>' : '') +
       '<div class="links-cell">' +

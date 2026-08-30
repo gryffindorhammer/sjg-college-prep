@@ -252,6 +252,7 @@ function buildIndex(schools) {
     researchLevel: s.researchProfile.level,
     researchLevelRank: s.researchProfile.levelRank,
     partyAtmosphere: s.partyAtmosphere.score,
+    partyNote: s.partyAtmosphere.rationale,
     theaterType: s.sections.theaterProgram ? s.sections.theaterProgram.type : null,
     coords: s.coords,
   }));
@@ -334,7 +335,7 @@ function buildIndex(schools) {
     <footer>"Virtual" links point to each college's official admissions visit page or event calendar. Exact online-session dates are generally released in those live calendars.</footer>
     <script>window.SCHOOLS = ${JSON.stringify(clientRows)};</script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="assets/site.js?v=20260829-sortable-research-party"></script>`;
+    <script src="assets/site.js?v=20260829-party-list-notes"></script>`;
 
   return pageShell({ title: 'SJG College Visit Planner', activeNav: 'schools', body, depth: 0 })
     .replace('</head>', '  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">\n</head>');
