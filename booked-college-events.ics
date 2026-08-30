@@ -77,11 +77,12 @@ UID:northwestern-university-in-person-campus-tour-20260828@sjg-college-prep
 DTSTAMP:20260825T000000Z
 DTSTART;TZID=America/Chicago:20260828T133000
 DTEND;TZID=America/Chicago:20260828T150000
-SUMMARY:Northwestern University — In-Person Campus Tour
-DESCRIPTION:Confirmed registration. Friday, August 28, 2026, 1:30–3:00 PM CT. Check in at Segal Visitors Center, 1841 Sheridan Road, Evanston, IL 60208-0001.\n\nOfficial event information: https://admissions.northwestern.edu/visit/
+SUMMARY:Northwestern University — In-Person Campus Tour (Completed)
+DESCRIPTION:Completed on August 28, 2026. Notes in Notes app. Friday, August 28, 2026, 1:30–3:00 PM CT. Check in at Segal Visitors Center, 1841 Sheridan Road, Evanston, IL 60208-0001.\n\nOfficial event information: https://admissions.northwestern.edu/visit/
 LOCATION:Segal Visitors Center\, 1841 Sheridan Road\, Evanston\, IL 60208-0001
 URL:https://admissions.northwestern.edu/visit/
 STATUS:CONFIRMED
+X-SJG-STATUS:COMPLETED
 END:VEVENT
 BEGIN:VEVENT
 UID:northwestern-college-of-arts-and-sciences-information-session-20260826@sjg-college-prep
@@ -121,11 +122,12 @@ UID:university-of-chicago-information-session-and-tour-20260828@sjg-college-prep
 DTSTAMP:20260825T000000Z
 DTSTART;TZID=America/Chicago:20260828T090000
 DTEND;TZID=America/Chicago:20260828T104500
-SUMMARY:University of Chicago — In-Person Information Session and Tour
-DESCRIPTION:Confirmed registration. Friday, August 28, 2026, 9:00–10:45 AM CT. Includes a ~45-minute information session with an admissions counselor, followed by a ~60-minute student-led walking tour.\n\nOfficial event information: https://collegeadmissions.uchicago.edu/visit-connect/daily-visits/
+SUMMARY:University of Chicago — In-Person Information Session and Tour (Completed)
+DESCRIPTION:Completed on August 28, 2026. Notes in Notes app. Friday, August 28, 2026, 9:00–10:45 AM CT. Includes a ~45-minute information session with an admissions counselor, followed by a ~60-minute student-led walking tour.\n\nOfficial event information: https://collegeadmissions.uchicago.edu/visit-connect/daily-visits/
 LOCATION:Rosenwald Hall\, 1101 E 58th St\, Chicago\, IL 60637\, United States
 URL:https://collegeadmissions.uchicago.edu/visit-connect/daily-visits/
 STATUS:CONFIRMED
+X-SJG-STATUS:COMPLETED
 END:VEVENT
 BEGIN:VEVENT
 UID:case-western-reserve-university-online-information-session-20260901@sjg-college-prep
