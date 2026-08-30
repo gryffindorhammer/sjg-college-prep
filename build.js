@@ -10,6 +10,7 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 const MATH_PHD_PROGRAMS = require('./data/math-phd-programs');
+const RESEARCH_PROFILES = require('./data/research-profiles');
 
 const ROOT = __dirname;
 const DATA_DIR = path.join(ROOT, 'data', 'schools');
@@ -79,7 +80,9 @@ function loadSchools() {
     }
     const mathPhd = MATH_PHD_PROGRAMS[slug];
     if (!mathPhd) throw new Error(`${file}: missing Mathematics Ph.D. availability`);
-    return { slug, ...data, mathPhd, sections: parseBody(content) };
+    const researchProfile = RESEARCH_PROFILES[slug];
+    if (!researchProfile) throw new Error(`${file}: missing research profile`);
+    return { slug, ...data, mathPhd, researchProfile, sections: parseBody(content) };
   });
   schools.sort((a, b) => a.order - b.order);
   return schools;
@@ -352,6 +355,8 @@ function buildSchoolPage(s) {
       ${rankRow('Overall ranking', s.rankingOverall)}
       ${rankRow('Mathematics ranking', s.rankingMath)}
       ${factRow('Mathematics Ph.D. program', { value: s.mathPhd.program, source: s.mathPhd.source, url: s.mathPhd.url, checked: '2026-08-24' })}
+      ${factRow('Research level', { value: s.researchProfile.level, source: s.researchProfile.levelSource, url: s.researchProfile.levelUrl, checked: '2026-08-29' })}
+      ${factRow('Undergraduate research opportunities', { value: s.researchProfile.opportunities, source: s.researchProfile.opportunitySource, url: s.researchProfile.opportunityUrl, checked: '2026-08-29' })}
       ${rankRow('Theater ranking', s.rankingTheater)}
     </div>
     <h3 class="section-heading">Stephen's fit: math &amp; theater</h3>
