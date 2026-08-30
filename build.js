@@ -378,7 +378,7 @@ function buildSchoolPage(s) {
     </div>
     <h3 class="section-heading">Campus life</h3>
     <div class="profile-grid">
-      <div class="fact"><span class="fact-label">Party atmosphere (subjective 0–10)</span><span class="fact-value">${s.partyAtmosphere.score}/10</span><div class="fact-note">${escapeHtml(s.partyAtmosphere.rationale)} 10 approximates ASU-level intensity; 0 means essentially no party atmosphere. This is a planning estimate, not an official rating.</div></div>
+      <div class="fact"><span class="fact-label">Party atmosphere (subjective 0–10)</span><span class="fact-value">${s.partyAtmosphere.score}/10</span><div class="fact-note"><strong>What this feels like:</strong> ${escapeHtml(s.partyAtmosphere.rationale)}</div><div class="fact-note">Scale: 10 approximates ASU-level intensity; 0 means essentially no party atmosphere. This is a planning estimate, not an official rating.</div></div>
     </div>`;
 
   return pageShell({ title: `${s.name} — College Visit Planner`, activeNav: 'schools', body, depth: 1 });
