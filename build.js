@@ -11,6 +11,7 @@ const path = require('path');
 const matter = require('gray-matter');
 const MATH_PHD_PROGRAMS = require('./data/math-phd-programs');
 const RESEARCH_PROFILES = require('./data/research-profiles');
+const PARTY_ATMOSPHERES = require('./data/party-atmosphere');
 
 const ROOT = __dirname;
 const DATA_DIR = path.join(ROOT, 'data', 'schools');
@@ -82,7 +83,9 @@ function loadSchools() {
     if (!mathPhd) throw new Error(`${file}: missing Mathematics Ph.D. availability`);
     const researchProfile = RESEARCH_PROFILES[slug];
     if (!researchProfile) throw new Error(`${file}: missing research profile`);
-    return { slug, ...data, mathPhd, researchProfile, sections: parseBody(content) };
+    const partyAtmosphere = PARTY_ATMOSPHERES[slug];
+    if (!partyAtmosphere) throw new Error(`${file}: missing party-atmosphere estimate`);
+    return { slug, ...data, mathPhd, researchProfile, partyAtmosphere, sections: parseBody(content) };
   });
   schools.sort((a, b) => a.order - b.order);
   return schools;
@@ -365,6 +368,10 @@ function buildSchoolPage(s) {
       ${textRow('Theater/drama program', theaterSection, true)}
       ${textRow('Student productions &amp; clubs', s.sections.productionsClubs, false)}
       ${textRow('Non-major participation', s.sections.nonMajorParticipation, false)}
+    </div>
+    <h3 class="section-heading">Campus life</h3>
+    <div class="profile-grid">
+      <div class="fact"><span class="fact-label">Party atmosphere (subjective 0–10)</span><span class="fact-value">${s.partyAtmosphere.score}/10</span><div class="fact-note">${escapeHtml(s.partyAtmosphere.rationale)} 10 approximates ASU-level intensity; 0 means essentially no party atmosphere. This is a planning estimate, not an official rating.</div></div>
     </div>`;
 
   return pageShell({ title: `${s.name} — College Visit Planner`, activeNav: 'schools', body, depth: 1 });
