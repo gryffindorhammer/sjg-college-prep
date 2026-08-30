@@ -249,6 +249,9 @@ function buildIndex(schools) {
     rankingOverall: s.rankingOverall && s.rankingOverall !== 'none' ? s.rankingOverall.rank : null,
     rankingMath: s.rankingMath && s.rankingMath !== 'none' ? s.rankingMath.rank : null,
     mathPhd: s.mathPhd.available ? 'Yes' : 'No',
+    researchLevel: s.researchProfile.level,
+    researchLevelRank: s.researchProfile.levelRank,
+    partyAtmosphere: s.partyAtmosphere.score,
     theaterType: s.sections.theaterProgram ? s.sections.theaterProgram.type : null,
     coords: s.coords,
   }));
@@ -282,6 +285,8 @@ function buildIndex(schools) {
         <option value="admissionRate">Acceptance rate</option>
         <option value="rankingOverall">Overall ranking</option>
         <option value="rankingMath">Math ranking</option>
+        <option value="researchLevelRank">Research level</option>
+        <option value="partyAtmosphere">Party atmosphere</option>
         <option value="theaterType">Theater program</option>
         <option value="scheduleText">Visit schedule</option>
       </select>
@@ -298,8 +303,8 @@ function buildIndex(schools) {
         <table class="schools">
           <colgroup>
             <col style="width:13%"><col style="width:5%"><col style="width:7%">
-            <col style="width:10%"><col style="width:10%"><col style="width:10%"><col style="width:8%">
-            <col style="width:11%"><col style="width:15%"><col style="width:8%">
+            <col style="width:9%"><col style="width:9%"><col style="width:9%"><col style="width:8%">
+            <col style="width:10%"><col style="width:7%"><col style="width:7%"><col style="width:12%"><col style="width:6%">
           </colgroup>
           <thead>
             <tr>
@@ -311,6 +316,8 @@ function buildIndex(schools) {
               <th data-sort="rankingMath">Math ranking <span class="arrow">▲▼</span></th>
               <th data-sort="mathPhd">Math Ph.D. <span class="arrow">▲▼</span></th>
               <th data-sort="theaterType">Theater program <span class="arrow">▲▼</span></th>
+              <th data-sort="researchLevelRank">Research level <span class="arrow">▲▼</span></th>
+              <th data-sort="partyAtmosphere">Party atmosphere <span class="arrow">▲▼</span></th>
               <th data-sort="scheduleText">Visit schedule <span class="arrow">▲▼</span></th>
               <th>Links</th>
             </tr>
