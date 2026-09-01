@@ -134,10 +134,11 @@ UID:case-western-reserve-university-online-information-session-20260901@sjg-coll
 DTSTAMP:20260825T000000Z
 DTSTART;TZID=America/New_York:20260901T150000
 DTEND;TZID=America/New_York:20260901T160000
-SUMMARY:Case Western Reserve University — Online Information Session
-DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://case.edu/admission/visits-events
+SUMMARY:Case Western Reserve University — Online Information Session (Completed)
+DESCRIPTION:Completed on September 1, 2026. Notes on page 4. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://case.edu/admission/visits-events
 URL:https://case.edu/admission/visits-events
 STATUS:CONFIRMED
+X-SJG-STATUS:COMPLETED
 END:VEVENT
 BEGIN:VEVENT
 UID:yale-university-virtual-information-session-20260901@sjg-college-prep
