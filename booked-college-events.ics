@@ -145,10 +145,11 @@ UID:yale-university-virtual-information-session-20260901@sjg-college-prep
 DTSTAMP:20260825T000000Z
 DTSTART;TZID=America/New_York:20260901T160000
 DTEND;TZID=America/New_York:20260901T170000
-SUMMARY:Yale University — Virtual Information Session
-DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://admissions.yale.edu/tours
+SUMMARY:Yale University — Virtual Information Session (Completed)
+DESCRIPTION:Completed on September 1, 2026. Notes on page 5. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://admissions.yale.edu/tours
 URL:https://admissions.yale.edu/tours
 STATUS:CONFIRMED
+X-SJG-STATUS:COMPLETED
 END:VEVENT
 BEGIN:VEVENT
 UID:tufts-virtual-information-session-20260908@sjg-college-prep
