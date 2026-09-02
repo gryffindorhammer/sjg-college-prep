@@ -5,6 +5,8 @@ state: CT
 region: Northeast
 scheduleText: 'Completed: Virtual information session — Sep 1, 2026 · 4:00 PM ET · notes on page 5'
 dated: true
+completed: true
+completionNotes: Notes on page 5
 visitUrl: https://admissions.yale.edu/tours
 virtualUrl: https://admissions.yale.edu/tours
 coords:

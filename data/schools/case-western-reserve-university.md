@@ -5,6 +5,8 @@ state: OH
 region: Midwest
 scheduleText: 'Completed: Online information session — Sep 1, 2026 · 3:00 PM ET · notes on page 4'
 dated: true
+completed: true
+completionNotes: Notes on page 4
 visitUrl: https://case.edu/admission/visit
 virtualUrl: https://case.edu/admission/visits-events
 coords:
