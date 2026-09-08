@@ -3,8 +3,9 @@ name: Drexel University
 order: 24
 state: PA
 region: Mid-Atlantic
-scheduleText: 'Booked: College of Arts & Sciences undergraduate virtual information session — Sep 14, 2026 · 7:00 PM ET'
-dated: true
+scheduleText: 'Self research / self-guided virtual tour — on my own time'
+dated: false
+selfGuided: true
 visitUrl: https://drexel.edu/admissions/visit-tours/undergraduate-events/open-houses
 virtualUrl: https://drexel.edu/admissions/visit-tours/open-house
 coords:

@@ -156,10 +156,11 @@ UID:tufts-virtual-information-session-20260908@sjg-college-prep
 DTSTAMP:20260825T000000Z
 DTSTART;TZID=America/New_York:20260908T160000
 DTEND;TZID=America/New_York:20260908T170000
-SUMMARY:Tufts University — Virtual Information Session
-DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://admissions.tufts.edu/visit/plan-your-visit/
+SUMMARY:Tufts University — Virtual Information Session (Completed)
+DESCRIPTION:Completed on September 8, 2026. Notes on page 6. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://admissions.tufts.edu/visit/plan-your-visit/
 URL:https://admissions.tufts.edu/visit/plan-your-visit/
 STATUS:CONFIRMED
+X-SJG-STATUS:COMPLETED
 END:VEVENT
 BEGIN:VEVENT
 UID:william-and-mary-stem-panel-20260908@sjg-college-prep
@@ -219,16 +220,6 @@ DTEND;TZID=America/New_York:20260915T200000
 SUMMARY:University of Massachusetts Amherst — Virtual Information Session
 DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://www.umass.edu/admissions/admissions-events
 URL:https://www.umass.edu/admissions/admissions-events
-STATUS:CONFIRMED
-END:VEVENT
-BEGIN:VEVENT
-UID:drexel-college-of-arts-and-sciences-undergraduate-virtual-information-session-20260914@sjg-college-prep
-DTSTAMP:20260825T000000Z
-DTSTART;TZID=America/New_York:20260914T190000
-DTEND;TZID=America/New_York:20260914T200000
-SUMMARY:Drexel University — College of Arts & Sciences Undergraduate Virtual Information Session
-DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://drexel.edu/admissions/visit-tours/undergraduate-events/open-houses
-URL:https://drexel.edu/admissions/visit-tours/undergraduate-events/open-houses
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
