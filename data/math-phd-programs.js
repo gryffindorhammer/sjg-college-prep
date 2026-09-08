@@ -17,6 +17,7 @@ module.exports = {
   'university-of-maryland-college-park': { available: true, program: 'Ph.D. in Mathematics', source: 'Maryland Mathematics Department', url: 'https://www-math.umd.edu/' },
   'new-york-university': { available: true, program: 'Ph.D. in Mathematics', source: 'NYU Courant Mathematics graduate program', url: 'https://math.nyu.edu/dynamic/graduate/phd-mathematics/' },
   'university-at-buffalo': { available: true, program: 'Ph.D. in Mathematics', source: 'University at Buffalo Mathematics graduate program', url: 'https://www.buffalo.edu/grad/programs/mathematics-phd.html' },
+  'university-of-pennsylvania': { available: true, program: 'Ph.D. in Mathematics', source: 'University of Pennsylvania Mathematics graduate program', url: 'https://www.math.upenn.edu/graduate' },
   'university-of-iowa': { available: true, program: 'Ph.D. in Mathematics', source: 'Iowa Mathematics graduate program', url: 'https://math.uiowa.edu/graduate-program' },
   'rutgers-university-new-brunswick': { available: true, program: 'Ph.D. in Mathematics', source: 'Rutgers Mathematics graduate program', url: 'https://math.rutgers.edu/academics/graduate-program' },
   'the-ohio-state-university': { available: true, program: 'Ph.D. in Mathematics', source: 'Ohio State Mathematics Department', url: 'https://math.osu.edu/' },

@@ -27,6 +27,7 @@ module.exports = {
   'university-of-maryland-college-park': { score: 7, rationale: 'Greek life, bars, and off-campus houses support a consistently active party and drinking scene.' },
   'university-of-massachusetts-amherst': { score: 9, rationale: 'Large residential campus with a strong reputation for off-campus house parties and weekend drinking.' },
   'university-of-pittsburgh': { score: 8, rationale: 'South Oakland houses, Greek life, and dense nearby bars make parties and drinking very accessible.' },
+  'university-of-pennsylvania': { score: 7, rationale: 'Greek life, off-campus gatherings, and Philadelphia access support an active social scene, though academics are demanding.' },
   'university-of-rochester': { score: 4, rationale: 'Dorm and apartment parties exist but are smaller and less central than the academic and research culture.' },
   'university-of-toronto': { score: 4, rationale: 'Toronto bars are available, but a commuter-heavy campus has limited traditional dorm and house-party culture.' },
   'university-of-wisconsin-madison': { score: 9, rationale: 'A famously bar-centered college town with Greek houses, house parties, and very active weekend drinking.' },

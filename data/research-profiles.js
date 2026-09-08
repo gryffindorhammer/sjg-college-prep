@@ -33,6 +33,7 @@ module.exports = {
   'university-of-maryland-college-park': r1('UROP offers faculty research placement, research courses, grants, and symposium presentation.', 'https://urop.umd.edu/'),
   'university-of-massachusetts-amherst': r1('Faculty research, grants, summer experiences, and undergraduate research conference support.', 'https://www.umass.edu/ours/'),
   'university-of-pittsburgh': r1('Faculty research, research fellowships, summer programs, and presentation opportunities.', 'https://www.asundergrad.pitt.edu/research'),
+  'university-of-pennsylvania': r1('Faculty-mentored research, research funding, summer programs, and presentation opportunities.', 'https://www.curf.upenn.edu/'),
   'university-of-rochester': r1('Faculty-mentored research, summer fellowships, grants, and research presentation opportunities.', 'https://www.rochester.edu/college/ugresearch/'),
   'university-of-toronto': u15('Research courses, faculty-supervised projects, summer programs, and department-based research opportunities.', 'https://www.artsci.utoronto.ca/current/experience-opportunities/research'),
   'university-of-wisconsin-madison': r1('Faculty labs, research courses, grants, summer programs, and the undergraduate symposium.', 'https://undergraduateresearch.wisc.edu/'),

@@ -1,6 +1,6 @@
 # SJG college prep
 
-The college visit and open-house planner: a sortable/filterable table of 33 schools with an inline map (`index.html`), and a sourced profile page per school (`schools/`). Open `index.html` in a browser to view it — no server required.
+The college visit and open-house planner: a sortable/filterable table of 32 schools with an inline map (`index.html`), and a sourced profile page per school (`schools/`). Open `index.html` in a browser to view it — no server required.
 
 Data lives as one Markdown file per school in `data/schools/`. After editing a school's file (or adding/removing one), regenerate the site:
 
@@ -32,6 +32,7 @@ It currently contains:
 - Wesleyan University virtual information session — September 10, 2026, 7:00–8:00 PM ET
 - UC Davis PIQ Tips for First-Year Applicants — September 11, 2026, 10:00–11:00 PM ET
 - University at Buffalo information session — September 14, 2026, 3:30–4:30 PM ET
+- University of Pennsylvania information session — September 14, 2026, 4:00–5:00 PM ET
 - Penn State University Park information session — September 16, 2026, 9:00–10:00 PM ET
 - University of Toronto “Ask Our Students Anything” virtual information session — September 17, 2026, 7:00–8:00 PM ET
 - New York University virtual information session — September 29, 2026, 4:00–5:00 PM ET
