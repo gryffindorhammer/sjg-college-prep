@@ -3,9 +3,8 @@ name: Drexel University
 order: 24
 state: PA
 region: Mid-Atlantic
-scheduleText: 'Self research / self-guided virtual tour — on my own time'
-dated: false
-selfGuided: true
+scheduleText: 'Booked: Information session — Oct 6, 2026 · 5:00 PM ET'
+dated: true
 visitUrl: https://drexel.edu/admissions/visit-tours/undergraduate-events/open-houses
 virtualUrl: https://drexel.edu/admissions/visit-tours/open-house
 coords:

@@ -292,4 +292,14 @@ DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because t
 URL:https://www.nyu.edu/admissions/undergraduate-admissions/visit-nyu/virtual-visit.html
 STATUS:CONFIRMED
 END:VEVENT
+BEGIN:VEVENT
+UID:drexel-university-information-session-20261006@sjg-college-prep
+DTSTAMP:20260908T220000Z
+DTSTART;TZID=America/New_York:20261006T170000
+DTEND;TZID=America/New_York:20261006T180000
+SUMMARY:Drexel University — Information Session
+DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://drexel.edu/admissions/visit-tours/undergraduate-events/open-houses
+URL:https://drexel.edu/admissions/visit-tours/undergraduate-events/open-houses
+STATUS:CONFIRMED
+END:VEVENT
 END:VCALENDAR
