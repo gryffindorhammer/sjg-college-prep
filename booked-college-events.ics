@@ -313,4 +313,14 @@ DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because t
 URL:https://admissions.washu.edu/visit/
 STATUS:CONFIRMED
 END:VEVENT
+BEGIN:VEVENT
+UID:princeton-university-virtual-information-session-20260924@sjg-college-prep
+DTSTAMP:20260908T232100Z
+DTSTART;TZID=America/New_York:20260924T190000
+DTEND;TZID=America/New_York:20260924T200000
+SUMMARY:Princeton University — Virtual Information Session
+DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://admission.princeton.edu/visit-us
+URL:https://admission.princeton.edu/visit-us
+STATUS:CONFIRMED
+END:VEVENT
 END:VCALENDAR
