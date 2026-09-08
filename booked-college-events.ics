@@ -303,4 +303,14 @@ DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because t
 URL:https://drexel.edu/admissions/visit-tours/undergraduate-events/open-houses
 STATUS:CONFIRMED
 END:VEVENT
+BEGIN:VEVENT
+UID:washington-university-in-st-louis-virtual-information-session-20260915@sjg-college-prep
+DTSTAMP:20260908T221200Z
+DTSTART;TZID=America/New_York:20260915T200000
+DTEND;TZID=America/New_York:20260915T210000
+SUMMARY:Washington University in St. Louis — Virtual Information Session
+DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://admissions.washu.edu/visit/
+URL:https://admissions.washu.edu/visit/
+STATUS:CONFIRMED
+END:VEVENT
 END:VCALENDAR

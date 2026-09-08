@@ -35,6 +35,7 @@ module.exports = {
   'university-of-rochester': r1('Faculty-mentored research, summer fellowships, grants, and research presentation opportunities.', 'https://www.rochester.edu/college/ugresearch/'),
   'university-of-toronto': u15('Research courses, faculty-supervised projects, summer programs, and department-based research opportunities.', 'https://www.artsci.utoronto.ca/current/experience-opportunities/research'),
   'university-of-wisconsin-madison': r1('Faculty labs, research courses, grants, summer programs, and the undergraduate symposium.', 'https://undergraduateresearch.wisc.edu/'),
+  'washington-university-in-st-louis': r1('Faculty-mentored research, summer programs, funding, and campus research symposia.', 'https://undergradresearch.washu.edu/'),
   'wesleyan-university': { level: 'Research college/university (Carnegie research classification)', levelRank: 1, levelSource: 'Carnegie Classification (2025)', levelUrl: CARNEGIE, opportunities: 'Faculty-supervised research, summer fellowships, academic-year grants, and thesis work.', opportunitySource: 'Official Center for Global Studies research information', opportunityUrl: 'https://www.wesleyan.edu/cgs/' },
   'william-and-mary': r2('Faculty mentoring, research grants, summer programs, and presentation at the annual symposium.', 'https://www.wm.edu/as/charlescenter/'),
   'yale-university': r1('Faculty research, fellowships, summer funding, research travel support, and the annual symposium.', 'https://urp.yale.edu/'),

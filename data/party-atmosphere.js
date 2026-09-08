@@ -29,6 +29,7 @@ module.exports = {
   'university-of-rochester': { score: 4, rationale: 'Dorm and apartment parties exist but are smaller and less central than the academic and research culture.' },
   'university-of-toronto': { score: 4, rationale: 'Toronto bars are available, but a commuter-heavy campus has limited traditional dorm and house-party culture.' },
   'university-of-wisconsin-madison': { score: 9, rationale: 'A famously bar-centered college town with Greek houses, house parties, and very active weekend drinking.' },
+  'washington-university-in-st-louis': { score: 6, rationale: 'Greek life, dorm and apartment gatherings, and St. Louis access support a social scene that is active but not dominant.' },
   'wesleyan-university': { score: 7, rationale: 'Student-run house and dorm parties are a visible part of the small residential campus culture.' },
   'william-and-mary': { score: 5, rationale: 'Greek and off-campus house parties provide options, but drinking culture is moderate rather than dominant.' },
   'yale-university': { score: 6, rationale: 'Residential-college and off-campus parties are common, but the drinking scene is less dominant than at big party schools.' },

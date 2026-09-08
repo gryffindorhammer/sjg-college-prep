@@ -31,6 +31,7 @@ module.exports = {
   'university-of-california-san-diego': { available: true, program: 'Ph.D. in Mathematics', source: 'UC San Diego Mathematics Department', url: 'https://math.ucsd.edu/' },
   'university-of-california-davis': { available: true, program: 'Ph.D. in Mathematics', source: 'UC Davis Mathematics graduate program', url: 'https://www.math.ucdavis.edu/grad' },
   'university-of-wisconsin-madison': { available: true, program: 'Ph.D. in Mathematics', source: 'Wisconsin Mathematics graduate program', url: 'https://math.wisc.edu/graduate/' },
+  'washington-university-in-st-louis': { available: true, program: 'Ph.D. in Mathematics', source: 'Washington University Mathematics graduate program', url: 'https://math.washu.edu/graduate-program' },
   'university-of-toronto': { available: true, program: 'Ph.D. in Mathematics', source: 'University of Toronto Mathematics Department', url: 'https://www.math.toronto.edu/' },
   'cornell-university': { available: true, program: 'Ph.D. in Mathematics', source: 'Cornell Mathematics graduate program', url: 'https://math.cornell.edu/graduate-program' },
   'university-of-british-columbia': { available: true, program: 'Ph.D. in Mathematics', source: 'UBC Mathematics graduate program', url: 'https://www.math.ubc.ca/graduate/' },
