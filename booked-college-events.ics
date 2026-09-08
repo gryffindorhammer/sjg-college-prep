@@ -167,10 +167,11 @@ UID:william-and-mary-stem-panel-20260908@sjg-college-prep
 DTSTAMP:20260825T000000Z
 DTSTART;TZID=America/New_York:20260908T170000
 DTEND;TZID=America/New_York:20260908T180000
-SUMMARY:William & Mary — STEM Panel
-DESCRIPTION:Confirmed registration. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://www.wm.edu/admission/undergraduateadmission/visit/
+SUMMARY:William & Mary — STEM Panel (Completed)
+DESCRIPTION:Completed on September 8, 2026. Notes on page 7. Duration is assumed to be one hour because the planner records only a start time.\n\nOfficial event information: https://www.wm.edu/admission/undergraduateadmission/visit/
 URL:https://www.wm.edu/admission/undergraduateadmission/visit/
 STATUS:CONFIRMED
+X-SJG-STATUS:COMPLETED
 END:VEVENT
 BEGIN:VEVENT
 UID:binghamton-university-virtual-information-session-20260910@sjg-college-prep
